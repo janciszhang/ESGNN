@@ -6,7 +6,6 @@ import torch_geometric
 from torch_geometric.datasets import Planetoid
 from torch_geometric.data import Data
 from torch_geometric.nn import GCNConv
-import metis
 import networkx as nx
 import time
 # from ESGNN.metis_partition import partition_K
