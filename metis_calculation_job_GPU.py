@@ -9,9 +9,16 @@ from torch_geometric.nn import GCNConv
 import metis
 import networkx as nx
 import time
-from ESGNN11.metis_partition import partition_K
+# from ESGNN.metis_partition import partition_K
 from base_gnn import GNN
 
+
+def load_subgraphs(file_prefix, num_subgraphs):
+    subgraphs = []
+    for i in range(num_subgraphs):
+        subgraph = torch.load(f'{file_prefix}_subgraph_{i}.pt')
+        subgraphs.append(subgraph)
+    return subgraphs
 
 def estimate_tasks_gpu(model,subgraphs):
     # 初始化模型和优化器
@@ -47,12 +54,16 @@ def estimate_tasks_gpu(model,subgraphs):
         print(f"GPU Memory: {gpu_memory / 1024 ** 2:.2f} MB")
 
 
+
+
 if __name__ == '__main__':
     # 加载Cora数据集
     dataset = Planetoid(root='/tmp/Cora', name='Cora')
     # 获取图数据和标签
     data = dataset[0]
-    subgraphs = partition_K(data, K=4)
+    # subgraphs = partition_K(data, K=4)
+    subgraphs = load_subgraphs('subgraph', num_subgraphs=4)
+    print(subgraphs)
     # 初始化模型
     model = GNN(dataset).cuda()
     times, sizes = estimate_tasks_gpu(model, subgraphs)
