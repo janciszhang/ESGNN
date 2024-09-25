@@ -1,0 +1,544 @@
+Dataset: /tmp/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.36 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: /tmp/Citeseer
+Number of nodes: 3327
+Number of edges: 9104
+Number of features: 3703
+Number of classes: 6
+Total dataset size: 282.47 MB
+Total dataset disk size: 48.16 MB
+--------------------------------------
+Dataset: /tmp/Pubmed
+Number of nodes: 19717
+Number of edges: 88648
+Number of features: 500
+Number of classes: 3
+Total dataset size: 230.15 MB
+Total dataset disk size: 47.49 MB
+--------------------------------------
+Dataset: /tmp/Reddit
+Number of nodes: 232965
+Number of edges: 114615892
+Number of features: 602
+Number of classes: 41
+Total dataset size: 8461.98 MB
+Total dataset disk size: 3621.82 MB
+--------------------------------------
+Dataset: /tmp/PPI
+Number of nodes: 1767
+Number of edges: 32318
+Number of features: 50
+Number of classes: 121
+Total dataset size: 3.54 MB
+Total dataset disk size: 191.98 MB
+--------------------------------------
+Dataset: /tmp/Flickr
+Number of nodes: 89250
+Number of edges: 899756
+Number of features: 500
+Number of classes: 7
+Total dataset size: 1064.62 MB
+Total dataset disk size: 529.25 MB
+--------------------------------------
+Dataset: /tmp/Amazon
+Number of nodes: 13752
+Number of edges: 491722
+Number of features: 767
+Number of classes: 10
+Total dataset size: 264.24 MB
+Total dataset disk size: 120.05 MB
+--------------------------------------
+Dataset: /tmp/Amazon
+Number of nodes: 7650
+Number of edges: 238162
+Number of features: 745
+Number of classes: 8
+Total dataset size: 141.52 MB
+Total dataset disk size: 120.05 MB
+--------------------------------------
+Dataset: /tmp/TUDataset
+Number of nodes: 42
+Number of edges: 162
+Number of features: 3
+Number of classes: 2
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: /tmp/TUDataset
+Number of nodes: 37
+Number of edges: 168
+Number of features: 3
+Number of classes: 6
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: /tmp/TUDataset
+Number of nodes: 20
+Number of edges: 146
+Number of features: 0
+Number of classes: 2
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: dataset/ogbn_products
+Number of nodes: 2449029
+Number of edges: 123718280
+Number of classes: 47
+Number of node features: 100
+Total dataset size: 11324.81 MB
+Total dataset disk size: 4257.99 MB
+--------------------------------------
+Dataset: dataset/ogbn_products
+Number of nodes: 2449029
+Number of edges: 123718280
+Number of features: 100
+Number of classes: 47
+Total dataset size: 11324.81 MB
+Total dataset disk size: 7098.70 MB
+--------------------------------------
+Dataset: dataset/ogbn_products
+Number of nodes: 2449029
+Number of edges: 123718280
+Number of features: 100
+Number of classes: 47
+Total dataset size: 11324.81 MB
+Total dataset disk size: 7098.70 MB
+--------------------------------------
+Dataset: dataset/ogbn_proteins
+Number of nodes: 132534
+Number of edges: 79122504
+Number of features: 0
+Number of classes: 2
+Total dataset size: 3624.97 MB
+Total dataset disk size: 7696.41 MB
+--------------------------------------
+Dataset: dataset/ogbn_arxiv
+Number of nodes: 169343
+Number of edges: 1166243
+Number of features: 128
+Number of classes: 40
+Total dataset size: 553.38 MB
+Total dataset disk size: 285.49 MB
+--------------------------------------
+Dataset: dataset/ogbn_products
+Number of nodes: 2449029
+Number of edges: 123718280
+Number of features: 100
+Number of classes: 47
+Total dataset size: 11324.81 MB
+Total dataset disk size: 7098.70 MB
+--------------------------------------
+Dataset: dataset/ogbn_proteins
+Number of nodes: 132534
+Number of edges: 79122504
+Number of features: 0
+Number of classes: 2
+Total dataset size: 3624.97 MB
+Total dataset disk size: 7696.41 MB
+--------------------------------------
+Dataset: dataset/ogbn_arxiv
+Number of nodes: 169343
+Number of edges: 1166243
+Number of features: 128
+Number of classes: 40
+Total dataset size: 553.38 MB
+Total dataset disk size: 285.49 MB
+--------------------------------------
+Dataset: Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.36 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Citeseer
+Number of nodes: 3327
+Number of edges: 9104
+Number of features: 3703
+Number of classes: 6
+Total dataset size: 282.47 MB
+Total dataset disk size: 48.16 MB
+--------------------------------------
+Dataset: Pubmed
+Number of nodes: 19717
+Number of edges: 88648
+Number of features: 500
+Number of classes: 3
+Total dataset size: 230.15 MB
+Total dataset disk size: 47.49 MB
+--------------------------------------
+Dataset: Planetoid
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.36 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid
+Number of nodes: 3327
+Number of edges: 9104
+Number of features: 3703
+Number of classes: 6
+Total dataset size: 282.47 MB
+Total dataset disk size: 48.16 MB
+--------------------------------------
+Dataset: Planetoid
+Number of nodes: 19717
+Number of edges: 88648
+Number of features: 500
+Number of classes: 3
+Total dataset size: 230.15 MB
+Total dataset disk size: 47.49 MB
+--------------------------------------
+Dataset: Reddit
+Number of nodes: 232965
+Number of edges: 114615892
+Number of features: 602
+Number of classes: 41
+Total dataset size: 8461.98 MB
+Total dataset disk size: 3621.82 MB
+--------------------------------------
+Dataset: PPI
+Number of nodes: 1767
+Number of edges: 32318
+Number of features: 50
+Number of classes: 121
+Total dataset size: 3.54 MB
+Total dataset disk size: 191.98 MB
+--------------------------------------
+Dataset: Flickr
+Number of nodes: 89250
+Number of edges: 899756
+Number of features: 500
+Number of classes: 7
+Total dataset size: 1064.62 MB
+Total dataset disk size: 529.25 MB
+--------------------------------------
+Dataset: Amazon
+Number of nodes: 13752
+Number of edges: 491722
+Number of features: 767
+Number of classes: 10
+Total dataset size: 264.24 MB
+Total dataset disk size: 120.05 MB
+--------------------------------------
+Dataset: Amazon
+Number of nodes: 7650
+Number of edges: 238162
+Number of features: 745
+Number of classes: 8
+Total dataset size: 141.52 MB
+Total dataset disk size: 120.05 MB
+--------------------------------------
+Dataset: TUDataset
+Number of nodes: 42
+Number of edges: 162
+Number of features: 3
+Number of classes: 2
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: TUDataset
+Number of nodes: 37
+Number of edges: 168
+Number of features: 3
+Number of classes: 6
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: TUDataset
+Number of nodes: 20
+Number of edges: 146
+Number of features: 0
+Number of classes: 2
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: PygNodePropPredDataset
+Number of nodes: 2449029
+Number of edges: 123718280
+Number of features: 100
+Number of classes: 47
+Total dataset size: 11324.81 MB
+Total dataset disk size: 7098.70 MB
+--------------------------------------
+Dataset: PygNodePropPredDataset
+Number of nodes: 132534
+Number of edges: 79122504
+Number of features: 0
+Number of classes: 2
+Total dataset size: 3624.97 MB
+Total dataset disk size: 7696.41 MB
+--------------------------------------
+Dataset: PygNodePropPredDataset
+Number of nodes: 169343
+Number of edges: 1166243
+Number of features: 128
+Number of classes: 40
+Total dataset size: 553.38 MB
+Total dataset disk size: 285.49 MB
+--------------------------------------
+Dataset: Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.36 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Citeseer
+Number of nodes: 3327
+Number of edges: 9104
+Number of features: 3703
+Number of classes: 6
+Total dataset size: 282.47 MB
+Total dataset disk size: 48.16 MB
+--------------------------------------
+Dataset: Pubmed
+Number of nodes: 19717
+Number of edges: 88648
+Number of features: 500
+Number of classes: 3
+Total dataset size: 230.15 MB
+Total dataset disk size: 47.49 MB
+--------------------------------------
+Dataset: Reddit
+Number of nodes: 232965
+Number of edges: 114615892
+Number of features: 602
+Number of classes: 41
+Total dataset size: 8461.98 MB
+Total dataset disk size: 3621.82 MB
+--------------------------------------
+Dataset: PPI
+Number of nodes: 1767
+Number of edges: 32318
+Number of features: 50
+Number of classes: 121
+Total dataset size: 3.54 MB
+Total dataset disk size: 191.98 MB
+--------------------------------------
+Dataset: Flickr
+Number of nodes: 89250
+Number of edges: 899756
+Number of features: 500
+Number of classes: 7
+Total dataset size: 1064.62 MB
+Total dataset disk size: 529.25 MB
+--------------------------------------
+Dataset: computers
+Number of nodes: 13752
+Number of edges: 491722
+Number of features: 767
+Number of classes: 10
+Total dataset size: 264.24 MB
+Total dataset disk size: 120.05 MB
+--------------------------------------
+Dataset: photo
+Number of nodes: 7650
+Number of edges: 238162
+Number of features: 745
+Number of classes: 8
+Total dataset size: 141.52 MB
+Total dataset disk size: 120.05 MB
+--------------------------------------
+Dataset: PROTEINS
+Number of nodes: 42
+Number of edges: 162
+Number of features: 3
+Number of classes: 2
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: ENZYMES
+Number of nodes: 37
+Number of edges: 168
+Number of features: 3
+Number of classes: 6
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: IMDB-BINARY
+Number of nodes: 20
+Number of edges: 146
+Number of features: 0
+Number of classes: 2
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: ogbn-products
+Number of nodes: 2449029
+Number of edges: 123718280
+Number of features: 100
+Number of classes: 47
+Total dataset size: 11324.81 MB
+Total dataset disk size: 7098.70 MB
+--------------------------------------
+Dataset: ogbn-proteins
+Number of nodes: 132534
+Number of edges: 79122504
+Number of features: 0
+Number of classes: 2
+Total dataset size: 3624.97 MB
+Total dataset disk size: 7696.41 MB
+--------------------------------------
+Dataset: ogbn-arxiv
+Number of nodes: 169343
+Number of edges: 1166243
+Number of features: 128
+Number of classes: 40
+Total dataset size: 553.38 MB
+Total dataset disk size: 285.49 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.36 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Citeseer
+Number of nodes: 3327
+Number of edges: 9104
+Number of features: 3703
+Number of classes: 6
+Total dataset size: 282.47 MB
+Total dataset disk size: 48.16 MB
+--------------------------------------
+Dataset: Planetoid/Pubmed
+Number of nodes: 19717
+Number of edges: 88648
+Number of features: 500
+Number of classes: 3
+Total dataset size: 230.15 MB
+Total dataset disk size: 47.49 MB
+--------------------------------------
+Dataset: Reddit
+Number of nodes: 232965
+Number of edges: 114615892
+Number of features: 602
+Number of classes: 41
+Total dataset size: 8461.98 MB
+Total dataset disk size: 3621.82 MB
+--------------------------------------
+Dataset: PPI
+Number of nodes: 1767
+Number of edges: 32318
+Number of features: 50
+Number of classes: 121
+Total dataset size: 3.54 MB
+Total dataset disk size: 191.98 MB
+--------------------------------------
+Dataset: Flickr
+Number of nodes: 89250
+Number of edges: 899756
+Number of features: 500
+Number of classes: 7
+Total dataset size: 1064.62 MB
+Total dataset disk size: 529.25 MB
+--------------------------------------
+Dataset: Amazon/computers
+Number of nodes: 13752
+Number of edges: 491722
+Number of features: 767
+Number of classes: 10
+Total dataset size: 264.24 MB
+Total dataset disk size: 120.05 MB
+--------------------------------------
+Dataset: Amazon/photo
+Number of nodes: 7650
+Number of edges: 238162
+Number of features: 745
+Number of classes: 8
+Total dataset size: 141.52 MB
+Total dataset disk size: 120.05 MB
+--------------------------------------
+Dataset: TUDataset/PROTEINS
+Number of nodes: 42
+Number of edges: 162
+Number of features: 3
+Number of classes: 2
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: TUDataset/ENZYMES
+Number of nodes: 37
+Number of edges: 168
+Number of features: 3
+Number of classes: 6
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: TUDataset/IMDB-BINARY
+Number of nodes: 20
+Number of edges: 146
+Number of features: 0
+Number of classes: 2
+Total dataset size: 0.01 MB
+Total dataset disk size: 20.63 MB
+--------------------------------------
+Dataset: PygNodePropPredDataset/ogbn-products
+Number of nodes: 2449029
+Number of edges: 123718280
+Number of features: 100
+Number of classes: 47
+Total dataset size: 11324.81 MB
+Total dataset disk size: 7098.70 MB
+--------------------------------------
+Dataset: PygNodePropPredDataset/ogbn-proteins
+Number of nodes: 132534
+Number of edges: 79122504
+Number of features: 0
+Number of classes: 2
+Total dataset size: 3624.97 MB
+Total dataset disk size: 7696.41 MB
+--------------------------------------
+Dataset: PygNodePropPredDataset/ogbn-arxiv
+Number of nodes: 169343
+Number of edges: 1166243
+Number of features: 128
+Number of classes: 40
+Total dataset size: 553.38 MB
+Total dataset disk size: 285.49 MB
+--------------------------------------
+Dataset: PygNodePropPredDataset/ogbn-arxiv
+Number of nodes: 169343
+Number of edges: 1166243
+Number of features: 128
+Number of classes: 40
+Total dataset size: 553.38 MB
+Total dataset disk size: 285.49 MB
+--------------------------------------
+Dataset: PygNodePropPredDataset/ogbn-arxiv
+Number of nodes: 169343
+Number of edges: 1166243
+Number of features: 128
+Number of classes: 40
+Total dataset size: 553.38 MB
+Total dataset disk size: 285.49 MB
+--------------------------------------
+Dataset: FB15kDataset/FB15k
+Number of nodes: 14951
+Number of edges: 1184426
+Number of features: 0
+Number of classes: 0
+Total dataset size: 54.22 MB
+Total dataset disk size: 78.27 MB
+--------------------------------------
+Dataset: FB15kDataset/FB15k
+Number of nodes: 14951
+Number of edges: 1184426
+Number of features: 0
+Number of classes: 0
+Total dataset size: 54.22 MB
+Total dataset disk size: 78.27 MB
+--------------------------------------

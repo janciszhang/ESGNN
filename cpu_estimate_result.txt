@@ -1,0 +1,140 @@
+subgraph_data/PPI
+Partition 1:
+Time: 0.0203 seconds
+CPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0013 seconds
+CPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0034 seconds
+CPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0027 seconds
+CPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data/Planetoid/Pubmed
+Partition 1:
+Time: 0.0172 seconds
+CPU Memory: 0.03 MB
+Partition 2:
+Time: 0.0126 seconds
+CPU Memory: 0.03 MB
+Partition 3:
+Time: 0.0075 seconds
+CPU Memory: 0.03 MB
+Partition 4:
+Time: 0.0122 seconds
+CPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data/Amazon/photo
+Partition 1:
+Time: 0.0161 seconds
+CPU Memory: 0.05 MB
+Partition 2:
+Time: 0.0240 seconds
+CPU Memory: 0.05 MB
+Partition 3:
+Time: 0.0141 seconds
+CPU Memory: 0.05 MB
+Partition 4:
+Time: 0.0179 seconds
+CPU Memory: 0.05 MB
+--------------------------------------
+subgraph_data/TUDataset/ENZYMES
+Partition 1:
+Time: 0.0006 seconds
+CPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0003 seconds
+CPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0003 seconds
+CPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0003 seconds
+CPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data/TUDataset/PROTEINS
+Partition 1:
+Time: 0.0005 seconds
+CPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0003 seconds
+CPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0004 seconds
+CPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0004 seconds
+CPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data/Planetoid/Citeseer
+Partition 1:
+Time: 0.0091 seconds
+CPU Memory: 0.23 MB
+Partition 2:
+Time: 0.0071 seconds
+CPU Memory: 0.23 MB
+Partition 3:
+Time: 0.0065 seconds
+CPU Memory: 0.23 MB
+Partition 4:
+Time: 0.0134 seconds
+CPU Memory: 0.23 MB
+--------------------------------------
+subgraph_data/Flickr
+Partition 1:
+Time: 0.0395 seconds
+CPU Memory: 0.03 MB
+Partition 2:
+Time: 0.0580 seconds
+CPU Memory: 0.03 MB
+Partition 3:
+Time: 0.0442 seconds
+CPU Memory: 0.03 MB
+Partition 4:
+Time: 0.0560 seconds
+CPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data/Planetoid/Cora
+Partition 1:
+Time: 0.0102 seconds
+CPU Memory: 0.09 MB
+Partition 2:
+Time: 0.0044 seconds
+CPU Memory: 0.09 MB
+Partition 3:
+Time: 0.0022 seconds
+CPU Memory: 0.09 MB
+Partition 4:
+Time: 0.0023 seconds
+CPU Memory: 0.09 MB
+--------------------------------------
+subgraph_data/Reddit
+Partition 1:
+Time: 9.4114 seconds
+CPU Memory: 0.04 MB
+Partition 2:
+Time: 16.5442 seconds
+CPU Memory: 0.04 MB
+Partition 3:
+Time: 3.6494 seconds
+CPU Memory: 0.04 MB
+Partition 4:
+Time: 2.5460 seconds
+CPU Memory: 0.04 MB
+--------------------------------------
+subgraph_data/Amazon/computers
+Partition 1:
+Time: 0.0146 seconds
+CPU Memory: 0.05 MB
+Partition 2:
+Time: 0.0100 seconds
+CPU Memory: 0.05 MB
+Partition 3:
+Time: 0.0105 seconds
+CPU Memory: 0.05 MB
+Partition 4:
+Time: 0.0158 seconds
+CPU Memory: 0.05 MB
+--------------------------------------

@@ -10,12 +10,26 @@ from torch_geometric.nn import GCNConv
 import metis
 import networkx as nx
 import time
-from ESGNN11.metis_partition import partition_K
+
+from ESGNN.get_path import get_all_file_paths
+from ESGNN.metis_partition import partition_K
 from base_gnn import GNN
 
 
+# def load_subgraphs(file_prefix, num_subgraphs):
+#     subgraphs = []
+#     for i in range(num_subgraphs):
+#         subgraph = torch.load(f'{file_prefix}_subgraph_{i}.pt')
+#         subgraphs.append(subgraph)
+#     return subgraphs
+def load_subgraphs(dir_path, num_subgraphs):
+    subgraphs = []
+    for i in range(num_subgraphs):
+        subgraph = torch.load(f'{dir_path}/subgraph_{num_subgraphs}_{i}.pt')
+        subgraphs.append(subgraph)
+    return subgraphs
 
-def estimate_task_cpu(model,task_graph):
+def estimate_task_cpu(model, task_graph):
     # 开始计时
     start_time = time.time()
     # 前向传播
@@ -25,39 +39,73 @@ def estimate_task_cpu(model,task_graph):
     # 结束计时
     end_time = time.time()
     model_time = end_time - start_time
-    # 计算内存使用情况（这里简化为模型参数的大小）
-    model_size = sum(p.numel() for p in model.parameters())
-    return model_size, model_time
 
-def estimate_tasks_cpu(model,subgraphs):
-    # 初始化模型
-    # model = GNN()
-    # 评估每个子任务的内存大小和预计计算时间
-    sizes=[]
-    times=[]
+    # 计算内存使用情况（以MB为单位）
+    cpu_memory_bytes = sum(p.numel() * p.element_size() for p in model.parameters())
+    cpu_memory_MB = cpu_memory_bytes / 1024 ** 2
+
+    return cpu_memory_MB, model_time
+
+
+def estimate_tasks_cpu(model, subgraphs,is_save=True):
+    sizes = []
+    times = []
+    estimate_info=[]
     for i, subgraph in enumerate(subgraphs):
-        model_size, model_time = estimate_task_cpu(model,subgraph)
+        cpu_memory_MB, model_time = estimate_task_cpu(model, subgraph)
 
         times.append(model_time)
-        sizes.append(model_size)
+        sizes.append(cpu_memory_MB)
 
         print(f"Partition {i + 1}:")
         print(f"Time: {model_time:.4f} seconds")
-        print(f"Model Size: {model_size} parameters")
-        print()
+        print(f"CPU Memory: {cpu_memory_MB:.4f} MB")
+        estimate_info.append(f"Partition {i + 1}:")
+        estimate_info.append(f"Time: {model_time:.4f} seconds")
+        estimate_info.append(f"CPU Memory: {cpu_memory_MB:.2f} MB")
 
-    # save
-    print(subgraphs)
-    print(times)
-    print(sizes)
+    # 保存
+    # print(subgraphs)
+    # print(times)
+    # print(sizes)
+    if is_save:
+        # 将输出内容写入文件
+        with open('cpu_estimate_result.txt', 'a') as f:
+            for line in estimate_info:
+                f.write(line + '\n')
+            f.write('--------------------------------------\n')
     return times, sizes
 
+
 if __name__ == '__main__':
-    # 加载Cora数据集
-    dataset = Planetoid(root='/tmp/Cora', name='Cora')
-    # 获取图数据和标签
-    data = dataset[0]
-    subgraphs = partition_K(data, K=4)
-    # 初始化模型
-    model = GNN(dataset)
-    times, sizes = estimate_tasks_cpu(model,subgraphs)
+    # # 加载Cora数据集
+    # dataset = Planetoid(root='/tmp/Cora', name='Cora')
+    # # 获取图数据和标签
+    # data = dataset[0]
+    # # subgraphs = partition_K(data, K=4)
+    # subgraphs = load_subgraphs('subgraph', num_subgraphs=4)
+    # # 初始化模型
+    # model = GNN(data.num_node_features, len(torch.unique(data.y)))
+    # times, sizes = estimate_tasks_cpu(model,subgraphs)
+
+    directory = 'subgraph_data'
+    K = 4
+    all_pt_folder_paths = get_all_file_paths(directory)
+
+    for pt_folder_path in all_pt_folder_paths:
+        print(pt_folder_path)
+        subgraphs = load_subgraphs(pt_folder_path, K)
+        # print(subgraphs)
+        # 初始化模型
+        try:
+            input_dim = subgraphs[0].x.size(1)  # Feature dimension from the first subgraph
+            output_dim = len(torch.unique(subgraphs[0].y))  # Number of classes based on the labels in the first subgraph
+            model = GNN(input_dim, output_dim)
+            with open('cpu_estimate_result.txt', 'a') as f:
+                f.write(pt_folder_path+ '\n')
+            times, sizes = estimate_tasks_cpu(model, subgraphs)
+        except:
+            print(subgraphs)
+
+
+

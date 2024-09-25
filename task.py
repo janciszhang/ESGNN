@@ -14,6 +14,8 @@ RUN prioritization sort index：
 2. 任务的总完成时间
 3. 每个任务（包括多个子任务）的等待时间
 """
+import torch
+
 """
 STOP prioritization sort index：
 1. size（该任务/子任务大小：尽量小）
@@ -36,7 +38,7 @@ STOP prioritization sort index：
 """
 
 
-from ESGNN11.base_gnn import GNN, dataset
+from ESGNN.base_gnn import GNN
 
 
 class Task:
@@ -64,7 +66,7 @@ class Task:
         self.subtasks = []  # 子任务列表
 
     def create_model(self):
-        return GNN(self.data.num_node_features, dataset.num_classes)
+        return GNN(self.data.num_node_features, len(torch.unique(self.data.y)))
 
     def __lt__(self, other):
         return self.run_priority > other.run_priority

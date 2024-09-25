@@ -9,7 +9,8 @@ import time
 import torch
 import torch_geometric
 from sklearn.preprocessing import label_binarize
-from torch_geometric.datasets import Planetoid
+# from torch_geometric.datasets import PlanetoidG
+from torch_geometric.nn import GCNConv
 from torch_geometric.utils import to_networkx
 import torch
 from torch_geometric.datasets import Planetoid
@@ -68,10 +69,10 @@ def check_train_test(data):
 
 
 class GNN(torch.nn.Module):
-    def __init__(self,dataset):
+    def __init__(self, input_dim, output_dim):
         super(GNN, self).__init__()
-        self.conv1 = torch_geometric.nn.GCNConv(dataset.num_node_features, 16)
-        self.conv2 = torch_geometric.nn.GCNConv(16, dataset.num_classes)
+        self.conv1 = GCNConv(input_dim, 16)
+        self.conv2 = GCNConv(16, output_dim)
 
     def forward(self, data):
         x, edge_index = data.x, data.edge_index
