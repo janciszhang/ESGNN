@@ -1,0 +1,1214 @@
+subgraph_data\PygNodePropPredDataset\ogbn-products
+subgraph_data\Planetoid\Citeseer
+Partition 1:
+Time: 0.0100 seconds
+GPU Memory: 0.23 MB
+--------------------------------------
+subgraph_data\PygNodePropPredDataset\ogbn-arxiv
+Partition 1:
+Time: 0.0040 seconds
+GPU Memory: 0.01 MB
+--------------------------------------
+subgraph_data\Flickr
+Partition 1:
+Time: 0.0040 seconds
+GPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data\Planetoid\Cora
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+--------------------------------------
+subgraph_data\Amazon\photo
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+--------------------------------------
+subgraph_data\Planetoid\Pubmed
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data\PPI
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\TUDataset\ENZYMES
+Partition 1:
+Time: 0.0040 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\TUDataset\PROTEINS
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\Amazon\computers
+Partition 1:
+Time: 0.0240 seconds
+GPU Memory: 0.05 MB
+--------------------------------------
+subgraph_data\Reddit
+subgraph_data\PygNodePropPredDataset\ogbn-products
+subgraph_data\Planetoid\Citeseer
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.23 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+--------------------------------------
+subgraph_data\PygNodePropPredDataset\ogbn-arxiv
+Partition 1:
+Time: 0.0050 seconds
+GPU Memory: 0.01 MB
+Partition 2:
+Time: 0.0020 seconds
+GPU Memory: 0.01 MB
+--------------------------------------
+subgraph_data\Flickr
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+Partition 2:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data\Planetoid\Cora
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.09 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+--------------------------------------
+subgraph_data\Amazon\photo
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+--------------------------------------
+subgraph_data\Planetoid\Pubmed
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data\PPI
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\TUDataset\ENZYMES
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\TUDataset\PROTEINS
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\Amazon\computers
+Partition 1:
+Time: 0.0080 seconds
+GPU Memory: 0.05 MB
+Partition 2:
+Time: 0.0140 seconds
+GPU Memory: 0.05 MB
+--------------------------------------
+subgraph_data\Reddit
+subgraph_data\PygNodePropPredDataset\ogbn-products
+Partition 1:
+Time: 0.2291 seconds
+GPU Memory: 0.01 MB
+Partition 2:
+Time: 0.2871 seconds
+GPU Memory: 0.01 MB
+Partition 3:
+Time: 0.1445 seconds
+GPU Memory: 0.01 MB
+Partition 4:
+Time: 0.2261 seconds
+GPU Memory: 0.01 MB
+--------------------------------------
+subgraph_data\Planetoid\Citeseer
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.23 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+--------------------------------------
+subgraph_data\PygNodePropPredDataset\ogbn-arxiv
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.01 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 3:
+Time: 0.0020 seconds
+GPU Memory: 0.01 MB
+Partition 4:
+Time: 0.0020 seconds
+GPU Memory: 0.01 MB
+--------------------------------------
+subgraph_data\Flickr
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+Partition 2:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+Partition 3:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+Partition 4:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data\Planetoid\Cora
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+--------------------------------------
+subgraph_data\Amazon\photo
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+--------------------------------------
+subgraph_data\Planetoid\Pubmed
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data\PPI
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\TUDataset\ENZYMES
+Partition 1:
+Time: 0.0050 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\TUDataset\PROTEINS
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0000 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\Amazon\computers
+Partition 1:
+Time: 0.0040 seconds
+GPU Memory: 0.05 MB
+Partition 2:
+Time: 0.0030 seconds
+GPU Memory: 0.05 MB
+Partition 3:
+Time: 0.0040 seconds
+GPU Memory: 0.05 MB
+Partition 4:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+--------------------------------------
+subgraph_data\Reddit
+Partition 1:
+Time: 0.2631 seconds
+GPU Memory: 0.04 MB
+Partition 2:
+Time: 0.1400 seconds
+GPU Memory: 0.04 MB
+Partition 3:
+Time: 0.3296 seconds
+GPU Memory: 0.04 MB
+Partition 4:
+Time: 0.1060 seconds
+GPU Memory: 0.04 MB
+--------------------------------------
+subgraph_data\PygNodePropPredDataset\ogbn-products
+Partition 1:
+Time: 0.0260 seconds
+GPU Memory: 0.01 MB
+Partition 2:
+Time: 0.0190 seconds
+GPU Memory: 0.01 MB
+Partition 3:
+Time: 0.0180 seconds
+GPU Memory: 0.01 MB
+Partition 4:
+Time: 0.0200 seconds
+GPU Memory: 0.01 MB
+Partition 5:
+Time: 0.0570 seconds
+GPU Memory: 0.01 MB
+Partition 6:
+Time: 0.0600 seconds
+GPU Memory: 0.01 MB
+Partition 7:
+Time: 0.0830 seconds
+GPU Memory: 0.01 MB
+Partition 8:
+Time: 0.1230 seconds
+GPU Memory: 0.01 MB
+--------------------------------------
+subgraph_data\Planetoid\Citeseer
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.23 MB
+Partition 2:
+Time: 0.0020 seconds
+GPU Memory: 0.23 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+--------------------------------------
+subgraph_data\PygNodePropPredDataset\ogbn-arxiv
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 4:
+Time: 0.0020 seconds
+GPU Memory: 0.01 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 8:
+Time: 0.0020 seconds
+GPU Memory: 0.01 MB
+--------------------------------------
+subgraph_data\Flickr
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 5:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data\Planetoid\Cora
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.09 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 6:
+Time: 0.0020 seconds
+GPU Memory: 0.09 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+--------------------------------------
+subgraph_data\Amazon\photo
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+--------------------------------------
+subgraph_data\Planetoid\Pubmed
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data\PPI
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\TUDataset\ENZYMES
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 6:
+Time: 0.0000 seconds
+GPU Memory: 0.00 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\TUDataset\PROTEINS
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 7:
+Time: 0.0000 seconds
+GPU Memory: 0.00 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\Amazon\computers
+Partition 1:
+Time: 0.0030 seconds
+GPU Memory: 0.05 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 3:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+Partition 4:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+Partition 5:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+Partition 6:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+Partition 7:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+Partition 8:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+--------------------------------------
+subgraph_data\Reddit
+Partition 1:
+Time: 0.2471 seconds
+GPU Memory: 0.04 MB
+Partition 2:
+Time: 0.0150 seconds
+GPU Memory: 0.04 MB
+Partition 3:
+Time: 0.0200 seconds
+GPU Memory: 0.04 MB
+Partition 4:
+Time: 0.1030 seconds
+GPU Memory: 0.04 MB
+Partition 5:
+Time: 0.0160 seconds
+GPU Memory: 0.04 MB
+Partition 6:
+Time: 0.0080 seconds
+GPU Memory: 0.04 MB
+Partition 7:
+Time: 0.0170 seconds
+GPU Memory: 0.04 MB
+Partition 8:
+Time: 0.0170 seconds
+GPU Memory: 0.04 MB
+--------------------------------------
+subgraph_data\PygNodePropPredDataset\ogbn-products
+Partition 1:
+Time: 0.0370 seconds
+GPU Memory: 0.01 MB
+Partition 2:
+Time: 0.0105 seconds
+GPU Memory: 0.01 MB
+Partition 3:
+Time: 0.0090 seconds
+GPU Memory: 0.01 MB
+Partition 4:
+Time: 0.0098 seconds
+GPU Memory: 0.01 MB
+Partition 5:
+Time: 0.0080 seconds
+GPU Memory: 0.01 MB
+Partition 6:
+Time: 0.0080 seconds
+GPU Memory: 0.01 MB
+Partition 7:
+Time: 0.0110 seconds
+GPU Memory: 0.01 MB
+Partition 8:
+Time: 0.0090 seconds
+GPU Memory: 0.01 MB
+Partition 9:
+Time: 0.0180 seconds
+GPU Memory: 0.01 MB
+Partition 10:
+Time: 0.0120 seconds
+GPU Memory: 0.01 MB
+Partition 11:
+Time: 0.0120 seconds
+GPU Memory: 0.01 MB
+Partition 12:
+Time: 0.0130 seconds
+GPU Memory: 0.01 MB
+Partition 13:
+Time: 0.0140 seconds
+GPU Memory: 0.01 MB
+Partition 14:
+Time: 0.0130 seconds
+GPU Memory: 0.01 MB
+Partition 15:
+Time: 0.0120 seconds
+GPU Memory: 0.01 MB
+Partition 16:
+Time: 0.0120 seconds
+GPU Memory: 0.01 MB
+--------------------------------------
+subgraph_data\Planetoid\Citeseer
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.23 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 9:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 10:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 11:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 12:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 13:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 14:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 15:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+Partition 16:
+Time: 0.0010 seconds
+GPU Memory: 0.23 MB
+--------------------------------------
+subgraph_data\PygNodePropPredDataset\ogbn-arxiv
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 8:
+Time: 0.0020 seconds
+GPU Memory: 0.01 MB
+Partition 9:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 10:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 11:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 12:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 13:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 14:
+Time: 0.0020 seconds
+GPU Memory: 0.01 MB
+Partition 15:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+Partition 16:
+Time: 0.0010 seconds
+GPU Memory: 0.01 MB
+--------------------------------------
+subgraph_data\Flickr
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 5:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 9:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 10:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 11:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 12:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 13:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 14:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 15:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 16:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data\Planetoid\Cora
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 7:
+Time: 0.0000 seconds
+GPU Memory: 0.09 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 9:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 10:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 11:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 12:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 13:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 14:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+Partition 15:
+Time: 0.0000 seconds
+GPU Memory: 0.09 MB
+Partition 16:
+Time: 0.0010 seconds
+GPU Memory: 0.09 MB
+--------------------------------------
+subgraph_data\Amazon\photo
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 4:
+Time: 0.0000 seconds
+GPU Memory: 0.05 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 9:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 10:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 11:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 12:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 13:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+Partition 14:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 15:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 16:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+--------------------------------------
+subgraph_data\Planetoid\Pubmed
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.03 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 6:
+Time: 0.0000 seconds
+GPU Memory: 0.03 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 8:
+Time: 0.0000 seconds
+GPU Memory: 0.03 MB
+Partition 9:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 10:
+Time: 0.0000 seconds
+GPU Memory: 0.03 MB
+Partition 11:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 12:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 13:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 14:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 15:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+Partition 16:
+Time: 0.0010 seconds
+GPU Memory: 0.03 MB
+--------------------------------------
+subgraph_data\PPI
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 9:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 10:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 11:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 12:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 13:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 14:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 15:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 16:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\TUDataset\ENZYMES
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 9:
+Time: 0.0000 seconds
+GPU Memory: 0.00 MB
+Partition 10:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 11:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 12:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 13:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 14:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 15:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 16:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\TUDataset\PROTEINS
+Partition 1:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 2:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 8:
+Time: 0.0000 seconds
+GPU Memory: 0.00 MB
+Partition 9:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 10:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 11:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 12:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 13:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 14:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 15:
+Time: 0.0010 seconds
+GPU Memory: 0.00 MB
+Partition 16:
+Time: 0.0000 seconds
+GPU Memory: 0.00 MB
+--------------------------------------
+subgraph_data\Amazon\computers
+Partition 1:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+Partition 2:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+Partition 3:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 4:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 5:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 6:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 7:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 8:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 9:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 10:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+Partition 11:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 12:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 13:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 14:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+Partition 15:
+Time: 0.0020 seconds
+GPU Memory: 0.05 MB
+Partition 16:
+Time: 0.0010 seconds
+GPU Memory: 0.05 MB
+--------------------------------------
+subgraph_data\Reddit
+Partition 1:
+Time: 0.0620 seconds
+GPU Memory: 0.04 MB
+Partition 2:
+Time: 0.0550 seconds
+GPU Memory: 0.04 MB
+Partition 3:
+Time: 0.0050 seconds
+GPU Memory: 0.04 MB
+Partition 4:
+Time: 0.0130 seconds
+GPU Memory: 0.04 MB
+Partition 5:
+Time: 0.0070 seconds
+GPU Memory: 0.04 MB
+Partition 6:
+Time: 0.0060 seconds
+GPU Memory: 0.04 MB
+Partition 7:
+Time: 0.0050 seconds
+GPU Memory: 0.04 MB
+Partition 8:
+Time: 0.0070 seconds
+GPU Memory: 0.04 MB
+Partition 9:
+Time: 0.0080 seconds
+GPU Memory: 0.04 MB
+Partition 10:
+Time: 0.0080 seconds
+GPU Memory: 0.04 MB
+Partition 11:
+Time: 0.0100 seconds
+GPU Memory: 0.04 MB
+Partition 12:
+Time: 0.0160 seconds
+GPU Memory: 0.04 MB
+Partition 13:
+Time: 0.0080 seconds
+GPU Memory: 0.04 MB
+Partition 14:
+Time: 0.0080 seconds
+GPU Memory: 0.04 MB
+Partition 15:
+Time: 0.0050 seconds
+GPU Memory: 0.04 MB
+Partition 16:
+Time: 0.0070 seconds
+GPU Memory: 0.04 MB
+--------------------------------------

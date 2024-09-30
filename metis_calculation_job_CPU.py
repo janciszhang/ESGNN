@@ -11,8 +11,8 @@ import metis
 import networkx as nx
 import time
 
-from ESGNN.get_path import get_all_file_paths
-from ESGNN.metis_partition import partition_K
+from get_path import get_all_file_paths
+from metis_partition import partition_K
 from base_gnn import GNN
 
 
@@ -51,6 +51,8 @@ def estimate_tasks_cpu(model, subgraphs,is_save=True):
     sizes = []
     times = []
     estimate_info=[]
+    # estimate_info.append(subgraphs)
+    
     for i, subgraph in enumerate(subgraphs):
         cpu_memory_MB, model_time = estimate_task_cpu(model, subgraph)
 
@@ -72,6 +74,7 @@ def estimate_tasks_cpu(model, subgraphs,is_save=True):
         # 将输出内容写入文件
         with open('cpu_estimate_result.txt', 'a') as f:
             for line in estimate_info:
+                line = "".join(map(str, line)) 
                 f.write(line + '\n')
             f.write('--------------------------------------\n')
     return times, sizes
@@ -87,25 +90,32 @@ if __name__ == '__main__':
     # # 初始化模型
     # model = GNN(data.num_node_features, len(torch.unique(data.y)))
     # times, sizes = estimate_tasks_cpu(model,subgraphs)
-
     directory = 'subgraph_data'
-    K = 4
     all_pt_folder_paths = get_all_file_paths(directory)
-
-    for pt_folder_path in all_pt_folder_paths:
-        print(pt_folder_path)
-        subgraphs = load_subgraphs(pt_folder_path, K)
-        # print(subgraphs)
-        # 初始化模型
-        try:
-            input_dim = subgraphs[0].x.size(1)  # Feature dimension from the first subgraph
-            output_dim = len(torch.unique(subgraphs[0].y))  # Number of classes based on the labels in the first subgraph
-            model = GNN(input_dim, output_dim)
-            with open('cpu_estimate_result.txt', 'a') as f:
-                f.write(pt_folder_path+ '\n')
-            times, sizes = estimate_tasks_cpu(model, subgraphs)
-        except:
-            print(subgraphs)
+    print(all_pt_folder_paths)
+    
+    for K in [1,2,4,8,16]:
+        n=1
+        m=0
+        for pt_folder_path in all_pt_folder_paths:
+            print(pt_folder_path)
+            subgraphs = load_subgraphs(pt_folder_path, K)
+            # print(subgraphs)
+            # 初始化模型
+            try:
+                input_dim = subgraphs[0].x.size(1)  # Feature dimension from the first subgraph
+                output_dim = len(torch.unique(subgraphs[0].y))  # Number of classes based on the labels in the first subgraph
+                model = GNN(input_dim, output_dim)
+                with open('cpu_estimate_result.txt', 'a') as f:
+                    f.write(pt_folder_path+ '\n')
+                times, sizes = estimate_tasks_cpu(model, subgraphs)
+                print(n)
+                n=n+1
+            except:
+                print(subgraphs)
+                m=m+1
+                print(m)
+            
 
 
 

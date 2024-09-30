@@ -2,6 +2,7 @@
 Metis Partition
 export METIS_DLL=/opt/homebrew/opt/metis/lib/libmetis.dylib
 export METIS_DLL=/opt/home/s4069853/lib/metis/libmetis.dylib
+export METIS_DLL=/C:/Python312/Lib/site-packages
 mkdir -p /opt/home/s4069853/lib/metis
 pip install metis==0.2a5 --target /opt/home/s4069853/lib/metis
 python metis_calculation_job_GPU.py
@@ -13,6 +14,7 @@ from random import random
 
 import networkx as nx
 import metis
+# import pymetis
 import torch
 import torch.nn.functional as F
 import torch_geometric
@@ -39,6 +41,7 @@ import pandas as pd
 # 定义Metis分割函数
 def metis_partition(G, num_partitions):
     _, parts = metis.part_graph(G, nparts=num_partitions)
+    # _, parts = pymetis.part_graph(num_partitions, adjacency=G)
     return parts
 
 
@@ -89,6 +92,7 @@ def metis_main(dataset, K):
     # 获取图数据和标签
     data = dataset[0]
     # K = 4
+    print(name)
     subgraphs = partition_K(data, K)
     for subgraph in subgraphs:
         print(subgraph)
@@ -98,12 +102,12 @@ def metis_main(dataset, K):
 
 if __name__ == '__main__':
     # 对dataset进行分割，并保存子图数据在对应路径
-    K_values = [8,16]
+    K_values = [1,2,4,8,16]
     for K_value in K_values:
         # metis_main(dataset=Planetoid(root='/tmp/Cora', name='Cora'), K=K_value)
         # metis_main(dataset=Planetoid(root='/tmp/Citeseer', name='Citeseer'), K=K_value)
         # metis_main(dataset=Planetoid(root='/tmp/Pubmed', name='Pubmed'), K=K_value)
-        metis_main(dataset=Reddit(root='/tmp/Reddit'), K=K_value)
+        # metis_main(dataset=Reddit(root='/tmp/Reddit'), K=K_value)
         # metis_main(dataset=PPI(root='/tmp/PPI'), K=K_value)
         # metis_main(dataset=Flickr(root='/tmp/Flickr'), K=K_value)
         # metis_main(dataset=Amazon(root='/tmp/Amazon', name='Computers'), K=K_value)
@@ -112,6 +116,6 @@ if __name__ == '__main__':
         # metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='ENZYMES'), K=K_value)
         # metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='IMDB-BINARY'), K=K_value)
 
-        # metis_main(dataset=PygNodePropPredDataset(name='ogbn-products'), K=K_value)
-        # metis_main(dataset=PygNodePropPredDataset(name='ogbn-proteins'), K=K_value)
-        # metis_main(dataset=PygNodePropPredDataset(name='ogbn-arxiv'), K=K_value)
+        metis_main(dataset=PygNodePropPredDataset(name='ogbn-products'), K=K_value)
+        metis_main(dataset=PygNodePropPredDataset(name='ogbn-proteins'), K=K_value)
+        metis_main(dataset=PygNodePropPredDataset(name='ogbn-arxiv'), K=K_value)
