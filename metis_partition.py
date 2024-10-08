@@ -11,7 +11,7 @@ $env METIS_DLL
 SOURCE_FILE="metis_dll_x86-64/metis.dll"
 ls "SOURCE_FILE"
 mkdir -p "C:\metis"
-METIS_DLL_PATH="C:/metis/metis"
+METIS_DLL_PATH="C:/metis/metis.dll"
 cp "$SOURCE_FILE" "$METIS_DLL_PATH"
 ls "$METIS_DLL_PATH"
 export METIS_DLL=$METIS_DLL_PATH
@@ -23,7 +23,7 @@ import os
 from math import gcd
 from functools import reduce
 import networkx as nx
-import metis
+# import metis
 import pymetis
 import torch
 from torch_geometric.datasets import Planetoid
@@ -184,22 +184,22 @@ def metis_main(dataset, K, target_ratios=None, is_save=True):
 
 if __name__ == '__main__':
     # 对dataset进行分割，并保存子图数据在对应路径
-    K_values = [4]
+    K_values = [1,2,4,8,16]
     ratios = None
     # ratios = [2, 4, 6, 8]
     is_save = False
     for K_value in K_values:
-        metis_main(dataset=Planetoid(root='/tmp/Cora', name='Cora'), K=K_value, target_ratios=ratios, is_save=is_save)
-        metis_main(dataset=Planetoid(root='/tmp/Citeseer', name='Citeseer'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=Planetoid(root='/tmp/Pubmed', name='Pubmed'), K=K_value,target_ratios=ratios,is_save=is_save)
+        # metis_main(dataset=Planetoid(root='/tmp/Cora', name='Cora'), K=K_value, target_ratios=ratios, is_save=is_save)
+        # metis_main(dataset=Planetoid(root='/tmp/Citeseer', name='Citeseer'), K=K_value,target_ratios=ratios,is_save=is_save)
+        # metis_main(dataset=Planetoid(root='/tmp/Pubmed', name='Pubmed'), K=K_value,target_ratios=ratios,is_save=is_save)
         metis_main(dataset=Reddit(root='/tmp/Reddit'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=PPI(root='/tmp/PPI'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=Flickr(root='/tmp/Flickr'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=Amazon(root='/tmp/Amazon', name='Computers'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=Amazon(root='/tmp/Amazon', name='Photo'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='PROTEINS'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='ENZYMES'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='IMDB-BINARY'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=PygNodePropPredDataset(name='ogbn-products'), K=K_value,target_ratios=ratios,is_save=is_save)
+        # metis_main(dataset=PPI(root='/tmp/PPI'), K=K_value,target_ratios=ratios,is_save=is_save)
+        # metis_main(dataset=Flickr(root='/tmp/Flickr'), K=K_value,target_ratios=ratios,is_save=is_save)
+        # metis_main(dataset=Amazon(root='/tmp/Amazon', name='Computers'), K=K_value,target_ratios=ratios,is_save=is_save)
+        # metis_main(dataset=Amazon(root='/tmp/Amazon', name='Photo'), K=K_value,target_ratios=ratios,is_save=is_save)
+        # metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='PROTEINS'), K=K_value,target_ratios=ratios,is_save=is_save)
+        # metis_main(dataset=TUDataset(root='/tmp/TUDataset', nasme='ENZYMES'), K=K_value,target_ratios=ratios,is_save=is_save)
+        # metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='IMDB-BINARY'), K=K_value,target_ratios=ratios,is_save=is_save)
+        # metis_main(dataset=PygNodePropPredDataset(name='ogbn-products'), K=K_value,target_ratios=ratios,is_save=is_save)
         metis_main(dataset=PygNodePropPredDataset(name='ogbn-proteins'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=PygNodePropPredDataset(name='ogbn-arxiv'), K=K_value,target_ratios=ratios,is_save=is_save)
+        # metis_main(dataset=PygNodePropPredDataset(name='ogbn-arxiv'), K=K_value,target_ratios=ratios,is_save=is_save)
