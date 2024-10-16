@@ -13,22 +13,27 @@ from sklearn.preprocessing import label_binarize
 from torch_geometric.nn import GCNConv
 from torch_geometric.utils import to_networkx
 import torch
-from torch_geometric.datasets import Planetoid
+from torch_geometric.datasets import Planetoid, Reddit
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, roc_curve, auc, precision_recall_curve, log_loss, classification_report
 import numpy as np
+import time
+import psutil
 
-
-def split_dataset(data):
+def split_dataset(data, split_ratios=[5, 3, 2]):
     # Create custom train/validation/test splits
     num_nodes = data.num_nodes
     indices = torch.arange(num_nodes)
 
+    # Calculate test size and validation size based on ratios
+    test_size = split_ratios[2] / sum(split_ratios)  # test split
+    val_size = split_ratios[1] / (split_ratios[0] + split_ratios[1])  # validation split from the remaining train+val
+
     # Split indices for training, validation, and testing
     # train + validation(70 %) and test(30 %)
-    train_indices, test_indices = train_test_split(indices.numpy(), test_size=0.3, random_state=42)
-    train_indices, val_indices = train_test_split(train_indices, test_size=0.2, random_state=42)
+    train_indices, test_indices = train_test_split(indices.numpy(), test_size=test_size, random_state=42)
+    train_indices, val_indices = train_test_split(train_indices, test_size=val_size, random_state=42)
 
     # Create masks
     train_mask = torch.zeros(num_nodes, dtype=torch.bool)
@@ -120,6 +125,8 @@ def test(model, subgraph, mask_type='test'):
     true_labels = subgraph.y[mask].cpu().numpy()
     f1 = f1_score(true_labels, pred, average='weighted', zero_division=0)
 
+    # print(f'Test Accuracy: {accuracy:.4f}, F1 Score: {f1}')
+
     return accuracy,f1
 
 
@@ -131,7 +138,21 @@ def train_each_epoch(model, data,epoch,epochs):
     return epoch_loss,epoch_train_accuracy, epoch_test_accuracy
 
 
-def train_epochs(model, data, epochs=200,patience=20,early_stopping=True):
+def train_model(model, data, epochs=200,patience=20,early_stopping=True,split_ratios=[6, 3, 2]):
+    if len(split_ratios) == 3:
+        try:
+            split_dataset(data, split_ratios)
+        except:
+            pass
+
+    # Check if GPU is available
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    # Move model and data to the chosen device (GPU or CPU)
+    model = model.to(device)
+    data = data.to(device)
+
+
     train_accuracies = []
     test_accuracies = []
     losses = []
@@ -160,7 +181,7 @@ def train_epochs(model, data, epochs=200,patience=20,early_stopping=True):
 
             # Early stopping
             if epochs_since_improvement >= patience:
-                # print(f"Early stopping triggered in Epoch {epoch}.")
+                print(f"Early stopping triggered in Epoch {epoch}.")
                 break
 
     return losses, train_accuracies,test_accuracies
@@ -312,21 +333,108 @@ def plot_epochs_loss(losses):
     plt.show()
 
 
+def measure_time_and_memory(model, data,epochs=200, patience=20, early_stopping=True,split_ratios=[6,3,2],is_save=False):
+    # Check if GPU is available
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    # Move model and data to the chosen device (GPU or CPU)
+    model = model.to(device)
+    data = data.to(device)
+    measure_info = []
+
+    if device.type == 'cuda':
+        # GPU execution
+        start_event = torch.cuda.Event(enable_timing=True)
+        end_event = torch.cuda.Event(enable_timing=True)
+
+        # Start recording time
+        start_event.record()
+
+        # Run the model (assume one forward pass for the example)
+        train_model(model, data, epochs=epochs, patience=patience, early_stopping=early_stopping,split_ratios=split_ratios)
+        output = model(data)
+
+        # End recording time
+        end_event.record()
+
+        # Wait for all operations to finish
+        torch.cuda.synchronize()
+
+        # Compute total runtime in seconds
+        total_time = start_event.elapsed_time(end_event) / 1000  # convert to seconds
+
+        # Get GPU memory usage
+        gpu_memory_used = torch.cuda.memory_allocated() / 1024 ** 2  # in MB
+        max_gpu_memory_used = torch.cuda.max_memory_allocated() / 1024 ** 2  # in MB
+
+        print(f"Runtime on GPU: {total_time:.4f} seconds")
+        print(f"GPU Memory Used: {gpu_memory_used:.2f} MB")
+        print(f"Max GPU Memory Used: {max_gpu_memory_used:.2f} MB")
+
+        measure_info.append(f"Time: {total_time:.4f} seconds")
+        measure_info.append(f"GPU Memory: {gpu_memory_used:.2f} MB")
+        measure_info.append(f"Max GPU Memory: {max_gpu_memory_used:.2f} MB")
+
+        if is_save:
+            # 将输出内容写入文件
+            with open('gpu_measure_result.txt', 'a') as f:
+                for line in measure_info:
+                    line = "".join(map(str, line))
+                    f.write(line + '\n')
+                f.write('--------------------------------------\n')
+
+    else:
+        # CPU execution
+        start_time = time.time()
+
+        # Run the model (assume one forward pass for the example)
+        train_model(model, data, epochs=epochs, patience=patience, early_stopping=early_stopping,
+                    split_ratios=split_ratios)
+        output = model(data)
+
+        # End time
+        end_time = time.time()
+
+        # Calculate runtime
+        total_time = end_time - start_time
+
+        # Get CPU memory usage
+        process = psutil.Process()
+        cpu_memory_used = process.memory_info().rss / 1024 ** 2  # in MB
+
+        print(f"Runtime on CPU: {total_time:.4f} seconds")
+        print(f"CPU Memory Used: {cpu_memory_used:.2f} MB")
+
+        measure_info.append(f"Time: {total_time:.4f} seconds")
+        measure_info.append(f"CPU Memory: {cpu_memory_used:.2f} MB")
+
+
+        if is_save:
+            # 将输出内容写入文件
+            with open('cpu_measure_result.txt', 'a') as f:
+                for line in measure_info:
+                    line = "".join(map(str, line))
+                    f.write(line + '\n')
+                f.write('--------------------------------------\n')
+
 if __name__ == '__main__':
     # 加载Cora数据集
     dataset = Planetoid(root='/tmp/Cora', name='Cora')
+    # dataset = Reddit(root='/tmp/Reddit')
     # 获取图数据和标签
     data = dataset[0]
     # 将图数据转换为NetworkX图
     # G = to_networkx(data, to_undirected=True)
 
-    split_dataset(data)
-    model = GNN(dataset)
+    # split_dataset(data, split_ratios=[6, 3, 2])
+
+    input_dim = dataset[0].x.size(1)  # Feature dimension from the first subgraph
+    output_dim = len(torch.unique(dataset[0].y))  # Number of classes based on the labels in the first subgraph
+    model = GNN(input_dim, output_dim)
 
     # Train and test the model
-    epochs = 200
-
-    losses,train_accuracies,test_accuracies = train_epochs(model, data ,epochs)
-
-    evaluate_model(model,data)
+    # losses,train_accuracies,test_accuracies = train_model(model, data ,epochs=200,patience=20,early_stopping=True,split_ratios=[6,3,2])
+    #
+    # evaluate_model(model,data)
+    measure_time_and_memory(model, data, epochs=200, patience=20, early_stopping=False, split_ratios=[6, 3, 2],is_save=False)
 

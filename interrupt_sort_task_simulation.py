@@ -1,7 +1,8 @@
 import torch
 import torch.nn.functional as F
 import torch_geometric
-from torch_geometric.datasets import Planetoid, Reddit
+from ogb.nodeproppred import PygNodePropPredDataset
+from torch_geometric.datasets import Planetoid, Reddit, Flickr
 from torch_geometric.datasets import Planetoid
 from torch_geometric.datasets import Reddit
 from torch_geometric.datasets import PPI
@@ -14,14 +15,14 @@ import time
 import heapq
 import pandas as pd
 
-from ESGNN.base_gnn import GNN
+from ESGNN.base_gnn import GNN, train_model
+from ESGNN.flex_gnn import FlexibleGNN
 from ESGNN.metis_calculation_job_CPU import estimate_tasks_cpu
-from ESGNN.metis_partition import partition_K
-from ESGNN.task import Task
+from ESGNN.metis_partition import partition_K, load_subgraphs
+from ESGNN.task import Task, new_task
 
 
-
-def split_task(task, available_size):
+def split_task2(task, available_size):
     sub_tasks = []
     remaining_size = task.remaining_size
     while remaining_size > 0:
@@ -35,25 +36,38 @@ def split_task(task, available_size):
         remaining_size -= sub_size
     return sub_tasks
 
-def train_gnn(task):
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    task.model.to(device)
-    task.data = task.data.to(device)
 
-    optimizer = torch.optim.Adam(task.model.parameters(), lr=0.01)
-    criterion = torch.nn.CrossEntropyLoss()
+def split_task(task, available_size):
+    sub_tasks = []
+    remaining_size = task.remaining_size
+    data = task.data  # 假设data是一个可切片的结构
+    sub_task_index = 1  # 初始化子任务序号
 
-    task.model.train()
-    optimizer.zero_grad()
-    out = task.model(task.data)
+    while remaining_size > 0:
+        sub_size = min(remaining_size, available_size)
+        sub_duration = task.original_duration * (sub_size / task.original_size)  # 使用原始持续时间
 
-    loss = criterion(out[task.data.train_mask], task.data.y[task.data.train_mask])
-    loss.backward()
-    optimizer.step()
+        # 切分数据
+        # sub_data = data_chunks[:sub_size]  # 示例：简单切片
+        data_chunks = partition_K(data, K=2, target_ratios=[sub_size, remaining_size - sub_size])
+        sub_data = data_chunks[0]
 
-    return loss.item()
+        # 使用原始任务的模型
+        sub_task = Task(data=sub_data, name=f"{task.name}_sub_{sub_task_index}", duration=sub_duration,size=sub_size, is_sub=True)
+        sub_task.model = task.model
+        sub_task.original_size = task.original_size
+        sub_task.original_duration = task.original_duration
+        sub_tasks.append(sub_task)
 
-def scheduler(available_size,tasks,borrow_schedule):
+        remaining_size -= sub_size
+        data = data_chunks[1]
+        sub_task_index += 1
+        break
+
+    return sub_tasks
+
+
+def schedule_tasks(tasks,available_size,  borrow_schedule=[]):
     # 定义权重
     weight_size = 1
     weight_queue_time = 1
@@ -63,21 +77,25 @@ def scheduler(available_size,tasks,borrow_schedule):
     # 初始化队列
     task_queue = tasks[:]
     current_time = 0
+    borrowed_applied = set()  # Track when borrowed space is applied
+    returned_applied = set()  # Track when space is returned
+    running_tasks = []
     completed_tasks = []
     utilization_time = 0
+
 
     # 记录任务等待时间、完成时间和利用率
     total_remaining_size = sum(task.size for task in tasks)
     schedule = []
 
-
     borrowed_spaces = {}
     borrow_events = []
 
-    while task_queue:
+    while task_queue or running_tasks:
         # 更新优先级
         for task in task_queue:
-            task.calculate_run_priority(current_time, total_remaining_size, weight_size, weight_queue_time, weight_is_running, weight_is_sub)
+            task.calculate_run_priority(current_time, total_remaining_size, weight_size, weight_queue_time,
+                                        weight_is_running, weight_is_sub)
 
         # 按优先级排序任务队列
         heapq.heapify(task_queue)
@@ -90,7 +108,10 @@ def scheduler(available_size,tasks,borrow_schedule):
 
         # 检查借出归还计划
         for start, end, space in borrow_schedule:
-            if start == current_time:
+            print(start, end, space)
+
+            if start <= current_time and end >= current_time:
+                print(f"available_size: {available_size}")
                 if available_size >= space:
                     available_size -= space
                     borrowed_spaces[end] = space
@@ -115,8 +136,10 @@ def scheduler(available_size,tasks,borrow_schedule):
                             'Status': interrupted_task.status
                         })
 
-                        interrupted_task.remaining_size = interrupted_task.original_size - (interrupted_task.size - interrupted_task.remaining_size)
-                        interrupted_task.remaining_duration = interrupted_task.original_duration * (interrupted_task.remaining_size / interrupted_task.original_size)
+                        interrupted_task.remaining_size = interrupted_task.original_size - (
+                                    interrupted_task.size - interrupted_task.remaining_size)
+                        interrupted_task.remaining_duration = interrupted_task.original_duration * (
+                                    interrupted_task.remaining_size / interrupted_task.original_size)
                         interrupted_task.start_time = current_time
                         interrupted_task.waiting_time += (current_time - interrupted_task.start_time)
 
@@ -130,13 +153,18 @@ def scheduler(available_size,tasks,borrow_schedule):
             if running_task.remaining_size <= available_size:
                 running_task.is_running = True
                 running_task.status = 'doing'
-                start_time = max(current_time, running_task.start_time)
+                if running_task.start_time:
+                    start_time = max(current_time, running_task.start_time)
+                else:
+                    start_time=current_time
+
                 running_task.start_time = start_time
                 running_task.waiting_time += start_time - running_task.arrival_time
                 current_time = start_time + running_task.remaining_duration
+                print(f'current_time: {current_time}')
 
                 # 训练GNN
-                loss = train_gnn(running_task)
+                # running_task.train_model()
 
                 utilization_time += running_task.size * running_task.remaining_duration
                 running_task.is_running = False
@@ -179,7 +207,6 @@ def scheduler(available_size,tasks,borrow_schedule):
 
             total_remaining_size = sum(task.remaining_size for task in task_queue)
 
-
     # 计算任务的等待时间和完成时间
     total_waiting_time = sum(task.waiting_time for task in completed_tasks)
     total_completion_time = current_time
@@ -187,7 +214,7 @@ def scheduler(available_size,tasks,borrow_schedule):
 
     # 吞吐量
     throughput = len(completed_tasks) / total_completion_time
-    print(f"Throughput: {throughput:.2f} tasks per minute")
+
 
     # 输出结果
     for task in completed_tasks:
@@ -197,6 +224,7 @@ def scheduler(available_size,tasks,borrow_schedule):
     print(f"Total waiting time: {total_waiting_time:.2f}")
     print(f"Total completion time: {total_completion_time:.2f}")
     print(f"Utilization rate: {utilization_rate:.2f}")
+    print(f"Throughput: {throughput:.2f} tasks per minute")
 
     # 计算中断时间和完成时间的数学期望
     for task in tasks:
@@ -208,26 +236,63 @@ def scheduler(available_size,tasks,borrow_schedule):
     df_schedule = pd.DataFrame(schedule)
     df_schedule.to_csv('schedule.csv', index=False)
 
+
+
+
+
 if __name__ == '__main__':
+    tasks=[]
     # 加载Cora数据集500 KB
     dataset = Planetoid(root='/tmp/Cora', name='Cora')
+    tasks.append(new_task(dataset, duration=3, size=3)) # 4 1
+    dataset = Planetoid(root='/tmp/Citeseer', name='Citeseer')
+    tasks.append(new_task(dataset, duration=15, size=5)) # 4 4 2
+    # dataset = Planetoid(root='/tmp/Pubmed', name='Pubmed')
+    # dataset = Flickr(root='/tmp/Flickr')
+
+    # dataset = PygNodePropPredDataset(name='ogbn-arxiv')
+    # dataset = Reddit(root='/tmp/Reddit')
     data = dataset[0]
+    print(tasks[0])
+    print(tasks[1])
 
-    # 将子图分成多个子任务
-    num_partitions = 4
-    subgraphs = partition_K(data, K=num_partitions)
+
+    available_size = 4
+    # sub_tasks = split_task(tasks[0], available_size)
+    # for sub_task in sub_tasks:
+    #     print(sub_task.data)
+
+    # # 将子图分成多个子任务
+    # num_partitions = 4
+    # # subgraphs = partition_K(data, K=num_partitions)
+    #
+    # name = dataset.__class__.__name__
+    # if hasattr(dataset, 'name'):
+    #     name = name + '/' + dataset.name
+    # subgraphs= load_subgraphs(file_prefix=name, num_subgraphs=num_partitions)
+
     # 初始化模型
-    model = GNN(data.num_node_features, len(torch.unique(data.y)))
-    times, sizes = estimate_tasks_cpu(model, subgraphs)
+    # input_dim = data.x.shape[1]
+    # output_dim = dataset.num_classes
+    # hidden_dim = 64
+    # num_layers = 3
+    # epochs = 200
+    # # model = FlexibleGNN(input_dim, hidden_dim, output_dim, num_layers)
+    #
+    # model = GNN(input_dim=data.num_node_features, output_dim=len(torch.unique(data.y)))
+    #
+    # times, sizes = estimate_tasks_cpu(model, subgraphs,is_save=False)
     # 初始化任务
-    tasks = [Task(f"Subgraph_{i}", len(subgraphs[i]), times[i], data) for i in range(num_partitions)]
-    # 定义可用空间
-    available_size = 5
-
-    # 定义借出归还空间的计划：start_time, end_time, space
+    # tasks = [Task(f"Subgraph_{i}",  data) for i in range(num_partitions)]
+    # tasks = [Task(f"Subgraph_{i}",  data) for i in range(num_partitions)]
+    # print(tasks)
+    # # 定义可用空间
+    # available_size = 5
+    #
+    # # 定义借出归还空间的计划：start_time, end_time, space
     borrow_schedule = [
-        (7, 10, 2),
-        (15, 17, 3),
-        (20, 24, 1)
+        (5, 6, 2)
+        # (15, 17, 3),
+        # (20, 24, 1)
     ]
-    scheduler(available_size,tasks, borrow_schedule)
+    schedule_tasks(tasks,available_size, borrow_schedule)

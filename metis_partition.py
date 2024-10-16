@@ -39,9 +39,12 @@ from torch_geometric.datasets import TUDataset
 def calculate_min_integer_ratios(ratios):
     # 如果输入是小数，则转换为整数比例
     if any(isinstance(ratio, float) for ratio in ratios):
-        # 将小数转换为整数比例
-        lcm_value = reduce(lambda x, y: x * y // gcd(x, y), [int(1 / r) for r in ratios])
-        integer_ratios = [int(r * lcm_value) for r in ratios]
+        try:
+            # 将小数转换为整数比例
+            lcm_value = reduce(lambda x, y: x * y // gcd(x, y), [int(1 / r) for r in ratios])
+            integer_ratios = [int(r * lcm_value) for r in ratios]
+        except:
+            integer_ratios=[int(ratio) for ratio in ratios]
     else:
         integer_ratios = ratios
 
@@ -59,7 +62,7 @@ def initial_metis_partition(G, num_partitions):
         _, parts = metis.part_graph(G, nparts=num_partitions)
 
     except Exception as e:
-        print(f"Error with metis: {e}. Trying pymetis.")
+        # print(f"Error with metis: {e}. Trying pymetis.")
         # 如果 metis 失败，使用 pymetis
         try:
             adjacency = nx.to_numpy_array(G).tolist()
@@ -112,7 +115,7 @@ def metis_partition(G, num_partitions, target_ratios=None):
     else:
         # 目标数量计算
         target_integer_ratios = calculate_min_integer_ratios(target_ratios)
-        print(target_integer_ratios)
+        # print(target_integer_ratios)
         num_initial_partitions = len(target_integer_ratios)
         initial_parts = initial_metis_partition(G, num_initial_partitions)
         if initial_parts is None:
@@ -156,7 +159,10 @@ def save_subgraphs(subgraphs, file_prefix):
 
 def load_subgraphs(file_prefix, num_subgraphs):
     subgraphs = []
-    dir_path = f'subgraph_data/{file_prefix}'
+    if file_prefix.startswith('subgraph_data'):
+        dir_path = f'{file_prefix}'
+    else:
+        dir_path = f'subgraph_data/{file_prefix}'
 
     for i in range(num_subgraphs):
         subgraph = torch.load(f'{dir_path}/subgraph_{num_subgraphs}_{i}.pt')
@@ -183,23 +189,24 @@ def metis_main(dataset, K, target_ratios=None, is_save=True):
 
 
 if __name__ == '__main__':
+    calculate_min_integer_ratios([400, 46.40625])
     # 对dataset进行分割，并保存子图数据在对应路径
-    K_values = [1,2,4,8,16]
-    ratios = None
-    # ratios = [2, 4, 6, 8]
-    is_save = False
-    for K_value in K_values:
-        # metis_main(dataset=Planetoid(root='/tmp/Cora', name='Cora'), K=K_value, target_ratios=ratios, is_save=is_save)
-        # metis_main(dataset=Planetoid(root='/tmp/Citeseer', name='Citeseer'), K=K_value,target_ratios=ratios,is_save=is_save)
-        # metis_main(dataset=Planetoid(root='/tmp/Pubmed', name='Pubmed'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=Reddit(root='/tmp/Reddit'), K=K_value,target_ratios=ratios,is_save=is_save)
-        # metis_main(dataset=PPI(root='/tmp/PPI'), K=K_value,target_ratios=ratios,is_save=is_save)
-        # metis_main(dataset=Flickr(root='/tmp/Flickr'), K=K_value,target_ratios=ratios,is_save=is_save)
-        # metis_main(dataset=Amazon(root='/tmp/Amazon', name='Computers'), K=K_value,target_ratios=ratios,is_save=is_save)
-        # metis_main(dataset=Amazon(root='/tmp/Amazon', name='Photo'), K=K_value,target_ratios=ratios,is_save=is_save)
-        # metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='PROTEINS'), K=K_value,target_ratios=ratios,is_save=is_save)
-        # metis_main(dataset=TUDataset(root='/tmp/TUDataset', nasme='ENZYMES'), K=K_value,target_ratios=ratios,is_save=is_save)
-        # metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='IMDB-BINARY'), K=K_value,target_ratios=ratios,is_save=is_save)
-        # metis_main(dataset=PygNodePropPredDataset(name='ogbn-products'), K=K_value,target_ratios=ratios,is_save=is_save)
-        metis_main(dataset=PygNodePropPredDataset(name='ogbn-proteins'), K=K_value,target_ratios=ratios,is_save=is_save)
-        # metis_main(dataset=PygNodePropPredDataset(name='ogbn-arxiv'), K=K_value,target_ratios=ratios,is_save=is_save)
+    # K_values = [1,2,4,8,16]
+    # ratios = None
+    # # ratios = [2, 4, 6, 8]
+    # is_save = False
+    # for K_value in K_values:
+    #     # metis_main(dataset=Planetoid(root='/tmp/Cora', name='Cora'), K=K_value, target_ratios=ratios, is_save=is_save)
+    #     # metis_main(dataset=Planetoid(root='/tmp/Citeseer', name='Citeseer'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     # metis_main(dataset=Planetoid(root='/tmp/Pubmed', name='Pubmed'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     # metis_main(dataset=Reddit(root='/tmp/Reddit'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     # metis_main(dataset=PPI(root='/tmp/PPI'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     # metis_main(dataset=Flickr(root='/tmp/Flickr'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     # metis_main(dataset=Amazon(root='/tmp/Amazon', name='Computers'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     # metis_main(dataset=Amazon(root='/tmp/Amazon', name='Photo'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     # metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='PROTEINS'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     # metis_main(dataset=TUDataset(root='/tmp/TUDataset', nasme='ENZYMES'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     # metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='IMDB-BINARY'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     # metis_main(dataset=PygNodePropPredDataset(name='ogbn-products'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     # metis_main(dataset=PygNodePropPredDataset(name='ogbn-proteins'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     metis_main(dataset=PygNodePropPredDataset(name='ogbn-arxiv'), K=K_value,target_ratios=ratios,is_save=is_save)

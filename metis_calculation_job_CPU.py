@@ -2,6 +2,7 @@
 export METIS_DLL=/opt/homebrew/opt/metis/lib/libmetis.dylib
 """
 import numpy as np
+import psutil
 import torch
 import torch.nn.functional as F
 import torch_geometric
@@ -12,8 +13,8 @@ import networkx as nx
 import time
 
 from get_path import get_all_file_paths
-from metis_partition import partition_K
-from base_gnn import GNN
+from metis_partition import partition_K, load_subgraphs
+from base_gnn import GNN, measure_time_and_memory
 
 
 # def load_subgraphs(file_prefix, num_subgraphs):
@@ -22,12 +23,12 @@ from base_gnn import GNN
 #         subgraph = torch.load(f'{file_prefix}_subgraph_{i}.pt')
 #         subgraphs.append(subgraph)
 #     return subgraphs
-def load_subgraphs(dir_path, num_subgraphs):
-    subgraphs = []
-    for i in range(num_subgraphs):
-        subgraph = torch.load(f'{dir_path}/subgraph_{num_subgraphs}_{i}.pt')
-        subgraphs.append(subgraph)
-    return subgraphs
+# def load_subgraphs(dir_path, num_subgraphs):
+#     subgraphs = []
+#     for i in range(num_subgraphs):
+#         subgraph = torch.load(f'{dir_path}/subgraph_{num_subgraphs}_{i}.pt')
+#         subgraphs.append(subgraph)
+#     return subgraphs
 
 def estimate_task_cpu(model, task_graph):
     # 开始计时
@@ -41,10 +42,13 @@ def estimate_task_cpu(model, task_graph):
     model_time = end_time - start_time
 
     # 计算内存使用情况（以MB为单位）
-    cpu_memory_bytes = sum(p.numel() * p.element_size() for p in model.parameters())
-    cpu_memory_MB = cpu_memory_bytes / 1024 ** 2
+    process = psutil.Process()
+    cpu_memory_MB = process.memory_info().rss / 1024 ** 2  # in MB
 
-    return cpu_memory_MB, model_time
+    # cpu_memory_bytes = sum(p.numel() * p.element_size() for p in model.parameters())
+    # cpu_memory_MB = cpu_memory_bytes / 1024 ** 2
+
+    return model_time*500,cpu_memory_MB
 
 
 def estimate_tasks_cpu(model, subgraphs,is_save=True):
@@ -54,7 +58,7 @@ def estimate_tasks_cpu(model, subgraphs,is_save=True):
     # estimate_info.append(subgraphs)
     
     for i, subgraph in enumerate(subgraphs):
-        cpu_memory_MB, model_time = estimate_task_cpu(model, subgraph)
+        model_time,cpu_memory_MB  = estimate_task_cpu(model, subgraph)
 
         times.append(model_time)
         sizes.append(cpu_memory_MB)
@@ -79,24 +83,14 @@ def estimate_tasks_cpu(model, subgraphs,is_save=True):
             f.write('--------------------------------------\n')
     return times, sizes
 
-
-if __name__ == '__main__':
-    # # 加载Cora数据集
-    # dataset = Planetoid(root='/tmp/Cora', name='Cora')
-    # # 获取图数据和标签
-    # data = dataset[0]
-    # # subgraphs = partition_K(data, K=4)
-    # subgraphs = load_subgraphs('subgraph', num_subgraphs=4)
-    # # 初始化模型
-    # model = GNN(data.num_node_features, len(torch.unique(data.y)))
-    # times, sizes = estimate_tasks_cpu(model,subgraphs)
+def estimate_tasks_cpu_from_directory(is_save=True):
     directory = 'subgraph_data'
     all_pt_folder_paths = get_all_file_paths(directory)
     print(all_pt_folder_paths)
-    
-    for K in [1,2,4,8,16]:
-        n=1
-        m=0
+
+    for K in [1, 2, 4, 8, 16]:
+        n = 1
+        m = 0
         for pt_folder_path in all_pt_folder_paths:
             print(pt_folder_path)
             subgraphs = load_subgraphs(pt_folder_path, K)
@@ -104,17 +98,63 @@ if __name__ == '__main__':
             # 初始化模型
             try:
                 input_dim = subgraphs[0].x.size(1)  # Feature dimension from the first subgraph
-                output_dim = len(torch.unique(subgraphs[0].y))  # Number of classes based on the labels in the first subgraph
+                output_dim = len(
+                    torch.unique(subgraphs[0].y))  # Number of classes based on the labels in the first subgraph
                 model = GNN(input_dim, output_dim)
                 with open('cpu_estimate_result.txt', 'a') as f:
-                    f.write(pt_folder_path+ '\n')
-                times, sizes = estimate_tasks_cpu(model, subgraphs)
+                    f.write(pt_folder_path + '\n')
+                times, sizes = estimate_tasks_cpu(model, subgraphs,is_save=is_save)
                 print(n)
-                n=n+1
+                n = n + 1
             except:
                 print(subgraphs)
-                m=m+1
+                m = m + 1
                 print(m)
+
+def measure_tasks_cpu_from_directory(is_save=True):
+    directory = 'subgraph_data'
+    all_pt_folder_paths = get_all_file_paths(directory)
+    print(all_pt_folder_paths)
+
+    for K in [1, 2, 4, 8, 16]:
+        n = 1
+        m = 0
+        for pt_folder_path in all_pt_folder_paths:
+            print(pt_folder_path)
+            subgraphs = load_subgraphs(pt_folder_path, K)
+            # print(subgraphs)
+            # 初始化模型
+            try:
+                input_dim = subgraphs[0].x.size(1)  # Feature dimension from the first subgraph
+                output_dim = len(
+                    torch.unique(subgraphs[0].y))  # Number of classes based on the labels in the first subgraph
+                model = GNN(input_dim, output_dim)
+                with open('cpu_estimate_result.txt', 'a') as f:
+                    f.write(pt_folder_path + '\n')
+                times, sizes = measure_time_and_memory(model, subgraphs,is_save=is_save)
+                print(n)
+                n = n + 1
+            except:
+                print(subgraphs)
+                m = m + 1
+                print(m)
+
+if __name__ == '__main__':
+    # 加载Cora数据集
+    dataset = Planetoid(root='/tmp/Cora', name='Cora')
+    name = dataset.__class__.__name__
+    if hasattr(dataset, 'name'):
+        name = name + '/' + dataset.name
+    # 获取图数据和标签
+    data = dataset[0]
+    # subgraphs = partition_K(data, K=4)
+    subgraphs = load_subgraphs(name, num_subgraphs=1)
+    # 初始化模型
+    model = GNN(data.num_node_features, len(torch.unique(data.y)))
+    times, sizes = estimate_tasks_cpu(model,subgraphs)
+
+
+    # estimate_tasks_cpu_from_directory(is_save=False)
             
 
 
