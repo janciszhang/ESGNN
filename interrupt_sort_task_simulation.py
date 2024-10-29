@@ -253,8 +253,8 @@ if __name__ == '__main__':
     # dataset = PygNodePropPredDataset(name='ogbn-arxiv')
     # dataset = Reddit(root='/tmp/Reddit')
     data = dataset[0]
-    print(tasks[0])
-    print(tasks[1])
+    # print(tasks[0])
+    # print(tasks[1])
 
 
     available_size = 4

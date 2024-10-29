@@ -3,13 +3,16 @@
 """
 import copy
 import heapq
-from torch_geometric.datasets import Planetoid
-from ESGNN.metis_partition import partition_K
-from ESGNN.task import Task, split_task, new_task
+import random
+
+import pandas as pd
+from torch_geometric.datasets import Planetoid, Flickr
+from metis_partition import partition_K
+from task import Task, split_task, new_task
 import time
 
 
-def schedule_tasks(tasks, available_size, borrow_schedule):
+def schedule_tasks(tasks, available_size, borrow_schedule,is_save=False):
     running_tasks = []
     interrupt_tasks = []
     completed_tasks = []
@@ -17,16 +20,15 @@ def schedule_tasks(tasks, available_size, borrow_schedule):
 
     # Initial task queue
     for task in tasks:
-        task.arrival_time=time.time()
+        task.arrival_time=time.time()-base_time
         heapq.heappush(task_queue, task)
 
     # current_time = 0
-    current_time = time.time()
+    current_time = time.time()-base_time
     total_remaining_size = sum(task.size for task in tasks)
 
     borrowed_applied = set()  # Track when borrowed space is applied
     returned_applied = set()  # Track when space is returned
-
     while task_queue or running_tasks:
         next_borrow_start_time = None
         next_borrow_end_time = None
@@ -60,7 +62,6 @@ def schedule_tasks(tasks, available_size, borrow_schedule):
 
             print(f"Task {task_to_interrupt.name} is interrupted.")
             task_to_interrupt.status = 'interrupted'
-            task_to_interrupt.is_running = False
             task_to_interrupt.interruptions += 1
             task_to_interrupt.end_time = current_time
             interrupt_tasks.append(copy.copy(task_to_interrupt))
@@ -87,8 +88,7 @@ def schedule_tasks(tasks, available_size, borrow_schedule):
                 print(f"Task {task.name} finished.")
                 print(available_size)
                 task.status = 'done'
-                task.is_running = False
-                task.end_time = current_time+task.remaining_duration
+                task.end_time = task.start_time+task.remaining_duration
                 task.remaining_size = 0
                 task.remaining_duration = 0
                 print(task)
@@ -122,13 +122,19 @@ def schedule_tasks(tasks, available_size, borrow_schedule):
         # Advance time
         next_times = [next_borrow_start_time, next_borrow_end_time]
         for task in running_tasks[:]:
-            next_times.append(task.estimated_end_time)
+            next_times.append(task.get_estimated_end_time)
         try:
+            print('aaaaaaaaaaaaaaaaaaaa1111111')
+            print(next_times)
             next_time = min([time for time in next_times if isinstance(time, (int, float)) and time > current_time])
+            print('aaaaaaaaaaaaaaaaaaaa2222222')
             current_time = next_time
+            print('aaaaaaaaaaaaaaaaaaaa3333333')
             print(f'next_time:  {next_times} --- {next_time}')
-        except:
+        except Exception as e:
+            print(e)
             print('ALl DONE')
+            break
         print(f"Running tasks: {[task.name for task in running_tasks]}")
         print(f"Available size: {available_size}")
 
@@ -140,9 +146,37 @@ def schedule_tasks(tasks, available_size, borrow_schedule):
         print(task)
 
 
+    # 记录和保存调度计划
+    if is_save:
+        # 将输出内容写入文件
+        with open('schedule.txt', 'a') as f:
+            f.write('===========================Interrupt Tasks===========================\n')
+            for task in interrupt_tasks[:]:
+                f.write(task.__str__())
+                f.write('\n')
+            f.write('\n===========================Completed Tasks===========================\n')
+            for task in completed_tasks[:]:
+                f.write(task.__str__())
+                f.write('\n')
+            # f.write('=============================Evaluation==============================\n')
+            # f.write(f"Total waiting time: {total_waiting_time:.2f}")
+            # f.write(f"Total completion time: {total_completion_time:.2f}")
+            # f.write(f"Utilization rate: {utilization_rate:.2f}")
+            # f.write(f"Throughput: {throughput:.2f} tasks per minute")
+            # for task in tasks:
+            #     task_completion_times = [subtask.remaining_duration for subtask in split_task(task, available_size)]
+            #     average_completion_time = sum(task_completion_times) / len(task_completion_times)
+            #     f.write(f"Task {task.name} average completion time: {average_completion_time:.2f}")
+            f.write('\n----------------------------------------------------------------------\n')
+    # df_schedule = pd.DataFrame(schedule)
+    # df_schedule.to_csv('schedule.csv', index=False)
+
+
 if __name__ == "__main__":
     dataset1 = Planetoid(root='/tmp/Cora', name='Cora')
     dataset2 = Planetoid(root='/tmp/Citeseer', name='Citeseer')
+    dataset3 = Planetoid(root='/tmp/Pubmed', name='Pubmed')
+    dataset4 = Flickr(root='/tmp/Flickr')
 
     # Define tasks
     tasks = []
@@ -150,8 +184,10 @@ if __name__ == "__main__":
     # task_B = Task("B", 5, 15)  # size 10, duration 20min 1/4
     # task_C = Task("C", 10, 20)  # size 10, duration 20min 4/4/2
 
-    task_A = new_task(dataset=dataset1, duration=None, size=None)
-    task_B = new_task(dataset=dataset2, duration=None, size=None)
+    task_A = new_task(dataset=dataset1, duration=0.7071, size=34.14)
+    task_B = new_task(dataset=dataset2, duration=0.5908, size=67.68)
+    task_C = new_task(dataset=dataset3, duration=1.7649, size=71.75)
+    task_D = new_task(dataset=dataset4, duration=0.8083, size=246.77)
 
     # task_A.data=dataset1[0]
     # task_B.data=dataset2[0]
@@ -161,8 +197,17 @@ if __name__ == "__main__":
     #
     # task_A.interrupt_priority=-1
     # task_B.interrupt_priority=0
-    tasks.append(task_B)
     tasks.append(task_A)
+    tasks.append(task_B)
+    # if random.random() < 0.5:
+    #     tasks.append(task_A)
+    # if random.random() < 0.5:
+    #     tasks.append(task_B)
+    # if random.random() < 0.5:
+    #     tasks.append(task_C)
+    # if random.random() < 0.5:
+    #     tasks.append(task_D)
+
 
     # print(tasks[0])
     # print(tasks[1])
@@ -170,8 +215,13 @@ if __name__ == "__main__":
 
     # tasks.append(task_C)
 
+    available_size = random.randint(30, 50)
+    space=random.randint(5, available_size-5)
+
+    base_time=time.time()
     # Define borrow schedule (borrow_start_time, borrow_end_time, borrow_space)
-    borrow_schedule = [(time.time() + 5, time.time() + 6, 350)]  # Borrow 1 unit of space between time 4 and 6
+    borrow_schedule = [(2, 3, 2)]  # Borrow 1 unit of space between time 4 and 6
+
 
     # Schedule tasks
-    schedule_tasks(tasks, available_size=400, borrow_schedule=borrow_schedule)
+    schedule_tasks(tasks, available_size=available_size, borrow_schedule=borrow_schedule,is_save=True)

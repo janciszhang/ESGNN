@@ -5,7 +5,7 @@ from ogb.nodeproppred import PygNodePropPredDataset
 import torch.nn.functional as F
 from torch_geometric.datasets import Planetoid
 import torch.optim as optim
-from ESGNN.base_gnn import evaluate_model, train_model, test, split_dataset, measure_time_and_memory
+from base_gnn import evaluate_model, train_model, test, split_dataset, measure_time_and_memory
 
 
 # 定义 GCN 模型
@@ -25,6 +25,19 @@ class FlexibleGNN(torch.nn.Module):
             x = F.relu(x)
         x = self.convs[-1](x, edge_index)
         return x
+
+
+class CombineFlexibleGNN(torch.nn.Module):
+    def __init__(self, submodel1, submodel2):
+        super(CombineFlexibleGNN, self).__init__()
+        self.submodel1 = submodel1
+        self.submodel2 = submodel2
+
+    def forward(self, x):
+        x = self.submodel1(x)
+        x = self.submodel2(x)
+        return x
+
 
 def combine_FlexibleGNN_models(model1, model2):
     # Create a new model with the same architecture
