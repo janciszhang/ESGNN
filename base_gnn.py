@@ -8,18 +8,35 @@ Model Architecture
 import time
 import torch
 import torch_geometric
+from dgl.data import PPIDataset
+from dgl.dataloading import GraphDataLoader
+from dgl.nn.pytorch import GATConv, GraphConv
+from ogb.nodeproppred import PygNodePropPredDataset
+
 from sklearn.preprocessing import label_binarize
+from torch import nn
+from torch.nn import BCEWithLogitsLoss
+from torch_geometric.graphgym import optim
+from torch_geometric.loader import DataLoader
 # from torch_geometric.datasets import PlanetoidG
 from torch_geometric.nn import GCNConv
 from torch_geometric.utils import to_networkx
 import torch
-from torch_geometric.datasets import Planetoid, Reddit
+from torch_geometric.datasets import Planetoid, Reddit, PPI, TUDataset
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, roc_curve, auc, precision_recall_curve, log_loss, classification_report
 import numpy as np
 import time
 import psutil
+import dgl
+import torch.nn.functional as F
+
+from ESGNN.test_cuda import set_gpu_memory
+from load_data import get_data_info, load_dataset_by_name
+from test_cuda import clean_gpu
+from metis_calculation_job_GPU import estimate_task_gpu
+
 
 def split_dataset(data, split_ratios=[5, 3, 2]):
     # Create custom train/validation/test splits
@@ -73,7 +90,7 @@ def check_train_test(data):
     print(f"Number of test nodes: {num_test} ({num_test / num_nodes:.2%})")
 
 
-class GNN(torch.nn.Module):
+class GNN1(torch.nn.Module):
     def __init__(self, input_dim, output_dim):
         super(GNN, self).__init__()
         self.conv1 = GCNConv(input_dim, 16)
@@ -86,17 +103,101 @@ class GNN(torch.nn.Module):
         x = self.conv2(x, edge_index)
         return torch.nn.functional.log_softmax(x, dim=1)
 
+class GNN(torch.nn.Module):
+    def __init__(self, input_dim, output_dim):
+        super(GNN, self).__init__()
+        # 使用 DGL 的 GraphConv 層
+        self.conv1 = GraphConv(input_dim, 16)
+        self.conv2 = GraphConv(16, output_dim)
+
+    def forward(self, data):
+        # 保持與 PyG 一樣的參數形式: data.x (節點特徵), data.edge_index (邊列表)
+        x, edge_index = data.x, data.edge_index
+
+        # 1. 將 edge_index 轉換為 DGL 圖對象
+        num_nodes = x.size(0)
+        src, dst = edge_index
+        g = dgl.graph((src, dst), num_nodes=num_nodes)
+
+        # 2. 添加自環以避免 0 入度節點
+        g = dgl.add_self_loop(g)
+
+        # 3. 將特徵傳遞到 DGL 的圖卷積層
+        x = self.conv1(g, x)
+        x = F.relu(x)
+        x = self.conv2(g, x)
+
+        # 4. 返回結果
+        return F.log_softmax(x, dim=1)
+        # # 使用平均池化获取图的表示
+        # g.ndata['feat'] = x
+        # hg = dgl.mean_nodes(g, 'feat')  # 聚合图中的节点特征
+        #
+        # # 分类层
+        # out = self.fc(hg)
+        # return F.log_softmax(out, dim=1)
+
+# def train(model, subgraph):
+#     optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
+#     criterion = torch.nn.CrossEntropyLoss()
+#
+#     model.train()
+#     optimizer.zero_grad()
+#     out = model(subgraph)
+#     loss = criterion(out[subgraph.train_mask], subgraph.y[subgraph.train_mask])
+#     loss.backward()
+#     optimizer.step()
+#     return loss.item()
+
 def train(model, subgraph):
+    # print(f"min label: {subgraph.y.min()}, max label: {subgraph.y.max()}")
+    # print(f"label shape: {subgraph.y[subgraph.train_mask].shape}")  # 應該是 [batch_size]
+
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
     criterion = torch.nn.CrossEntropyLoss()
 
+
     model.train()
     optimizer.zero_grad()
+
+    # 模型輸出 logits
     out = model(subgraph)
-    loss = criterion(out[subgraph.train_mask], subgraph.y[subgraph.train_mask])
+
+    # 獲取標籤中的最大類別值
+    num_classes = subgraph.y.max().item() + 1  # 0-max => max+1 classes
+    # print(f"number of labels classes: {num_classes}")
+
+    # 當前模型輸出的類別數
+    output_classes = out.shape[1]
+    # print(f"number of output classes: {output_classes}")
+
+    if output_classes < num_classes:
+        # 如果輸出類別數不足，則創建額外的 logits
+        batch_size = out[subgraph.train_mask].shape[0]
+        extra_classes = num_classes - output_classes
+
+        # 創建額外的非常小的 logits
+        extra_logits = torch.full((batch_size, extra_classes), -1e9).to(out.device)  # 非常小的值，表示模型不確定這些類別
+
+        # 拼接原始 logits 和擴展的 logits
+        extended_output = torch.cat((out[subgraph.train_mask], extra_logits), dim=1)
+        # print(f"extended model output shape: {extended_output.shape}")
+    else:
+        # 如果輸出類別數足夠，則不需要擴展
+        extended_output = out[subgraph.train_mask]
+
+
+
+    # 計算損失
+    # loss = criterion(extended_output, subgraph.y[subgraph.train_mask])
+    loss = criterion(extended_output, subgraph.y[subgraph.train_mask].squeeze())
+    # loss = criterion(out, subgraph.y)
+
     loss.backward()
     optimizer.step()
+
     return loss.item()
+
 
 def test(model, subgraph, mask_type='test'):
     """
@@ -138,6 +239,22 @@ def train_each_epoch(model, data,epoch,epochs):
     return epoch_loss,epoch_train_accuracy, epoch_test_accuracy
 
 
+def early_stop(patience,epoch,epoch_test_accuracy,best_test_accuracy,epochs_since_improvement):
+    # Check if test accuracy improved
+    if epoch_test_accuracy > best_test_accuracy:
+        best_test_accuracy = epoch_test_accuracy
+        epochs_since_improvement = 0
+    else:
+        epochs_since_improvement += 1
+
+    # Early stopping
+    if epochs_since_improvement >= patience:
+        print(f"Early stopping triggered in Epoch {epoch}.")
+        return [True,epochs_since_improvement,best_test_accuracy]
+        # break
+    else:
+        return [False,epochs_since_improvement,best_test_accuracy]
+
 def train_model(model, data, epochs=200,patience=20,early_stopping=True,split_ratios=[6, 3, 2]):
     if len(split_ratios) == 3:
         try:
@@ -147,11 +264,14 @@ def train_model(model, data, epochs=200,patience=20,early_stopping=True,split_ra
 
     # Check if GPU is available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(device)
+    gpu_before=torch.cuda.memory_allocated(0) / (1024 ** 2)
 
     # Move model and data to the chosen device (GPU or CPU)
+    train_loader = DataLoader([data], batch_size=32, shuffle=True)
+    print(f"Dataset size: {len(train_loader.dataset)}")
     model = model.to(device)
-    data = data.to(device)
-
+    # data = data.to(device)
 
     train_accuracies = []
     test_accuracies = []
@@ -159,32 +279,56 @@ def train_model(model, data, epochs=200,patience=20,early_stopping=True,split_ra
     best_test_accuracy = 0
     epochs_since_improvement = 0
 
+    # try:
     for epoch in range(epochs):
-        epoch_loss, epoch_train_accuracy, epoch_test_accuracy = train_each_epoch(model, data, epoch,epochs)
-        # loss = train(model, data)
-        # epoch_train_accuracy = test(model, data, mask_type='train')
-        # epoch_test_accuracy = test(model, data, mask_type='test')
-        # print(f"Epoch {epoch + 1}/{epochs} - Loss: {epoch_loss:.4f} - Train Accuracy: {epoch_train_accuracy:.4f} - Test Accuracy: {epoch_test_accuracy:.4f}")
+            epoch_test_accuracy = 0
+            # epoch_loss, epoch_train_accuracy, epoch_test_accuracy = train_each_epoch(model, data, epoch,epochs)
+            epoch_test_accuracy = 0
+            for batch in train_loader:
+                # print(batch)
+                batch = batch.to('cuda')
+                epoch_loss, epoch_train_accuracy, epoch_test_accuracy = train_each_epoch(model, batch, epoch, epochs)
+                # loss = train(model, data)
+                # epoch_train_accuracy = test(model, data, mask_type='train')
+                # epoch_test_accuracy = test(model, data, mask_type='test')
+                # print(f"Epoch {epoch + 1}/{epochs} - Loss: {epoch_loss:.4f} - Train Accuracy: {epoch_train_accuracy:.4f} - Test Accuracy: {epoch_test_accuracy:.4f}")
 
-        # 存储epoch结果：检查这些指标以确定模型是否已经收敛
-        losses.append(epoch_loss)
-        train_accuracies.append(epoch_train_accuracy)
-        test_accuracies.append(epoch_test_accuracy)
+                # 存储epoch结果：检查这些指标以确定模型是否已经收敛
+                losses.append(epoch_loss)
+                train_accuracies.append(epoch_train_accuracy)
+                test_accuracies.append(epoch_test_accuracy)
 
-        if early_stopping:
-            # Check if test accuracy improved
-            if epoch_test_accuracy > best_test_accuracy:
-                best_test_accuracy = epoch_test_accuracy
-                epochs_since_improvement = 0
-            else:
-                epochs_since_improvement += 1
+            if early_stopping:
+                [result,epochs_since_improvement, best_test_accuracy] = early_stop(patience, epoch, epoch_test_accuracy, best_test_accuracy, epochs_since_improvement)
+                if result:
+                    break
 
-            # Early stopping
-            if epochs_since_improvement >= patience:
-                print(f"Early stopping triggered in Epoch {epoch}.")
-                break
+    # except Exception as e:
+    #     print(e)
+    # finally:
+    if True:
+        # 訓練完成後,將數據移回CPU
+        gpu_after=torch.cuda.memory_allocated(0) / (1024 ** 2)
+        gpu_usage = gpu_after - gpu_before
+        print(f'GPU allocated: {torch.cuda.memory_allocated(0) / (1024 ** 2):.2f} MB')
+        # print('kkkkk')
+        clean_gpu()
+        del gpu_after
+        del gpu_before
 
-    return losses, train_accuracies,test_accuracies
+        torch.cuda.empty_cache()
+
+        # print('aaa')
+        print(f"Edge index max value: {data.edge_index.max()}")
+        assert data.edge_index.max() < data.num_nodes, "Invalid node index in edge_index."
+        data = data.to("cpu")
+        model = model.to("cpu")
+        torch.cuda.empty_cache()
+
+
+        print("Data and Model moved back to CPU")
+
+    return losses, train_accuracies,test_accuracies,gpu_usage
 
 
 def evaluate_model(model, data):
@@ -352,7 +496,7 @@ def measure_time_and_memory(model, data,epochs=200, patience=20, early_stopping=
 
         # Run the model (assume one forward pass for the example)
         train_model(model, data, epochs=epochs, patience=patience, early_stopping=early_stopping,split_ratios=split_ratios)
-        output = model(data)
+        # output = model(data)
 
         # End recording time
         end_event.record()
@@ -417,24 +561,108 @@ def measure_time_and_memory(model, data,epochs=200, patience=20, early_stopping=
                     f.write(line + '\n')
                 f.write('--------------------------------------\n')
 
-if __name__ == '__main__':
-    # 加载Cora数据集
-    dataset = Planetoid(root='/tmp/Cora', name='Cora')
-    # dataset = Reddit(root='/tmp/Reddit')
-    # 获取图数据和标签
+def measure_time_and_memory_dataset(dataset):
+    get_data_info(dataset)
     data = dataset[0]
-    # 将图数据转换为NetworkX图
-    # G = to_networkx(data, to_undirected=True)
+    print(data)
+    # input_dim = dataset[0].x.size(1)  # Feature dimension from the first subgraph
+    # output_dim = len(torch.unique(dataset[0].y))  # Number of classes based on the labels in the first subgraph
+    # model = GNN(input_dim, output_dim)
+    # train_model(model, data, epochs=200, patience=20, early_stopping=True, split_ratios=[6, 3, 2])
+    # measure_time_and_memory(model, data, epochs=200, patience=20, early_stopping=True, split_ratios=[6, 3, 2],is_save=False)
 
-    # split_dataset(data, split_ratios=[6, 3, 2])
+    train_loader = DataLoader(dataset, batch_size=2, shuffle=True)
+    # 创建 GNN 模型
+    input_dim = dataset.num_features
+    output_dim = dataset.num_classes
+    model = GNN(input_dim=input_dim, output_dim=output_dim)
 
-    input_dim = dataset[0].x.size(1)  # Feature dimension from the first subgraph
-    output_dim = len(torch.unique(dataset[0].y))  # Number of classes based on the labels in the first subgraph
-    model = GNN(input_dim, output_dim)
+    # 开始训练
+    train1(model, train_loader, epochs=20)
 
-    # Train and test the model
-    # losses,train_accuracies,test_accuracies = train_model(model, data ,epochs=200,patience=20,early_stopping=True,split_ratios=[6,3,2])
+
+
+
+# 将 PyG 的 Data 对象转换为 DGL 图
+def pyg_to_dgl(data):
+    x, edge_index, y = data.x, data.edge_index, data.y
+    num_nodes = x.size(0)
+    src, dst = edge_index
+    g = dgl.graph((src, dst), num_nodes=num_nodes)
+    g = dgl.add_self_loop(g)
+    g.ndata['feat'] = x
+    g.ndata['label'] = y
+    return g
+
+# 训练函数
+def train1(model, dataloader, epochs=20, lr=0.01):
+    optimizer = optim.Adam(model.parameters(), lr=lr)
+    criterion = BCEWithLogitsLoss()
+
+    model.train()
+
+    for epoch in range(epochs):
+        total_loss = 0
+        for batch in dataloader:
+            optimizer.zero_grad()
+            g = pyg_to_dgl(batch)
+            out = model(batch)
+            labels = batch.y.float()
+            loss = criterion(out, labels)
+            loss.backward()
+            optimizer.step()
+            total_loss += loss.item()
+
+        print(f"Epoch {epoch+1}/{epochs}, Loss: {total_loss:.4f}")
+
+    return model
+
+if __name__ == '__main__':
+    # dataset = TUDataset(root='./dataset/TUDataset/PROTEINS', name='PROTEINS')
+    # measure_time_and_memory_dataset(dataset)
     #
-    # evaluate_model(model,data)
-    measure_time_and_memory(model, data, epochs=200, patience=20, early_stopping=False, split_ratios=[6, 3, 2],is_save=False)
+    # measure_time_and_memory(model, data, epochs=200, patience=20, early_stopping=True, split_ratios=[6, 3, 2],
+    #                         is_save=False)
+    # datasets = ['PPI', 'PROTEINS', 'ENZYMES', 'IMDB-BINARY']
+    datasets = ['Cora', 'Citeseer', 'Pubmed', 'Flickr', 'Amazon-Computers','Amazon-Photo']
+    # datasets = ['Reddit']
+    # datasets = ['PPI', 'PROTEINS', 'ENZYMES', 'IMDB-BINARY']
+    # datasets = ['ogbn-products', 'ogbn-proteins', 'ogbn-arxiv']
+
+    for dataset_name in datasets:
+        dataset = load_dataset_by_name(dataset_name)
+        get_data_info(dataset)
+        data = dataset[0]
+        print(data)
+        # 将图数据转换为NetworkX图
+        # G = to_networkx(data, to_undirected=True)
+
+        # split_dataset(data, split_ratios=[6, 3, 2])
+
+        measure_time_and_memory_dataset(dataset)
+
+            # input_dim = dataset[0].x.size(1)  # Feature dimension from the first subgraph
+            # output_dim = len(torch.unique(dataset[0].y))  # Number of classes based on the labels in the first subgraph
+            # model = GNN(input_dim, output_dim)
+            # # set_gpu_memory(8000)
+            #
+            # # data.to('cuda')
+            # # model.to('cuda')
+            # # print(torch.cuda.memory_summary(device='cuda'))
+            #
+            # # Train and test the model
+            # # losses,train_accuracies,test_accuracies = train_model(model, data ,epochs=200,patience=20,early_stopping=True,split_ratios=[6,3,2])
+            # #
+            # # evaluate_model(model,data)
+            # # gpu_memory_MB, model_time=estimate_task_gpu(model, data)
+            # # print(gpu_memory_MB, model_time)
+            # measure_time_and_memory(model, data, epochs=200, patience=20, early_stopping=True, split_ratios=[6, 3, 2],
+            #                         is_save=False)
+        # except Exception as e:
+        #     print(f"Error running es_gpu on {dataset}: {e}")
+
+
+
+
+
 

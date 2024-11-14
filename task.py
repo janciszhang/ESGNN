@@ -19,6 +19,7 @@ RUN prioritization sort index：
 import copy
 import re
 import time
+from math import ceil
 
 import torch
 from sklearn.metrics import classification_report
@@ -57,7 +58,7 @@ from base_gnn import GNN, train_model, evaluate_model
 
 class Task:
     def __init__(self, name, size=None, duration=None, data=None, is_sub=False, is_main=True, arrival_time=0):
-        size = round(size if size is not None else None)
+        # size = round(size if size is not None else None)
         self.name = name
         self.data = data
         self.original_data = data
@@ -106,7 +107,10 @@ class Task:
             return None
 
     def get_completion_time(self):
-        return self.end_time - self.start_time
+        if self.end_time==None or self.start_time==None:
+            return None
+        else:
+            return self.end_time - self.start_time
 
     def get_is_running(self):
         if self.status == 'doing':  # waiting，doing，done，interrupted
@@ -116,15 +120,16 @@ class Task:
 
     def combine_subtasks(self):
         print(f'Combining subtasks1: {self.__str__()}')
-        if self.is_sub:
+        if self.is_sub or self.subtasks:
         # if self.status == 'done' and self.subtasks and self.is_sub:
             if self.status != 'interrupted':
                 print(f'Combining subtasks2: {self.__str__()}')
-                if self.size != self.original_size:
+                if self.data != self.original_data or self.start_time!=self.subtasks[0].start_time:
                     sub_task = copy.copy(self)
                     sub_task.name = self.name + '_sub'
                     sub_task.original_size = self.size
                     sub_task.original_duration = self.duration
+                    sub_task.original_data = self.data
                     sub_task.is_main = False
                     self.subtasks.append(sub_task)
                     self.interruptions = 0
@@ -176,10 +181,11 @@ class Task:
 
     def train_model(self, epochs=200, patience=20, early_stopping=True, split_ratios=[6, 3, 2]):
         self.status = 'doing'
-        train_model(self.model, self.data, epochs=epochs, patience=patience, early_stopping=early_stopping,
+        losses, train_accuracies,test_accuracies,gpu_usage=train_model(self.model, self.data, epochs=epochs, patience=patience, early_stopping=early_stopping,
                     split_ratios=split_ratios)
         # self.end_time = time.time()
         # self.status = 'done'
+        return gpu_usage
 
     def calculate_run_priority(self, current_time, total_remaining_size, weight_size=0.4, weight_waiting_time=0.3,
                                weight_is_running=0.2, weight_is_sub=0.1):
@@ -388,8 +394,7 @@ def split_task(task, available_size):
 
         sub_task = Task(f"{task.name}_sub", sub_size, sub_duration, is_sub=True, is_main=False)
         if task.data:
-            data_chunks = partition_K(task.data, K=2,
-                                      target_ratios=[sub_size, task.remaining_size - sub_size])  # partition_K分割比例数必须是整数
+            data_chunks = partition_K(task.data, K=2,target_ratios=[ceil(sub_size), ceil(task.remaining_size - sub_size)])  # partition_K分割比例数必须是整数
             sub_task.data = data_chunks[0]
             sub_task.arrival_time = task.arrival_time
 
@@ -405,6 +410,25 @@ def split_task(task, available_size):
         index += 1
         break
     # print(len(sub_tasks),sub_tasks[0])
+    return sub_tasks
+
+def split_task_K(task, K):
+    sub_tasks = []
+    if task.data:
+        data_chunks = partition_K(task.data, K=K, target_ratios=None)  # partition_K分割比例数必须是整数
+    for i in range(K-1):
+        sub_task = Task(f"{task.name}_sub_{i}", task.size/K, task.duration/K, is_sub=True, is_main=False, arrival_time = task.arrival_time)
+        if task.data:
+            sub_task.data = data_chunks[i]
+        sub_tasks.append(sub_task)
+
+    task.remaining_size = task.remaining_size/K
+    task.remaining_duration = task.remaining_duration/K
+    task.size = task.size/K
+    task.duration = task.duration/K
+    task.data = data_chunks[K-1]
+    task.is_sub = True
+    sub_tasks.append(task)
     return sub_tasks
 
 
@@ -446,6 +470,10 @@ def merge_subtasks(tasks):
         if main_task:
             for subtask in subtasks:
                 main_task.subtasks.append(subtask)
+            print(f'BEFORE combine_subtasks, Main task: {main_task}')
+            for subtask in main_task.subtasks:
+                print(subtask)
+            print('Do combine_subtasks')
             main_task.combine_subtasks()
             # main_task.subtasks = sorted(main_task.subtasks, key=lambda task: task.start_time, reverse=False)
             main_task.subtasks = sorted(main_task.subtasks, key=lambda task: (task.start_time is None, task.start_time))

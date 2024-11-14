@@ -16,7 +16,7 @@ import time
 
 
 
-def schedule_tasks_Lyra(tasks, available_size, borrow_schedule=[],m_max = 50,is_save=False):
+def schedule_tasks_Baseline(tasks, available_size, m_max = 50, is_save=False):
     n = 0  # 调控当task.remaining_duration>0，没有办法通过train model更新新的duration，而陷入循环
     m = 0 # 调控无法处理的大任务，避免没有足够GPU而陷入循环(m_max最多循环多少次，return)
     running_tasks = []
@@ -47,16 +47,16 @@ def schedule_tasks_Lyra(tasks, available_size, borrow_schedule=[],m_max = 50,is_
         next_borrow_end_time = None
         print(f"------------ Time: {current_time} min ---------------")
 
-        # Check for borrowed schedule
-        next_borrow_start_time, next_borrow_end_time, available_size, borrowed_applied, returned_applied = borrow_handler(
-            current_time, available_size, borrow_schedule, borrowed_applied, returned_applied)
-
-        # 中断Interrupt mechanism (Lyra根据size)
-        available_size, task_queue, running_tasks, interrupt_tasks = interrupt_handler(current_time, available_size,
-                                                                                       task_queue, running_tasks,
-                                                                                       interrupt_tasks,
-                                                                                       key_func=lambda task: task.size,
-                                                                                       reverse=True)
+        # # Check for borrowed schedule
+        # next_borrow_start_time, next_borrow_end_time, available_size, borrowed_applied, returned_applied = borrow_handler(
+        #     current_time, available_size, borrow_schedule, borrowed_applied, returned_applied)
+        #
+        # # 中断Interrupt mechanism (Lyra根据size)
+        # available_size, task_queue, running_tasks, interrupt_tasks = interrupt_handler(current_time, available_size,
+        #                                                                                task_queue, running_tasks,
+        #                                                                                interrupt_tasks,
+        #                                                                                key_func=lambda task: task.size,
+        #                                                                                reverse=True)
 
 
         # 运行Execute running tasks
@@ -128,10 +128,11 @@ if __name__ == "__main__":
 
     # Define tasks
     tasks = []
-    task_A = Task("A", 3, 3)  # size 3, duration 5min 3
-    task_B = Task("B", 14, 15)  # size 10, duration 20min 1/4
-    task_C = Task("C", 10, 20)  # size 10, duration 20min 4/4/2
-    task_D = Task("D", 10, 20)
+    task_A = Task("A", 3, 3, arrival_time=0)  # size 3, duration 5min 3
+    task_B = Task("B", 4, 15, arrival_time=2)  # size 10, duration 20min 1/4
+    task_C = Task("C", 7, 20, arrival_time=4)  # size 10, duration 20min 4/4/2
+    task_D = Task("D", 2, 20, arrival_time=5)
+
 
     task_A.data=dataset1[0]
     task_B.data=dataset2[0]
@@ -142,8 +143,8 @@ if __name__ == "__main__":
 
     tasks.append(task_A)
     tasks.append(task_B)
-    # tasks.append(task_C)
-    # tasks.append(task_D)
+    tasks.append(task_C)
+    tasks.append(task_D)
 
 
 
@@ -153,7 +154,7 @@ if __name__ == "__main__":
 
 
     # Schedule tasks
-    final_tasks = schedule_tasks_Lyra(tasks, available_size=available_size, borrow_schedule=borrow_schedule,is_save=False)
+    final_tasks = schedule_tasks_Baseline(tasks, available_size=available_size,is_save=False)
     plot_tasks(final_tasks)
 
 

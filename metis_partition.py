@@ -20,20 +20,26 @@ echo $METIS_DLL
 python metis_partition.py
 """
 import os
+import time
 from math import gcd
 from functools import reduce
+
+import dgl
 import networkx as nx
-# import metis
-import pymetis
+import metis
+# import pymetis
 import torch
 from torch_geometric.datasets import Planetoid
 from torch_geometric.datasets import Reddit
 from torch_geometric.datasets import PPI
-from torch_geometric.utils import to_networkx
+from torch_geometric.utils import to_networkx, from_networkx
 from ogb.nodeproppred import PygNodePropPredDataset
 from torch_geometric.datasets import Amazon
 from torch_geometric.datasets import Flickr
 from torch_geometric.datasets import TUDataset
+
+from load_data import load_dataset_by_name
+
 
 
 def calculate_min_integer_ratios(ratios):
@@ -62,7 +68,7 @@ def initial_metis_partition(G, num_partitions):
         _, parts = metis.part_graph(G, nparts=num_partitions)
 
     except Exception as e:
-        # print(f"Error with metis: {e}. Trying pymetis.")
+        print(f"Error with metis: {e}. Trying pymetis.")
         # 如果 metis 失败，使用 pymetis
         try:
             adjacency = nx.to_numpy_array(G).tolist()
@@ -171,7 +177,7 @@ def load_subgraphs(file_prefix, num_subgraphs):
     return subgraphs
 
 
-def metis_main(dataset, K, target_ratios=None, is_save=True):
+def metis_main(dataset, K, target_ratios=None, is_save=False):
     name = dataset.__class__.__name__
     if hasattr(dataset, 'name'):
         name = name + '/' + dataset.name
@@ -190,6 +196,26 @@ def metis_main(dataset, K, target_ratios=None, is_save=True):
 
 if __name__ == '__main__':
     calculate_min_integer_ratios([400, 46.40625])
+    dataset = load_dataset_by_name('ogbn-proteins')
+    data = dataset[0]
+    start_time=time.time()
+    # G = to_networkx(data, to_undirected=True)
+    # # 将 PyTorch Geometric 的图数据直接转换为 DGL 图
+    # G_dgl = dgl.graph((data.edge_index[0], data.edge_index[1]))
+    # # 如果需要从 DGL 图转换回 PyTorch Geometric 格式
+    # data_from_dgl = from_networkx(G_dgl.to_networkx())
+    G_dgl = dgl.graph((data.edge_index[0], data.edge_index[1]), num_nodes=data.num_nodes) # 0.14s
+    # data_from_dgl = from_networkx(G_dgl.to_networkx()) #MemoryError
+    num_partitions = 4
+    from dgl import metis_partition
+    partitioned_graphs = metis_partition(G_dgl, num_partitions)
+
+    # partitioned_graphs 是一个包含多个子图的字典
+    for part_id, subgraph in partitioned_graphs.items():
+        print(f"Subgraph {part_id} has {subgraph.number_of_nodes()} nodes and {subgraph.number_of_edges()} edges")
+
+    print(f'Time: {time.time() - start_time}') # 91s
+    # metis_main(dataset=dataset, K=10)
     # 对dataset进行分割，并保存子图数据在对应路径
     # K_values = [1,2,4,8,16]
     # ratios = None
@@ -208,5 +234,5 @@ if __name__ == '__main__':
     #     # metis_main(dataset=TUDataset(root='/tmp/TUDataset', nasme='ENZYMES'), K=K_value,target_ratios=ratios,is_save=is_save)
     #     # metis_main(dataset=TUDataset(root='/tmp/TUDataset', name='IMDB-BINARY'), K=K_value,target_ratios=ratios,is_save=is_save)
     #     # metis_main(dataset=PygNodePropPredDataset(name='ogbn-products'), K=K_value,target_ratios=ratios,is_save=is_save)
-    #     # metis_main(dataset=PygNodePropPredDataset(name='ogbn-proteins'), K=K_value,target_ratios=ratios,is_save=is_save)
+    #     metis_main(dataset=PygNodePropPredDataset(name='ogbn-proteins'), K=K_value,target_ratios=ratios,is_save=is_save)
     #     metis_main(dataset=PygNodePropPredDataset(name='ogbn-arxiv'), K=K_value,target_ratios=ratios,is_save=is_save)

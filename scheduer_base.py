@@ -1,9 +1,14 @@
 """
 有时候会报错，可以多运行几次，会有成功的
 """
+import re
+
+import torch
 from matplotlib import pyplot as plt
 from matplotlib.lines import Line2D
 
+from ESGNN.test_cuda import clean_gpu
+from ESGNN.viz import plot_tasks
 from task import Task, split_task, merge_subtasks
 import copy
 import heapq
@@ -166,6 +171,7 @@ def interrupt_handler(current_time, available_size, task_queue, running_tasks, i
 def execute_handler(current_time, available_size, running_tasks, completed_tasks, n):
     # 运行Execute running tasks
     end_times = []
+    print(end_times)
     for task in running_tasks[:]:
         task.remaining_duration = task.duration - (current_time - task.start_time)
         # print(f'task.remaining_duration: {task.name}: {task.duration} - {(current_time - task.start_time)} {task.remaining_duration<=0}')
@@ -175,27 +181,60 @@ def execute_handler(current_time, available_size, running_tasks, completed_tasks
                 n -= 1  # 调控当task.remaining_duration>0，没有办法通过train model更新新的duration，而陷入循环
             task.model = None
             try:
-                # print(f'train model: {task.name}')
+                print(end_times)
+                print(f'GPU allocated: {torch.cuda.memory_allocated(0) / (1024 ** 2):.2f} MB')
+                print(f'train model: {task.name}')
                 start_time = time.time()
                 task.create_model()
-                task.train_model()
+                gpu_usage=task.train_model()
                 real_model_time = (time.time() - start_time) * 19
                 print(f'Task {task.name} real_model_time: {real_model_time}')
                 end_time = task.start_time + real_model_time
-            except Exception as e:
-                # print(f'Exception: {e}')
-                end_time = task.start_time + task.duration
-            if end_time <= current_time:
-                end_times.append(end_time)
-            else:
+                print(f'Task {task.name} real_end_time: {end_time}')
+                print(f'GPU allocated: {torch.cuda.memory_allocated(0) / (1024 ** 2):.2f} MB')
+                print(f'Task {task.name} GPU usage: {gpu_usage:.2f} MB')
+                if gpu_usage > task.size:
+                    available_size += (task.size-gpu_usage)
+                    task.size = gpu_usage
+                if end_time <= current_time:
+                    end_times.append(end_time)
+                else:
+                    end_times.append(None)
+                    task.duration = end_time - task.start_time
+            except torch.cuda.OutOfMemoryError as e:
+                print(f'CUDA out of memory: {e}')
+                match = re.search(r"allocate (\d+\.\d+)", str(e))
+                if match:
+                    allocated_memory = float(match.group(1))
+                    print(allocated_memory)
+                    task.size += (allocated_memory + available_size)
+                    available_size = - allocated_memory
+
                 end_times.append(None)
-                task.duration = end_time - task.start_time
+            except Exception as e:
+                print(f'Exception: {e}')
+                print(task.data)
+                print(f'{{"CUDA error" in str(e)}}')
+                if 'CUDA error' in str(e):
+                    print(f'aaaaa GPU allocated: {torch.cuda.memory_allocated(0) / (1024 ** 2):.2f} MB')
+                    del task.data
+                    del task.model
+                    print(f'hhhhhh GPU allocated: {torch.cuda.memory_allocated(0) / (1024 ** 2):.2f} MB')
+                    return 0
+                end_time = task.start_time + task.duration
+                end_times.append(None)
+                print(end_times)
+            # if end_time <= current_time:
+            #     end_times.append(end_time)
+            # else:
+            #     end_times.append(None)
+            #     task.duration = end_time - task.start_time
         else:
             end_times.append(None)
 
     if end_times:
         indexes = find_minimum_end_time_indexes(end_times)
-        # print(end_times, indexes)
+        print(end_times, indexes)
         if len(indexes) > 0 and end_times[indexes[0]] <= current_time:
             running_tasks_copy = copy.copy(running_tasks)
             for i in indexes:
@@ -291,149 +330,6 @@ def get_result(running_tasks, completed_tasks, interrupt_tasks, task_queue, is_s
     return final_tasks
 
 
-def plot_tasks(tasks,file_name='task_execution_timeline'):
-    # 创建图形
-    fig, ax = plt.subplots(figsize=(12, 6))
-
-    # 初始化 y 轴位置
-    y_pos = 0
-    y_labels = []  # 存储 y 轴标签及其位置
-    y_positions = []
-    labels_added = set()  # 用于追踪已添加的图例标签
-
-    current_times=[]
-    for task in tasks:
-        print(task)
-        current_times.append(task.start_time)
-        current_times.append(task.end_time)
-        for subtask in task.subtasks:
-            current_times.append(subtask.start_time)
-            current_times.append(subtask.end_time)
-    print(current_times)
-    current_time = max([current_time for current_time in current_times if current_time is not None])
-    print(current_time)
-
-    # 遍历任务并绘制每个任务的分段条形图
-    for task in tasks:
-        print(task)
-        arrival_time = task.arrival_time
-        start_time = task.start_time if task.start_time is not None else current_time
-        end_time = task.end_time if task.end_time is not None else current_time
-        print(f'arrival_time, start_time, end_time: {arrival_time}, {start_time}, {end_time}')
-        if arrival_time <= current_time:
-            # 绘制 arrival_time 到 start_time 的部分 (黄色)
-            label = "Waiting Time" if "Waiting Time" not in labels_added else ""
-            wait_bar = ax.barh(y_pos, start_time - arrival_time, left=arrival_time, color='yellow', edgecolor='black', label=label)
-            labels_added.add("Waiting Time")
-            # 添加标签数据
-            ax.text(arrival_time + (start_time - arrival_time) / 2, y_pos, f"{start_time - arrival_time:.2f}",
-                    ha='center', va='center', color="black")
-
-            if start_time is not None:
-                # 绘制 start_time 到 end_time 的部分 (done绿色)
-                label = "Execution Time" if "Execution Time" not in labels_added else ""
-                exec_bar = ax.barh(y_pos, end_time - start_time, left=start_time, color='green', edgecolor='black',
-                                   label=label)
-                labels_added.add("Execution Time")
-                # 添加标签数据
-                ax.text(start_time + (end_time - start_time) / 2, y_pos, f"{end_time - start_time:.2f}", ha='center',
-                        va='center', color="black")
-                # ax.text(end_time, y_pos, f"{end_time:.2f}", ha='center',
-                #         va='center', color="black")
-
-                if task.status=='doing':
-                    # 绘制 current_time 到 es 的部分 (浅绿色)
-                    label = "Task Estimated" if "Task Estimated" not in labels_added else ""
-                    exec_bar = ax.barh(y_pos, task.get_estimated_end_time() - start_time,
-                                            left=start_time,color="lightcyan", edgecolor="black", label=label)
-                    labels_added.add("Task Estimated")
-                    # 添加标签数据
-                    ax.text(end_time + (task.get_estimated_end_time() - end_time) / 2, y_pos,
-                            f"{task.get_estimated_end_time() - end_time:.2f}", ha='center', va='center',
-                            color="black")
-
-                    label = "Execution Time" if "Execution Time" not in labels_added else ""
-                    exec_bar = ax.barh(y_pos, end_time - start_time, left=start_time, color='green', edgecolor='black',label=label)
-                    labels_added.add("Execution Time")
-                    # 添加标签数据
-                    ax.text(start_time + (end_time - start_time) / 2, y_pos, f"{end_time - start_time:.2f}", ha='center',
-                            va='center', color="black")
-
-                if task.status=='done':
-                    ax.text(end_time + 2, y_pos, f"{end_time:.2f}", ha='center',
-                            va='center', color="black")
-
-            # 记录主任务标签
-            # y_labels.append((y_pos, task.name))
-            y_labels.append(task.name)
-            y_positions.append(y_pos)
-
-            for subtask in task.subtasks:
-                y_pos += 1  # 子任务绘制在主任务下方
-                if subtask.status == 'interrupted':
-                    label = "Interrupt Subtask Estimated" if "Interrupt Subtask Estimated" not in labels_added else ""
-                    interrupt_bar = ax.barh(y_pos, subtask.get_estimated_end_time() - subtask.start_time,
-                                            left=subtask.start_time,
-                                            color="mistyrose", edgecolor="black", label=label)
-                    labels_added.add("Interrupt Subtask Estimated")
-                    label = "Interrupt Subtask" if "Interrupt Subtask" not in labels_added else ""
-                    interrupt_bar = ax.barh(y_pos, subtask.end_time - subtask.start_time, left=subtask.start_time,
-                                            color="red", edgecolor="black", label=label)
-                    labels_added.add("Interrupt Subtask")
-                    # 添加子任务标签数据arrival_time
-                    ax.text(subtask.start_time + (subtask.end_time - subtask.start_time) / 2, y_pos,
-                            f"{subtask.end_time - subtask.start_time:.2f}", ha='center', va='center', color="black")
-                    ax.text(subtask.end_time + (subtask.get_estimated_end_time() - subtask.end_time) / 2, y_pos,
-                            f"{subtask.get_estimated_end_time() - subtask.end_time:.2f}", ha='center', va='center',
-                            color="black")
-                else:
-                    if subtask.status =='done':
-                        label = "Subtask" if "Subtask" not in labels_added else ""
-                        subtask_bar = ax.barh(y_pos, subtask.end_time - subtask.start_time, left=subtask.start_time,
-                                              color="lightgreen", edgecolor="black", label=label)
-                        labels_added.add("Subtask")
-                        # 添加子任务标签数据arrival_time
-                        ax.text(subtask.start_time + (subtask.end_time - subtask.start_time) / 2, y_pos,
-                                f"{subtask.end_time - subtask.start_time:.2f}", ha='center', va='center', color="black")
-                    if subtask.status =='doing':
-                        label = "Subtask Estimated" if "Subtask Estimated" not in labels_added else ""
-                        subtask_bar = ax.barh(y_pos, subtask.get_estimated_end_time() - subtask.start_time,
-                                                left=subtask.start_time,
-                                                color="mintcream", edgecolor="black", label=label)
-                        labels_added.add("Subtask Estimated")
-                        ax.text(subtask.start_time + (subtask.get_estimated_end_time() - subtask.start_time) / 2, y_pos,
-                                f"{subtask.get_estimated_end_time() - subtask.start_time:.2f}", ha='center', va='center',
-                                color="black")
-
-                # 记录子任务标签
-                y_labels.append(f"{task.name}_sub")
-                y_positions.append(y_pos)
-
-            # 每个主任务及其子任务绘制完后，y_pos 2，以在下一主任务和子任务间留出间隔
-            y_pos += 2
-
-    # 设置任务名称作为 y 轴标签
-    # y_positions = list(range(len(y_labels)))  # y 轴位置从 0 开始，逐步递增
-    ax.set_yticklabels(y_labels)
-    ax.set_yticks(y_positions)  # 图例和标签对齐（要放后面，不然变y索引）
-
-    # 在图表中添加 current_time 的垂直线
-    # ax.axvline(x=current_time, color='red', linestyle='--', label=f'Current Time: {current_time:.2f}')
-    # plt.vlines(current_time, -1, y_pos, colors='r', linestyles='--', label=f'Current Time = {current_time:.2f}')
-    line = Line2D([current_time, current_time], [-1, y_pos], color='red', linestyle='--',
-                  label=f'Current Time = {current_time:.2f}')
-    ax.add_line(line)
-
-    # 设置标签和图例
-    ax.set_xlabel("Time/seconds")
-    ax.set_ylabel("Task")
-    ax.set_title("Task Execution Timeline")
-    ax.legend(loc='best')
-
-    # 显示图形
-    plt.savefig(f"img/{file_name}.png", dpi=300, bbox_inches='tight')
-    # plt.show()
-
 
 def schedule_tasks_ESGNN(tasks, available_size, borrow_schedule=[], is_save=False):
     n = 0  # 调控当task.remaining_duration>0，没有办法通过train model更新新的duration，而陷入循环
@@ -505,6 +401,11 @@ def schedule_tasks_ESGNN(tasks, available_size, borrow_schedule=[], is_save=Fals
         print(f"Running tasks: {[task.name for task in running_tasks]}")
         print(f"Available size: {available_size}")
 
+        task_list = running_tasks + completed_tasks + interrupt_tasks + task_queue
+        for task in task_list:
+            print(task)
+        print('--------------------------------------------------------')
+
     # Result
     final_tasks = get_result(running_tasks, completed_tasks, interrupt_tasks, task_queue, is_save)
 
@@ -544,4 +445,5 @@ if __name__ == "__main__":
     final_tasks = schedule_tasks_ESGNN(tasks, available_size=available_size, borrow_schedule=borrow_schedule,
                                        is_save=False)
 
+    # plot_tasks(final_tasks)
     # evaluation_tasks_scheduler(tasks,available_gpu_size=available_size)

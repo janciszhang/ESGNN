@@ -1,11 +1,12 @@
 """
 有时候会报错，可以多运行几次，会有成功的
 """
-
+from scheduler_evaluation import evaluation_tasks_scheduler
+from task import split_task_K
 from scheduer_base import find_minimum_end_time_indexes, get_result, borrow_handler, interrupt_handler, execute_handler, \
     advance_time_handler
-from viz import plot_tasks
 from task import Task, split_task, merge_subtasks
+from viz import plot_tasks
 import copy
 import heapq
 import random
@@ -15,8 +16,7 @@ from task import Task, split_task, new_task
 import time
 
 
-
-def schedule_tasks_Lyra(tasks, available_size, borrow_schedule=[],m_max = 50,is_save=False):
+def schedule_tasks_HongTu(tasks, available_size, m_max = 50, is_save=False):
     n = 0  # 调控当task.remaining_duration>0，没有办法通过train model更新新的duration，而陷入循环
     m = 0 # 调控无法处理的大任务，避免没有足够GPU而陷入循环(m_max最多循环多少次，return)
     running_tasks = []
@@ -25,16 +25,12 @@ def schedule_tasks_Lyra(tasks, available_size, borrow_schedule=[],m_max = 50,is_
     task_queue = []
 
     # Initial task queue
-    # 构建基于 size 的临时优先队列# Lyra根据size
-    temp_queue = [(task.size, task) for task in tasks]
+    for task in tasks:
+        sub_tasks = split_task_K(task, K=4)
+        for sub_task in sub_tasks:
+            print(sub_task)
+            heapq.heappush(task_queue, sub_task)
 
-    # 使用 heapify 构建堆
-    heapq.heapify(temp_queue)
-
-    # 弹出任务时，只获取实际的 Task 对象
-    task_queue = [heapq.heappop(temp_queue)[1] for _ in range(len(temp_queue))]
-    # for task in tasks:
-    #     heapq.heappush(task_queue, (task.size, task))
 
     current_time = 0
     next_time = 0
@@ -47,16 +43,16 @@ def schedule_tasks_Lyra(tasks, available_size, borrow_schedule=[],m_max = 50,is_
         next_borrow_end_time = None
         print(f"------------ Time: {current_time} min ---------------")
 
-        # Check for borrowed schedule
-        next_borrow_start_time, next_borrow_end_time, available_size, borrowed_applied, returned_applied = borrow_handler(
-            current_time, available_size, borrow_schedule, borrowed_applied, returned_applied)
-
-        # 中断Interrupt mechanism (Lyra根据size)
-        available_size, task_queue, running_tasks, interrupt_tasks = interrupt_handler(current_time, available_size,
-                                                                                       task_queue, running_tasks,
-                                                                                       interrupt_tasks,
-                                                                                       key_func=lambda task: task.size,
-                                                                                       reverse=True)
+        # # Check for borrowed schedule
+        # next_borrow_start_time, next_borrow_end_time, available_size, borrowed_applied, returned_applied = borrow_handler(
+        #     current_time, available_size, borrow_schedule, borrowed_applied, returned_applied)
+        #
+        # # 中断Interrupt mechanism (Lyra根据size)
+        # available_size, task_queue, running_tasks, interrupt_tasks = interrupt_handler(current_time, available_size,
+        #                                                                                task_queue, running_tasks,
+        #                                                                                interrupt_tasks,
+        #                                                                                key_func=lambda task: task.size,
+        #                                                                                reverse=True)
 
 
         # 运行Execute running tasks
@@ -64,7 +60,7 @@ def schedule_tasks_Lyra(tasks, available_size, borrow_schedule=[],m_max = 50,is_
                                                                                           running_tasks,
                                                                                           completed_tasks, n)
 
-
+        # 安排将要运行的任务Schedule new tasks based on current available size
         # 安排将要运行的任务Schedule new tasks based on current available size
         while task_queue and available_size > 0:
             # 更新优先级
@@ -76,18 +72,12 @@ def schedule_tasks_Lyra(tasks, available_size, borrow_schedule=[],m_max = 50,is_
                 break  # run priority already consider arrival_time
             else:
                 if task.remaining_size > available_size:
-                    # sub_tasks = split_task(task, available_size)
-                    # running_tasks.append(sub_tasks[0])
-                    # heapq.heappush(task_queue, task)
-                    # available_size -=sub_tasks[0].remaining_size
-                    # sub_tasks[0].start_doing(current_time)
-                    # print(sub_tasks[0])
                     print(f'Cannot handle this task: {task.name} now. Out of available GPU size.')
                     heapq.heappush(task_queue, task)
                     m += 1
                     print(f'm = {m}')
                     if m > m_max * len(running_tasks+completed_tasks+interrupt_tasks+task_queue):
-                        return get_result(running_tasks, completed_tasks, interrupt_tasks,task_queue, is_save)
+                        return get_result(running_tasks, completed_tasks, interrupt_tasks, task_queue, is_save)
                     break
                 else:
                     running_tasks.append(task)
@@ -127,35 +117,34 @@ if __name__ == "__main__":
     dataset4 = Flickr(root='/tmp/Flickr')
 
     # Define tasks
-    tasks = []
-    task_A = Task("A", 3, 3)  # size 3, duration 5min 3
-    task_B = Task("B", 14, 15)  # size 10, duration 20min 1/4
-    task_C = Task("C", 10, 20)  # size 10, duration 20min 4/4/2
-    task_D = Task("D", 10, 20)
+    tasks=[]
+    task_A = Task("A", 3, 3, arrival_time=0)  # size 3, duration 5min 3
+    task_B = Task("B", 4, 15, arrival_time=2)  # size 10, duration 20min 1/4
+    task_C = Task("C", 7, 20, arrival_time=4)  # size 10, duration 20min 4/4/2
+    task_D = Task("D", 2, 20, arrival_time=5)
 
     task_A.data=dataset1[0]
     task_B.data=dataset2[0]
     task_C.data=dataset3[0]
     task_D.data=dataset4[0]
 
-    task_A.arrival_time = 0
 
     tasks.append(task_A)
     tasks.append(task_B)
-    # tasks.append(task_C)
-    # tasks.append(task_D)
+    tasks.append(task_C)
+    tasks.append(task_D)
 
 
 
     # Define borrow schedule (borrow_start_time, borrow_end_time, borrow_space)
     available_size = 4
-    borrow_schedule = [(5, 6, 2)]  # Borrow 1 unit of space between time 4 and 6
+    borrow_schedule = [(2,3,-1),(5, 6, 2)]  # Borrow 1 unit of space between time 4 and 6
 
 
     # Schedule tasks
-    final_tasks = schedule_tasks_Lyra(tasks, available_size=available_size, borrow_schedule=borrow_schedule,is_save=False)
+    final_tasks = schedule_tasks_HongTu(tasks, available_size=available_size,is_save=False)
     plot_tasks(final_tasks)
 
 
-    # evaluation_tasks_scheduler(tasks,available_gpu_size=available_size)
+    evaluation_tasks_scheduler(tasks,available_gpu_size=available_size)
 

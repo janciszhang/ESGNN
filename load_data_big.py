@@ -123,30 +123,27 @@ def get_data_info(dataset,is_print=True,is_save=True):
 
 
 if __name__ == '__main__':
-    # 加载OGBN数据集2 GB
-    # dataset_OGBN_papers100M = PygNodePropPredDataset(name='ogbn-papers100M')
-    # get_data_info(dataset_OGBN_papers100M)
+    # OGBN_papers100M 56.17GB GB
+    # dataset_OGBN_papers100M = PygNodePropPredDataset(root='./dataset/ogbn_papers100M', name='ogbn-papers100M')
 
     # Freebase86M 73GB
-    dataset_FB15k = FB15kDataset()
-    # data = dataset[0]  # 获取图数据
+    # dataset_FB15k = FB15kDataset(root='./dataset/FB15k')
+    #
+    #
+    # # Hyperlink 2012 3.4k GB
+    dataset_Hyperlink2012 = torch_geometric.datasets.Planetoid(root='./dataset/hyperlink2012', name='Hyperlink2012')
+    #
+    # # Facebook15 8.5k GB
+    # Facebook15_dataset = SNAPDataset(root='./dataset/facebook', name='Facebook')
+    #
+    # # MAG240M - Cites 202GB
+    # dataset_MAG240M = MAG240MDataset(root='./dataset/MAG240M')
+    #
+    # # WikiKG90Mv2
+    # dataset_WikiKG90Mv2 = WikiKG90Mv2Dataset(root='./dataset/dataset')
+
+    # get_data_info(dataset_OGBN_papers100M)
     # get_data_info(dataset_FB15k)
-
-
-
-    # Hyperlink 2012 3.4k GB
-    dataset = torch_geometric.datasets.Planetoid(root='path/to/hyperlink2012', name='Hyperlink2012')
-    # data = dataset[0]  # 获取图数据
-
-    # Facebook15 8.5k GB
-    # dataset = SNAPDataset(root='path/to/facebook', name='Facebook')
-    # data = dataset[0]
-
-    # MAG240M - Cites
-    # dataset = MAG240MDataset(root='path/to/dataset')
-
-    # WikiKG90Mv2
-    # dataset = WikiKG90Mv2Dataset(root='path/to/dataset')
 
 
 

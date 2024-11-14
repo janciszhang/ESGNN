@@ -9,9 +9,9 @@ from torch_geometric.nn import GCNConv
 import networkx as nx
 import time
 import os
-# from ESGNN.get_path import get_all_file_paths
-# from ESGNN.metis_partition import partition_K
-from base_gnn import GNN
+# from get_path import get_all_file_paths
+# from metis_partition import partition_K
+# from base_gnn import GNN
 
 
 # def load_subgraphs(file_prefix, num_subgraphs):
@@ -102,7 +102,6 @@ def estimate_task_gpu(model, task_graph):
 
 def estimate_tasks_gpu(model,subgraphs,is_save=True):
     # 初始化模型和优化器
-    # model = GNN().cuda()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.01)
     criterion = torch.nn.CrossEntropyLoss()
 
@@ -175,27 +174,27 @@ if __name__ == '__main__':
     all_pt_folder_paths = get_all_file_paths(directory)
     print(all_pt_folder_paths)
     
-    for K in [1,2,4,8,16]:
-        n=1
-        m=0
-        for pt_folder_path in all_pt_folder_paths:
-            print(pt_folder_path)
-            subgraphs = load_subgraphs(pt_folder_path, K)
-            # print(subgraphs)
-            # 初始化模型
-            try:
-                input_dim = subgraphs[0].x.size(1)  # Feature dimension from the first subgraph
-                output_dim = len(torch.unique(subgraphs[0].y))  # Number of classes based on the labels in the first subgraph
-                model = GNN(input_dim, output_dim).cuda()
-                with open('gpu_estimate_result.txt', 'a') as f:
-                    f.write(pt_folder_path+ '\n')
-                times, sizes = estimate_tasks_gpu(model, subgraphs,is_save=True)
-                print(n)
-                n=n+1
-            except:
-                print(subgraphs)
-                m=m+1
-                print(f'Unsuccess {f}')
+    # for K in [1,2,4,8,16]:
+    #     n=1
+    #     m=0
+    #     for pt_folder_path in all_pt_folder_paths:
+    #         print(pt_folder_path)
+    #         subgraphs = load_subgraphs(pt_folder_path, K)
+    #         # print(subgraphs)
+    #         # 初始化模型
+    #         try:
+    #             input_dim = subgraphs[0].x.size(1)  # Feature dimension from the first subgraph
+    #             output_dim = len(torch.unique(subgraphs[0].y))  # Number of classes based on the labels in the first subgraph
+    #             model = GNN(input_dim, output_dim).cuda()
+    #             with open('gpu_estimate_result.txt', 'a') as f:
+    #                 f.write(pt_folder_path+ '\n')
+    #             times, sizes = estimate_tasks_gpu(model, subgraphs,is_save=True)
+    #             print(n)
+    #             n=n+1
+    #         except:
+    #             print(subgraphs)
+    #             m=m+1
+    #             print(f'Unsuccess {f}')
             
 
 
