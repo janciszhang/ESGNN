@@ -542,3 +542,123 @@ Number of classes: 0
 Total dataset size: 54.22 MB
 Total dataset disk size: 78.27 MB
 --------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------
+Dataset: Planetoid/Cora
+Number of nodes: 2708
+Number of edges: 10556
+Number of features: 1433
+Number of classes: 7
+Total dataset size: 89.46 MB
+Total dataset disk size: 15.54 MB
+--------------------------------------

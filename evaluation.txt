@@ -1,0 +1,2563 @@
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.834316730499268, 3, 'done', 'A']
+Task A completed in 5.83 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 5.83 seconds
+Average Completion Time: 5.83 seconds
+Total Net GPU Time: 5.83 seconds
+GPU Utilization Rate: 49.76%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.17 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 2, 7, 'interrupted', 'D']
+Task D completed in 6.46 seconds with waiting time 1.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 1.00 seconds
+Average Waiting Time: 1.00 seconds
+Total Completion Time: 6.46 seconds
+Average Completion Time: 6.46 seconds
+Total Net GPU Time: 2.00 seconds
+GPU Utilization Rate: 13.98%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.15 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 2, 8, 'interrupted', 'B_sub']
+[2, 5.287726640701294, 5, 'done', 'B_sub_sub']
+[6, 9.268746137619019, 3, 'done', 'B_sub']
+[9.268746137619019, 12, 11, 'interrupted', 'B_sub']
+[12, 16, 6, 'interrupted', 'B']
+[16, 19.287740230560303, 5, 'done', 'B_sub']
+[18, 21.648822784423828, 1, 'done', 'B_sub']
+[21.648822784423828, 24, 11, 'interrupted', 'B_sub']
+[24, 26, 10, 'interrupted', 'B_sub_sub']
+[26, 29.762855291366577, 1, 'done', 'B_sub']
+[29.762855291366577, 34.076847314834595, 6, 'done', 'B_sub_sub_sub']
+[34, 37.534799337387085, 4, 'done', 'B_sub_sub']
+Task B completed in 37.53 seconds with waiting time 0.00 and 5 interruptions (13.08 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 37.53 seconds
+Average Completion Time: 37.53 seconds
+Total Net GPU Time: 36.82 seconds
+GPU Utilization Rate: 67.58%
+Total Interruptions: 5 times
+Total Interruption Time: 13.08 seconds
+Interruption Expected Value: 0.35 per task
+Throughput: 0.03 tasks per second
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 3.8388543128967285, 7, 'done', 'D']
+Task D completed in 3.84 seconds with waiting time -5.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: -5.00 seconds
+Average Waiting Time: -5.00 seconds
+Total Completion Time: 3.84 seconds
+Average Completion Time: 3.84 seconds
+Total Net GPU Time: 3.84 seconds
+GPU Utilization Rate: 82.15%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.26 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 4.0859270095825195, 7, 'done', 'D']
+Task D completed in 4.09 seconds with waiting time -5.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: -5.00 seconds
+Average Waiting Time: -5.00 seconds
+Total Completion Time: 4.09 seconds
+Average Completion Time: 4.09 seconds
+Total Net GPU Time: 4.09 seconds
+GPU Utilization Rate: 82.45%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.24 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 3.876887798309326, 7, 'done', 'D']
+Task D completed in 3.88 seconds with waiting time -5.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: -5.00 seconds
+Average Waiting Time: -5.00 seconds
+Total Completion Time: 3.88 seconds
+Average Completion Time: 3.88 seconds
+Total Net GPU Time: 3.88 seconds
+GPU Utilization Rate: 82.20%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.26 tasks per second
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6, 3, 'interrupted', 'C_sub']
+[2, 8, 3, 'interrupted', 'C_sub']
+[12, 15.553802490234375, 1, 'done', 'C_sub_sub']
+[12, 15.496793031692505, 1, 'done', 'C_sub']
+[14, 17.648822784423828, 2, 'done', 'C_sub']
+[14, 18, 1, 'interrupted', 'C_sub_sub']
+[15.496793031692505, 18.879549026489258, 1, 'done', 'C_sub_sub']
+[15.553802490234375, 19.411664485931396, 1, 'done', 'C_sub']
+[16, 18, 1, 'interrupted', 'C_sub_sub']
+[17.648822784423828, 20, 1, 'interrupted', 'C_sub_sub']
+[17.648822784423828, 20, 1, 'interrupted', 'C_sub_sub']
+[18.879549026489258, 22, 1, 'interrupted', 'C_sub_sub']
+[24, 28.123928785324097, 1, 'done', 'C_sub_sub']
+Task C completed in 28.12 seconds with waiting time -4.00 and 7 interruptions (25.82 seconds).
+Total Waiting Time: -4.00 seconds
+Average Waiting Time: -4.00 seconds
+Total Completion Time: 28.12 seconds
+Average Completion Time: 28.12 seconds
+Total Net GPU Time: 22.12 seconds
+GPU Utilization Rate: 91.29%
+Total Interruptions: 7 times
+Total Interruption Time: 25.82 seconds
+Interruption Expected Value: 0.92 per task
+Throughput: 0.04 tasks per second
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 3.515791654586792, 2, 'done', 'C_sub']
+[0, 2, 7, 'interrupted', 'D']
+[2, 6.656044244766235, 5, 'done', 'C_sub']
+[2, 5.401759147644043, 1, 'done', 'D_sub']
+[3.515791654586792, 7.2976274490356445, 2, 'done', 'D_sub']
+[6, 9.249738454818726, 1, 'done', 'D_sub']
+[7.2976274490356445, 11.782634258270264, 2, 'done', 'D_sub']
+[8, 11.553797960281372, 1, 'done', 'D_sub']
+Task C completed in 6.66 seconds with waiting time -4.00 and 0 interruptions (0.00 seconds).
+Task D completed in 11.78 seconds with waiting time -5.00 and 1 interruptions (2.00 seconds).
+Total Waiting Time: -9.00 seconds
+Average Waiting Time: -4.50 seconds
+Total Completion Time: 18.44 seconds
+Average Completion Time: 9.22 seconds
+Total Net GPU Time: 11.78 seconds
+GPU Utilization Rate: 67.14%
+Total Interruptions: 1 times
+Total Interruption Time: 2.00 seconds
+Interruption Expected Value: 0.11 per task
+Throughput: 0.17 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.568249940872192, 7, 'done', 'D']
+[5.568249940872192, 10.851443529129028, 7, 'done', 'C']
+Task D completed in 5.57 seconds with waiting time -5.00 and 0 interruptions (0.00 seconds).
+Task C completed in 5.28 seconds with waiting time 1.57 and 0 interruptions (0.00 seconds).
+Total Waiting Time: -3.43 seconds
+Average Waiting Time: -1.72 seconds
+Total Completion Time: 10.85 seconds
+Average Completion Time: 5.43 seconds
+Total Net GPU Time: 10.85 seconds
+GPU Utilization Rate: 78.70%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.18 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 3.8768742084503174, 7, 'done', 'D']
+[3.8768742084503174, 10.39534068107605, 7, 'done', 'C']
+Task D completed in 3.88 seconds with waiting time -5.00 and 0 interruptions (0.00 seconds).
+Task C completed in 6.52 seconds with waiting time -0.12 and 0 interruptions (0.00 seconds).
+Total Waiting Time: -5.12 seconds
+Average Waiting Time: -2.56 seconds
+Total Completion Time: 10.40 seconds
+Average Completion Time: 5.20 seconds
+Total Net GPU Time: 10.40 seconds
+GPU Utilization Rate: 79.14%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.19 tasks per second
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 3.762850761413574, 5, 'done', 'C_sub']
+[0, 2, 3, 'interrupted', 'A']
+[6, 9.496779441833496, 2, 'done', 'C_sub']
+[6, 9.610811948776245, 1, 'done', 'A_sub']
+[8, 11.610816478729248, 2, 'done', 'A_sub']
+Task C completed in 9.50 seconds with waiting time -4.00 and 0 interruptions (0.00 seconds).
+Task A completed in 11.61 seconds with waiting time 0.00 and 1 interruptions (2.00 seconds).
+Total Waiting Time: -4.00 seconds
+Average Waiting Time: -2.00 seconds
+Total Completion Time: 21.11 seconds
+Average Completion Time: 10.55 seconds
+Total Net GPU Time: 9.37 seconds
+GPU Utilization Rate: 46.49%
+Total Interruptions: 1 times
+Total Interruption Time: 2.00 seconds
+Interruption Expected Value: 0.09 per task
+Throughput: 0.17 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.138371706008911, 3, 'done', 'A']
+[6.138371706008911, 14, 7, 'interrupted', 'C']
+[18, 28, 7, 'interrupted', 'C']
+[32, 40, 7, 'interrupted', 'C']
+Task A completed in 6.14 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 7.28 seconds with waiting time 40.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 40.00 seconds
+Average Waiting Time: 20.00 seconds
+Total Completion Time: 13.42 seconds
+Average Completion Time: 6.71 seconds
+Total Net GPU Time: 32.00 seconds
+GPU Utilization Rate: 47.92%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.04 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.5944836139678955, 3, 'done', 'A']
+[6.5944836139678955, 14, 7, 'interrupted', 'C']
+[14, 16, 6, 'interrupted', 'C_sub']
+[16, 19.078696489334106, 1, 'done', 'C_sub']
+[18, 28, 6, 'interrupted', 'C_sub']
+[28, 34.7655074596405, 5, 'done', 'C_sub_sub']
+[30, 33.89587736129761, 1, 'done', 'C_sub']
+Task A completed in 6.59 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 28.17 seconds with waiting time 2.59 and 3 interruptions (19.41 seconds).
+Total Waiting Time: 2.59 seconds
+Average Waiting Time: 1.30 seconds
+Total Completion Time: 34.77 seconds
+Average Completion Time: 17.38 seconds
+Total Net GPU Time: 34.77 seconds
+GPU Utilization Rate: 67.20%
+Total Interruptions: 3 times
+Total Interruption Time: 19.41 seconds
+Interruption Expected Value: 0.56 per task
+Throughput: 0.06 tasks per second
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.359201669692993, 3, 'done', 'A']
+[4, 10.119373083114624, 1, 'done', 'C_sub']
+[6, 16, 6, 'interrupted', 'C']
+[16, 21.188164234161377, 4, 'done', 'C_sub']
+[18, 21.819860219955444, 2, 'done', 'C_sub']
+Task A completed in 5.36 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 17.82 seconds with waiting time 0.00 and 1 interruptions (10.00 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 23.18 seconds
+Average Completion Time: 11.59 seconds
+Total Net GPU Time: 21.82 seconds
+GPU Utilization Rate: 54.84%
+Total Interruptions: 1 times
+Total Interruption Time: 10.00 seconds
+Interruption Expected Value: 0.43 per task
+Throughput: 0.09 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.264176845550537, 3, 'done', 'A']
+[6, 14, 7, 'interrupted', 'C']
+[18, 28, 7, 'interrupted', 'C']
+[32, 40, 7, 'interrupted', 'C']
+Task A completed in 5.26 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 6.84 seconds with waiting time 40.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 40.00 seconds
+Average Waiting Time: 20.00 seconds
+Total Completion Time: 12.11 seconds
+Average Completion Time: 6.05 seconds
+Total Net GPU Time: 31.26 seconds
+GPU Utilization Rate: 38.75%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.04 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.701276540756226, 3, 'done', 'A']
+[6, 14, 7, 'interrupted', 'C']
+[14, 16, 6, 'interrupted', 'C_sub']
+[16, 19.572805643081665, 1, 'done', 'C_sub']
+[18, 28, 6, 'interrupted', 'C_sub']
+[28, 31.7058322429657, 4, 'done', 'C_sub_sub']
+[30, 34.92211103439331, 2, 'done', 'C_sub']
+Task A completed in 5.70 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 28.92 seconds with waiting time 2.00 and 3 interruptions (20.00 seconds).
+Total Waiting Time: 2.00 seconds
+Average Waiting Time: 1.00 seconds
+Total Completion Time: 34.62 seconds
+Average Completion Time: 17.31 seconds
+Total Net GPU Time: 34.62 seconds
+GPU Utilization Rate: 51.48%
+Total Interruptions: 3 times
+Total Interruption Time: 20.00 seconds
+Interruption Expected Value: 0.58 per task
+Throughput: 0.06 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.727519273757935, 3, 'done', 'A']
+[4, 14.376332998275757, 7, 'done', 'C']
+Task A completed in 6.73 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 10.38 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 17.10 seconds
+Average Completion Time: 8.55 seconds
+Total Net GPU Time: 14.38 seconds
+GPU Utilization Rate: 64.56%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.14 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.081366777420044, 3, 'done', 'A']
+[4, 10.93656301498413, 7, 'done', 'C']
+Task A completed in 6.08 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 6.94 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 13.02 seconds
+Average Completion Time: 6.51 seconds
+Total Net GPU Time: 10.94 seconds
+GPU Utilization Rate: 61.08%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.18 tasks per second
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.7582995891571045, 3, 'done', 'A']
+[4, 8.694059610366821, 7, 'done', 'C']
+Task A completed in 5.76 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 4.69 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 10.45 seconds
+Average Completion Time: 5.23 seconds
+Total Net GPU Time: 8.69 seconds
+GPU Utilization Rate: 57.66%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.23 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 8, 3, 'interrupted', 'A']
+[12, 20, 2, 'interrupted', 'A_sub']
+[14, 18.18092918395996, 1, 'done', 'A_sub']
+[20, 22, 1, 'interrupted', 'A_sub_sub']
+[24, 28.38999104499817, 1, 'done', 'A_sub']
+[26, 29.572810173034668, 1, 'done', 'A_sub_sub']
+[29.572810173034668, 32, 5, 'interrupted', 'C_sub']
+[32, 34, 2, 'interrupted', 'C']
+[38, 42.066914796829224, 2, 'done', 'C_sub']
+[42.066914796829224, 44, 5, 'interrupted', 'C_sub']
+[44, 46, 3, 'interrupted', 'C_sub_sub']
+[50, 54.38999104499817, 2, 'done', 'C_sub']
+[54.38999104499817, 57.981799840927124, 3, 'done', 'C_sub_sub']
+Task A completed in 29.57 seconds with waiting time 0.00 and 3 interruptions (18.00 seconds).
+Task C completed in 28.41 seconds with waiting time 25.57 and 4 interruptions (8.36 seconds).
+Total Waiting Time: 25.57 seconds
+Average Waiting Time: 12.79 seconds
+Total Completion Time: 57.98 seconds
+Average Completion Time: 28.99 seconds
+Total Net GPU Time: 43.98 seconds
+GPU Utilization Rate: 67.66%
+Total Interruptions: 7 times
+Total Interruption Time: 26.36 seconds
+Interruption Expected Value: 0.45 per task
+Throughput: 0.03 tasks per second
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.822544097900391, 3, 'done', 'A']
+[4, 6, 3, 'interrupted', 'C_sub']
+[6.822544097900391, 8, 3, 'interrupted', 'C_sub']
+[12, 15.572810173034668, 2, 'done', 'C_sub_sub']
+[14, 17.819860219955444, 1, 'done', 'C_sub']
+[14, 20, 2, 'interrupted', 'C_sub']
+[15.572810173034668, 19.031583309173584, 1, 'done', 'C_sub']
+[16, 18, 1, 'interrupted', 'C_sub']
+[17.819860219955444, 20, 1, 'interrupted', 'C_sub']
+[20, 22, 1, 'interrupted', 'C_sub']
+[24, 27.667821407318115, 1, 'done', 'C_sub']
+[26, 30.580036163330078, 2, 'done', 'C_sub']
+Task A completed in 6.82 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 26.58 seconds with waiting time 0.00 and 6 interruptions (15.36 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 33.40 seconds
+Average Completion Time: 16.70 seconds
+Total Net GPU Time: 24.58 seconds
+GPU Utilization Rate: 77.85%
+Total Interruptions: 6 times
+Total Interruption Time: 15.36 seconds
+Interruption Expected Value: 0.46 per task
+Throughput: 0.07 tasks per second
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 14, 3, 'interrupted', 'A']
+[6, 15.54013991355896, 7, 'done', 'C']
+Task C completed in 9.54 seconds with waiting time 2.00 and 0 interruptions (0.00 seconds).
+Task A completed in 8.08 seconds with waiting time 20.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 22.00 seconds
+Average Waiting Time: 11.00 seconds
+Total Completion Time: 17.62 seconds
+Average Completion Time: 8.81 seconds
+Total Net GPU Time: 15.54 seconds
+GPU Utilization Rate: 38.50%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.09 tasks per second
+evaluate_result: [22,17.616960048675537,38.50139773566544,0.0,0.09059275691695709]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.689517498016357, 3, 'done', 'A']
+[6, 15.901217937469482, 7, 'done', 'C']
+Task A completed in 6.69 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 9.90 seconds with waiting time 2.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 2.00 seconds
+Average Waiting Time: 1.00 seconds
+Total Completion Time: 16.59 seconds
+Average Completion Time: 8.30 seconds
+Total Net GPU Time: 15.90 seconds
+GPU Utilization Rate: 56.85%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.13 tasks per second
+evaluate_result: [2,16.59073543548584,56.85212383574321,0.0,0.1257765290599042]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 7.031538009643555, 3, 'done', 'A']
+[4, 7.762855291366577, 4, 'done', 'C_sub']
+[6, 9.610807418823242, 3, 'done', 'C_sub']
+Task A completed in 7.03 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 5.61 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 12.64 seconds
+Average Completion Time: 6.32 seconds
+Total Net GPU Time: 9.61 seconds
+GPU Utilization Rate: 52.82%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.21 tasks per second
+evaluate_result: [0,12.642345428466797,52.82009807543078,0.0,0.20809906107190337]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.606265306472778, 3, 'done', 'A']
+[5.606265306472778, 9.787221670150757, 3, 'done', 'C_sub']
+[9.787221670150757, 14.462305307388306, 3, 'done', 'C_sub']
+[14.462305307388306, 18.738277435302734, 1, 'done', 'C_sub']
+Task A completed in 5.61 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 13.13 seconds with waiting time 1.61 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 1.61 seconds
+Average Waiting Time: 0.80 seconds
+Total Completion Time: 18.74 seconds
+Average Completion Time: 9.37 seconds
+Total Net GPU Time: 18.74 seconds
+GPU Utilization Rate: 84.79%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.11 tasks per second
+evaluate_result: [1.6062653064727783,18.738277435302734,84.78703234532277,0.0,0.10673339675460346]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.214416027069092, 3, 'done', 'A']
+[6.214416027069092, 10.357384204864502, 3, 'done', 'C_sub']
+[10.357384204864502, 15.887650489807129, 3, 'done', 'C_sub']
+[15.887650489807129, 19.840546369552612, 1, 'done', 'C_sub']
+Task A completed in 6.21 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 13.63 seconds with waiting time 2.21 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 2.21 seconds
+Average Waiting Time: 1.11 seconds
+Total Completion Time: 19.84 seconds
+Average Completion Time: 9.92 seconds
+Total Net GPU Time: 19.84 seconds
+GPU Utilization Rate: 86.72%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.10 tasks per second
+evaluate_result: [2.214416027069092,19.840546369552612,86.7177855350072,0.0,0.10080367560185785]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 7.829806327819824, 3, 'done', 'A']
+[4, 9.815322637557983, 7, 'done', 'C']
+Task A completed in 7.83 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 5.82 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 13.65 seconds
+Average Completion Time: 6.82 seconds
+Total Net GPU Time: 9.82 seconds
+GPU Utilization Rate: 65.40%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.20 tasks per second
+evaluate_result: [0,13.645128965377808,65.40455145174653,0.0,0.20376304211815421]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.233428239822388, 3, 'done', 'A']
+[4, 11.031615018844604, 7, 'done', 'C']
+Task A completed in 6.23 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 7.03 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 13.27 seconds
+Average Completion Time: 6.63 seconds
+Total Net GPU Time: 11.03 seconds
+GPU Utilization Rate: 61.57%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.18 tasks per second
+evaluate_result: [0,13.265043258666992,61.56994214841007,0.0,0.181297117111459]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.207180976867676, 3, 'done', 'A']
+[4, 11.107623100280762, 7, 'done', 'C']
+Task A completed in 5.21 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 7.11 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 12.31 seconds
+Average Completion Time: 6.16 seconds
+Total Net GPU Time: 11.11 seconds
+GPU Utilization Rate: 58.86%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.18 tasks per second
+evaluate_result: [0,12.314804077148438,58.85589026775306,0.0,0.18005652351936996]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.815354347229004, 4, 'done', 'A']
+[5.815354347229004, 13.379075765609741, 8, 'done', 'C']
+Task A completed in 5.82 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 7.56 seconds with waiting time 1.82 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 1.82 seconds
+Average Waiting Time: 0.91 seconds
+Total Completion Time: 13.38 seconds
+Average Completion Time: 6.69 seconds
+Total Net GPU Time: 13.38 seconds
+GPU Utilization Rate: 69.57%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.15 tasks per second
+evaluate_result: [1.815354347229004,13.379075765609741,69.57064914361911,0.0,0.14948715703822396]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.663297414779663, 4, 'done', 'A']
+[5.663297414779663, 12.10577392578125, 8, 'done', 'C']
+Task A completed in 5.66 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 6.44 seconds with waiting time 1.66 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 1.66 seconds
+Average Waiting Time: 0.83 seconds
+Total Completion Time: 12.11 seconds
+Average Completion Time: 6.05 seconds
+Total Net GPU Time: 12.11 seconds
+GPU Utilization Rate: 68.10%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.17 tasks per second
+evaluate_result: [1.663297414779663,12.10577392578125,68.09698340092176,0.0,0.16521042043752932]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 4.922138214111328, 4, 'done', 'A']
+[4, 11.012598276138306, 5, 'done', 'C_sub']
+[4.922138214111328, 8.913044929504395, 3, 'done', 'C_sub']
+Task A completed in 4.92 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 7.01 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 11.93 seconds
+Average Completion Time: 5.97 seconds
+Total Net GPU Time: 11.01 seconds
+GPU Utilization Rate: 67.32%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00 per task
+Throughput: 0.18 tasks per second
+evaluate_result: [0,11.934736490249634,67.3211440915424,0.0,0.18161018406832533]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 7.069621324539185, 4, 'done', 'A']
+[7.069621324539185, 8, 4, 'interrupted', 'C_sub']
+[8, 12.52304482460022, 1, 'done', 'C_sub']
+[12.52304482460022, 18, 3, 'interrupted', 'C']
+[16, 20, 4, 'interrupted', 'C_sub']
+[20, 22, 2, 'interrupted', 'C_sub']
+[22, 25.192728996276855, 1, 'done', 'C_sub']
+[25.192728996276855, 29.563730478286743, 2, 'done', 'C_sub']
+[28, 32, 4, 'interrupted', 'C_sub']
+[32, 34, 3, 'interrupted', 'C_sub_sub']
+[34, 37.28774929046631, 1, 'done', 'C_sub']
+[37.28774929046631, 41.08861994743347, 1, 'done', 'C_sub_sub_sub']
+[38, 41.781872034072876, 2, 'done', 'C_sub_sub']
+Task A completed in 7.07 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 34.71 seconds with waiting time 3.07 and 6 interruptions (18.41 seconds).
+Total Waiting Time: 3.07 seconds
+Average Waiting Time: 1.53 seconds
+Total Completion Time: 41.78 seconds
+Average Completion Time: 20.89 seconds
+Total Net GPU Time: 41.78 seconds
+GPU Utilization Rate: 73.01%
+Total Interruptions: 6 times
+Total Interruption Time: 18.41 seconds
+Interruption Expected Value: 0.44 per task
+Throughput: 0.05 tasks per second
+evaluate_result: [3.0696213245391846,41.781872034072876,73.00939505071078,0.44055790118378424,0.04786764935685533]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 8, 4, 'interrupted', 'A']
+[4, 6, 3, 'interrupted', 'C_sub']
+[8, 13.226188659667969, 1, 'done', 'C_sub_sub']
+[12, 15.914903163909912, 2, 'done', 'C_sub']
+[13.226188659667969, 20, 4, 'interrupted', 'A']
+[15.914903163909912, 18, 3, 'interrupted', 'C_sub']
+[18, 20, 1, 'interrupted', 'C_sub']
+[20, 22, 1, 'interrupted', 'C_sub']
+[20, 24.009941577911377, 1, 'done', 'C_sub']
+[24, 27.610843658447266, 1, 'done', 'C_sub']
+[24.009941577911377, 27.60177755355835, 1, 'done', 'C_sub_sub']
+[26, 30.789093494415283, 1, 'done', 'A_sub']
+[26, 30.27597665786743, 2, 'done', 'C_sub']
+[27.610843658447266, 34, 1, 'interrupted', 'A']
+[28, 34, 2, 'interrupted', 'A_sub']
+[34, 40.25243139266968, 1, 'done', 'A_sub']
+[38, 44.25243139266968, 2, 'done', 'A_sub']
+Task A completed in 44.25 seconds with waiting time 0.00 and 4 interruptions (27.16 seconds).
+Task C completed in 26.28 seconds with waiting time 0.00 and 4 interruptions (8.09 seconds).
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Completion Time: 70.53 seconds
+Average Completion Time: 35.26 seconds
+Total Net GPU Time: 44.25 seconds
+GPU Utilization Rate: 82.02%
+Total Interruptions: 8 times
+Total Interruption Time: 35.25 seconds
+Interruption Expected Value: 0.50 per task
+Throughput: 0.05 tasks per second
+evaluate_result: [0,70.52840805053711,82.021132445681,0.49977116302863184,0.045195256781558356]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6, 4, 'interrupted', 'A']
+[4, 8, 8, 'interrupted', 'C']
+[8, 18, 4, 'interrupted', 'A']
+[16, 20, 8, 'interrupted', 'C']
+[20, 30, 4, 'interrupted', 'A']
+[28, 32, 8, 'interrupted', 'C']
+[32, 44, 4, 'interrupted', 'A']
+[40, 46, 8, 'interrupted', 'C']
+[46, 55.14144968986511, 4, 'done', 'A_sub']
+[55.14144968986511, 60.272830963134766, 8, 'done', 'C_sub']
+Task A completed in 55.14 seconds with waiting time 0.00 and 4 interruptions (38.00 seconds).
+Task C completed in 56.27 seconds with waiting time 0.00 and 4 interruptions (18.00 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 1 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 60.27 seconds
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Execute Duration: 111.41 seconds
+Average Execute Duration: 111.41 seconds
+Total Completion Time: 111.41 seconds
+Average Completion Time: 55.71 seconds
+Total Net GPU Time: 60.27 seconds
+Total GPU Utilization: 373.62 size * seconds
+GPU Utilization Rate: 76.85%
+Total Interruptions: 8 times
+Total Interruption Time: 56.00 seconds
+Interruption Expected Value: 0.93
+Total GPU Communicated: 60.00 sizeThroughput (size): 1.00 size per seconds
+Throughput (task): 0.03 tasks per second
+evaluate_result: [0,111.41428065299988,76.8470143287089,0.9291085071854648,0.03318244668519517]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6, 4, 'interrupted', 'A']
+[4, 8, 8, 'interrupted', 'C']
+[8, 14.100614547729492, 4, 'done', 'A_sub']
+[14.100614547729492, 20, 8, 'interrupted', 'C']
+[20, 22, 6, 'interrupted', 'C_sub']
+[22, 26.86531901359558, 2, 'done', 'C_sub']
+[26, 34, 6, 'interrupted', 'C_sub']
+[34, 37.782026052474976, 4, 'done', 'C_sub_sub']
+[38, 41.801011085510254, 2, 'done', 'C_sub']
+Task A completed in 14.10 seconds with waiting time 0.00 and 1 interruptions (6.00 seconds).
+Task C completed in 37.80 seconds with waiting time 0.00 and 4 interruptions (19.90 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 1 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 41.80 seconds
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Execute Duration: 51.90 seconds
+Average Execute Duration: 51.90 seconds
+Total Completion Time: 51.90 seconds
+Average Completion Time: 25.95 seconds
+Total Net GPU Time: 41.58 seconds
+Total GPU Utilization: 220.06 size * seconds
+GPU Utilization Rate: 63.67%
+Total Interruptions: 5 times
+Total Interruption Time: 25.90 seconds
+Interruption Expected Value: 0.62
+Total GPU Communicated: 44.00 sizeThroughput (size): 1.05 size per seconds
+Throughput (task): 0.05 tasks per second
+evaluate_result: [0,51.901625633239746,63.67204307626565,0.619587535796429,0.04784573262854095]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 10, 4, 'interrupted', 'A']
+[4, 6, 8, 'interrupted', 'C']
+[6, 8, 4, 'interrupted', 'C_sub']
+[8, 12.143113136291504, 1, 'done', 'C_sub_sub']
+[10, 15.074362754821777, 3, 'done', 'C_sub']
+[12, 16.371173620224, 3, 'done', 'C_sub']
+[12.143113136291504, 15.963136434555054, 1, 'done', 'C_sub']
+[14, 21.373984336853027, 4, 'done', 'A_sub']
+Task A completed in 21.37 seconds with waiting time 0.00 and 1 interruptions (10.00 seconds).
+Task C completed in 12.37 seconds with waiting time 0.00 and 2 interruptions (4.00 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 1 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 21.37 seconds
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Execute Duration: 33.75 seconds
+Average Execute Duration: 33.75 seconds
+Total Completion Time: 33.75 seconds
+Average Completion Time: 16.87 seconds
+Total Net GPU Time: 21.37 seconds
+Total GPU Utilization: 129.80 size * seconds
+GPU Utilization Rate: 69.69%
+Total Interruptions: 3 times
+Total Interruption Time: 14.00 seconds
+Interruption Expected Value: 0.66
+Total GPU Communicated: 28.00 sizeThroughput (size): 1.31 size per seconds
+Throughput (task): 0.09 tasks per second
+evaluate_result: [0,33.745157957077026,69.69123751753091,0.6550018835683901,0.09357169765262716]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 7.183930158615112, 4, 'done', 'A']
+[7.183930158615112, 13.835717678070068, 8, 'done', 'C']
+Task A completed in 7.18 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 6.65 seconds with waiting time 3.18 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 1 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 13.84 seconds
+Total Waiting Time: 3.18 seconds
+Average Waiting Time: 1.59 seconds
+Total Execute Duration: 13.84 seconds
+Average Execute Duration: 13.84 seconds
+Total Completion Time: 13.84 seconds
+Average Completion Time: 6.92 seconds
+Total Net GPU Time: 13.84 seconds
+Total GPU Utilization: 81.95 size * seconds
+GPU Utilization Rate: 65.81%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00
+Total GPU Communicated: 12.00 sizeThroughput (size): 0.87 size per seconds
+Throughput (task): 0.14 tasks per second
+evaluate_result: [3.1839301586151123,13.835717678070068,65.8119663716411,0.0,0.1445533977012299]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.416464805603027, 4, 'done', 'A']
+[5.416464805603027, 13.626678466796875, 8, 'done', 'C']
+Task A completed in 5.42 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 8.21 seconds with waiting time 1.42 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 1 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 13.63 seconds
+Total Waiting Time: 1.42 seconds
+Average Waiting Time: 0.71 seconds
+Total Execute Duration: 13.63 seconds
+Average Execute Duration: 13.63 seconds
+Total Completion Time: 13.63 seconds
+Average Completion Time: 6.81 seconds
+Total Net GPU Time: 13.63 seconds
+Total GPU Utilization: 87.35 size * seconds
+GPU Utilization Rate: 71.22%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00
+Total GPU Communicated: 12.00 sizeThroughput (size): 0.88 size per seconds
+Throughput (task): 0.15 tasks per second
+evaluate_result: [1.4164648056030273,13.626678466796875,71.22267846758294,0.0,0.14677091008445328]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.6445252895355225, 4, 'done', 'A']
+[4, 6, 6, 'interrupted', 'C_sub']
+[5.6445252895355225, 9.65460729598999, 3, 'done', 'C_sub']
+[6, 9.363915920257568, 3, 'done', 'C_sub_sub']
+[6, 10.770267009735107, 2, 'done', 'C_sub']
+Task A completed in 5.64 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 6.77 seconds with waiting time 0.00 and 1 interruptions (2.00 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 1 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 10.77 seconds
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Execute Duration: 12.41 seconds
+Average Execute Duration: 12.41 seconds
+Total Completion Time: 12.41 seconds
+Average Completion Time: 6.21 seconds
+Total Net GPU Time: 10.77 seconds
+Total GPU Utilization: 66.24 size * seconds
+GPU Utilization Rate: 67.48%
+Total Interruptions: 1 times
+Total Interruption Time: 2.00 seconds
+Interruption Expected Value: 0.19
+Total GPU Communicated: 18.00 sizeThroughput (size): 1.67 size per seconds
+Throughput (task): 0.19 tasks per second
+evaluate_result: [0,12.41479229927063,67.48083487628443,0.18569641757184158,0.18569641757184158]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 12, 4, 'interrupted', 'A']
+[8, 14.442644119262695, 8, 'done', 'C']
+[14.442644119262695, 21.968535900115967, 4, 'done', 'A_sub']
+[22, 24, 4, 'interrupted', 'A']
+Task A completed in 24.00 seconds with waiting time 0.00 and 2 interruptions (14.00 seconds).
+Task C completed in 6.44 seconds with waiting time 4.00 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 2 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 24.00 seconds
+Total Waiting Time: 4.00 seconds
+Average Waiting Time: 2.00 seconds
+Total Execute Duration: 30.44 seconds
+Average Execute Duration: 15.22 seconds
+Total Completion Time: 30.44 seconds
+Average Completion Time: 15.22 seconds
+Total Net GPU Time: 23.97 seconds
+Total GPU Utilization: 137.64 size * seconds
+GPU Utilization Rate: 57.83%
+Total Interruptions: 2 times
+Total Interruption Time: 14.00 seconds
+Interruption Expected Value: 0.58
+Total GPU Communicated: 20.00 sizeThroughput (size): 0.83 size per seconds
+Throughput (task): 0.08 tasks per second
+evaluate_result: [4,30.442644119262695,57.83391599895573,0.5833333333333334,0.08333333333333333]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.397352933883667, 4, 'done', 'A']
+[5.397352933883667, 11.611913919448853, 8, 'done', 'C']
+Task A completed in 5.40 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 6.21 seconds with waiting time 1.40 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 2 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 11.61 seconds
+Total Waiting Time: 1.40 seconds
+Average Waiting Time: 0.70 seconds
+Total Execute Duration: 11.61 seconds
+Average Execute Duration: 5.81 seconds
+Total Completion Time: 11.61 seconds
+Average Completion Time: 5.81 seconds
+Total Net GPU Time: 11.61 seconds
+Total GPU Utilization: 71.31 size * seconds
+GPU Utilization Rate: 61.82%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00
+Total GPU Communicated: 12.00 sizeThroughput (size): 1.03 size per seconds
+Throughput (task): 0.17 tasks per second
+evaluate_result: [1.397352933883667,11.611913919448853,61.82076068791999,0.0,0.17223689512976753]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.0245068073272705, 4, 'done', 'A']
+[4, 7.775579929351807, 4, 'done', 'C_sub']
+[6, 9.401854276657104, 2, 'done', 'C_sub']
+[6.0245068073272705, 11.288828611373901, 2, 'done', 'C_sub']
+Task A completed in 6.02 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 7.29 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 2 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 11.29 seconds
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Execute Duration: 13.31 seconds
+Average Execute Duration: 6.66 seconds
+Total Completion Time: 13.31 seconds
+Average Completion Time: 6.66 seconds
+Total Net GPU Time: 11.29 seconds
+Total GPU Utilization: 56.53 size * seconds
+GPU Utilization Rate: 50.72%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00
+Total GPU Communicated: 12.00 sizeThroughput (size): 1.06 size per seconds
+Throughput (task): 0.18 tasks per second
+evaluate_result: [0,13.313335418701172,50.71746348341233,0.0,0.1771663003179026]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6, 4, 'interrupted', 'A']
+[4, 8, 8, 'interrupted', 'C']
+[8, 20, 4, 'interrupted', 'A']
+[14, 22, 8, 'interrupted', 'C']
+[22, 32, 4, 'interrupted', 'A']
+[26, 34, 8, 'interrupted', 'C']
+[34, 44, 4, 'interrupted', 'A']
+[40, 46, 8, 'interrupted', 'C']
+[46, 52.10044240951538, 4, 'done', 'A_sub']
+[52.10044240951538, 57.47873330116272, 8, 'done', 'C_sub']
+Task A completed in 52.10 seconds with waiting time 0.00 and 4 interruptions (38.00 seconds).
+Task C completed in 53.48 seconds with waiting time 0.00 and 4 interruptions (26.00 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 2 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 57.48 seconds
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Execute Duration: 105.58 seconds
+Average Execute Duration: 52.79 seconds
+Total Completion Time: 105.58 seconds
+Average Completion Time: 52.79 seconds
+Total Net GPU Time: 57.48 seconds
+Total GPU Utilization: 427.43 size * seconds
+Total GPU Capacity: 578.79 size * seconds
+GPU Utilization Rate: 73.85%
+Total Interruptions: 8 times
+Total Interruption Time: 64.00 seconds
+Interruption Expected Value: 1.11
+Total GPU Communicated: 60.00 sizeThroughput (size): 1.04 size per seconds
+Throughput (task): 0.03 tasks per second
+evaluate_result: [0,105.5791757106781,73.84890311043722,1.1134552959730128,0.03479547799915665]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6, 4, 'interrupted', 'A']
+[4, 8, 8, 'interrupted', 'C']
+[8, 14.613572835922241, 4, 'done', 'A_sub']
+[14, 22, 8, 'interrupted', 'C']
+[22, 28.86064100265503, 6, 'done', 'C_sub']
+[24, 30.480537176132202, 2, 'done', 'C_sub']
+Task A completed in 14.61 seconds with waiting time 0.00 and 1 interruptions (6.00 seconds).
+Task C completed in 26.48 seconds with waiting time 0.00 and 2 interruptions (12.00 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 2 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 30.48 seconds
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Execute Duration: 41.09 seconds
+Average Execute Duration: 20.55 seconds
+Total Completion Time: 41.09 seconds
+Average Completion Time: 20.55 seconds
+Total Net GPU Time: 30.48 seconds
+Total GPU Utilization: 200.58 size * seconds
+Total GPU Capacity: 320.25 size * seconds
+GPU Utilization Rate: 62.63%
+Total Interruptions: 3 times
+Total Interruption Time: 18.00 seconds
+Interruption Expected Value: 0.59
+Total GPU Communicated: 32.00 sizeThroughput (size): 1.05 size per seconds
+Throughput (task): 0.07 tasks per second
+evaluate_result: [0,41.09411001205444,62.63266234437096,0.590540773477408,0.06561564149748977]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.575566530227661, 4, 'done', 'A']
+[4, 6, 8, 'interrupted', 'C']
+[6, 8, 6, 'interrupted', 'C_sub']
+[6.575566530227661, 10, 4, 'interrupted', 'C_sub_sub']
+[8, 11.705891132354736, 1, 'done', 'C_sub_sub']
+[8, 14.993667602539062, 2, 'done', 'C_sub']
+[10, 14.128685235977173, 2, 'done', 'C_sub_sub_sub']
+[10, 16.290514707565308, 1, 'done', 'C_sub']
+[12, 15.534840106964111, 2, 'done', 'C_sub_sub']
+Task A completed in 6.58 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 12.29 seconds with waiting time 0.00 and 3 interruptions (7.42 seconds).
+Number of Arrived Tasks: 2 tasks
+Number of Executed Tasks: 2 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 16.29 seconds
+Total Waiting Time: 0.00 seconds
+Average Waiting Time: 0.00 seconds
+Total Execute Duration: 18.87 seconds
+Average Execute Duration: 9.43 seconds
+Total Completion Time: 18.87 seconds
+Average Completion Time: 9.43 seconds
+Total Net GPU Time: 16.29 seconds
+Total GPU Utilization: 107.31 size * seconds
+Total GPU Capacity: 170.07 size * seconds
+GPU Utilization Rate: 63.10%
+Total Interruptions: 3 times
+Total Interruption Time: 7.42 seconds
+Interruption Expected Value: 0.46
+Total GPU Communicated: 30.00 sizeThroughput (size): 1.84 size per seconds
+Throughput (task): 0.12 tasks per second
+evaluate_result: [0,18.86608123779297,63.09905026031175,0.4557519269986255,0.12277082927718673]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6, 4, 'interrupted', 'A']
+[4, 20.22983407974243, 8, 'done', 'C']
+[16, 18, 4, 'interrupted', 'A']
+[20.22983407974243, 26.824394702911377, 4, 'done', 'A_sub']
+[26, 30.009968757629395, 7, 'done', 'D']
+Task A completed in 26.82 seconds with waiting time 0.00 and 2 interruptions (8.00 seconds).
+Task C completed in 16.23 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 4.01 seconds with waiting time 21.00 and 0 interruptions (0.00 seconds).
+Task B have not completed. Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 3 tasks
+Number of Completed Tasks: 3 tasks
+Total Work Time: 30.01 seconds
+Total Waiting Time: 51.01 seconds
+Average Waiting Time: 12.75 seconds
+Total Execute Duration: 47.06 seconds
+Average Execute Duration: 15.69 seconds
+Total Completion Time: 47.06 seconds
+Average Completion Time: 15.69 seconds
+Total Net GPU Time: 30.01 seconds
+Total GPU Utilization: 216.29 size * seconds
+Total GPU Capacity: 306.11 size * seconds
+GPU Utilization Rate: 70.66%
+Total Interruptions: 2 times
+Total Interruption Time: 8.00 seconds
+Interruption Expected Value: 0.27
+Total GPU Communicated: 27.00 sizeThroughput (size): 0.90 size per seconds
+Throughput (task): 0.10 tasks per second
+evaluate_result: [51.009968757629395,47.0641975402832,70.65660685923677,0.26657808492273655,0.09996678184602621]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6, 4, 'interrupted', 'A']
+[4, 9.910406351089478, 8, 'done', 'C']
+[9.910406351089478, 15.345688581466675, 4, 'done', 'A_sub']
+[15.345688581466675, 19.27961754798889, 7, 'done', 'D']
+[16, 18, 4, 'interrupted', 'A']
+[19.27961754798889, 22, 9, 'interrupted', 'B_sub']
+[22, 25.420798540115356, 8, 'done', 'B_sub_sub']
+[24, 27.819905519485474, 1, 'done', 'B_sub']
+[27.819905519485474, 30, 12, 'interrupted', 'B_sub']
+[30, 34.047961473464966, 4, 'done', 'B_sub']
+[34.047961473464966, 37.5257785320282, 8, 'done', 'B_sub_sub']
+[37.5257785320282, 40.79454731941223, 4, 'done', 'B_sub']
+Task A completed in 18.00 seconds with waiting time 0.00 and 2 interruptions (8.00 seconds).
+Task C completed in 5.91 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 3.93 seconds with waiting time 10.35 and 0 interruptions (0.00 seconds).
+Task B completed in 21.51 seconds with waiting time 19.28 and 2 interruptions (4.90 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 40.79 seconds
+Total Waiting Time: 29.63 seconds
+Average Waiting Time: 7.41 seconds
+Total Execute Duration: 49.36 seconds
+Average Execute Duration: 12.34 seconds
+Total Completion Time: 49.36 seconds
+Average Completion Time: 12.34 seconds
+Total Net GPU Time: 40.79 seconds
+Total GPU Utilization: 267.48 size * seconds
+Total GPU Capacity: 409.53 size * seconds
+GPU Utilization Rate: 65.31%
+Total Interruptions: 4 times
+Total Interruption Time: 12.90 seconds
+Interruption Expected Value: 0.32
+Total GPU Communicated: 73.00 sizeThroughput (size): 1.79 size per seconds
+Throughput (task): 0.10 tasks per second
+evaluate_result: [29.625306129455566,49.359265089035034,65.3137074845348,0.3162304224512597,0.09805231980345044]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 3.7058775424957275, 6, 'done', 'B_sub']
+[0, 6.5375330448150635, 4, 'done', 'A']
+[2, 6, 2, 'interrupted', 'B_sub']
+[3.7058775424957275, 8, 6, 'interrupted', 'B_sub']
+[6.5375330448150635, 10.224402904510498, 2, 'done', 'B_sub']
+[6.5375330448150635, 10.832562685012817, 2, 'done', 'D_sub']
+[8, 13.283247947692871, 2, 'done', 'B_sub_sub']
+[8, 12.42809247970581, 2, 'done', 'B_sub']
+[10.224402904510498, 14.633451461791992, 2, 'done', 'D_sub']
+[10.832562685012817, 14.99455213546753, 2, 'done', 'D_sub']
+[12, 16.542070627212524, 2, 'done', 'B_sub_sub']
+[12.42809247970581, 17.21721315383911, 2, 'done', 'C_sub']
+[13.283247947692871, 17.483234643936157, 1, 'done', 'D_sub']
+[13.283247947692871, 18.37642812728882, 1, 'done', 'C_sub']
+[14, 18.31401014328003, 1, 'done', 'C_sub']
+[14.633451461791992, 18.700407028198242, 2, 'done', 'C_sub']
+[14.99455213546753, 18, 1, 'interrupted', 'B_sub']
+[14.99455213546753, 19.23256778717041, 1, 'done', 'C_sub']
+[16, 19.95295023918152, 1, 'done', 'C_sub']
+[16.542070627212524, 20.1339111328125, 2, 'done', 'B_sub']
+[17.21721315383911, 21.436212062835693, 2, 'done', 'B_sub']
+[17.483234643936157, 21.265124797821045, 1, 'done', 'B_sub']
+[18.31401014328003, 20, 1, 'interrupted', 'B_sub']
+[18.37642812728882, 20, 1, 'interrupted', 'B_sub']
+[18.700407028198242, 22.50130033493042, 2, 'done', 'B_sub']
+[19.23256778717041, 23.451575756072998, 1, 'done', 'B_sub']
+[19.95295023918152, 24.152941465377808, 1, 'done', 'B_sub']
+[20.1339111328125, 25.60720419883728, 2, 'done', 'B_sub']
+Task B completed in 25.61 seconds with waiting time 0.00 and 5 interruptions (14.61 seconds).
+Task A completed in 6.54 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 10.95 seconds with waiting time 1.54 and 0 interruptions (0.00 seconds).
+Task C completed in 7.52 seconds with waiting time 8.43 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 25.61 seconds
+Total Waiting Time: 9.97 seconds
+Average Waiting Time: 2.49 seconds
+Total Execute Duration: 50.62 seconds
+Average Execute Duration: 12.65 seconds
+Total Completion Time: 50.62 seconds
+Average Completion Time: 12.65 seconds
+Total Net GPU Time: 25.61 seconds
+Total GPU Utilization: 235.96 size * seconds
+Total GPU Capacity: 256.46 size * seconds
+GPU Utilization Rate: 92.00%
+Total Interruptions: 5 times
+Total Interruption Time: 14.61 seconds
+Interruption Expected Value: 0.57
+Total GPU Communicated: 55.00 sizeThroughput (size): 2.15 size per seconds
+Throughput (task): 0.16 tasks per second
+evaluate_result: [9.965625524520874,50.615296602249146,92.00445458574534,0.5705086716234035,0.15620604143038871]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6, 4, 'interrupted', 'A']
+[4, 17.845624685287476, 8, 'done', 'C']
+[16, 18, 4, 'interrupted', 'A']
+[17.845624685287476, 23.584970951080322, 4, 'done', 'A_sub']
+[23.584970951080322, 28.355088472366333, 7, 'done', 'D']
+Task A completed in 23.58 seconds with waiting time 0.00 and 2 interruptions (8.00 seconds).
+Task C completed in 13.85 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 4.77 seconds with waiting time 18.58 and 0 interruptions (0.00 seconds).
+Task B have not completed. Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 3 tasks
+Number of Completed Tasks: 3 tasks
+Total Work Time: 28.36 seconds
+Total Waiting Time: 46.94 seconds
+Average Waiting Time: 11.74 seconds
+Total Execute Duration: 42.20 seconds
+Average Execute Duration: 14.07 seconds
+Total Completion Time: 42.20 seconds
+Average Completion Time: 14.07 seconds
+Total Net GPU Time: 28.36 seconds
+Total GPU Utilization: 199.11 size * seconds
+Total GPU Capacity: 286.26 size * seconds
+GPU Utilization Rate: 69.56%
+Total Interruptions: 2 times
+Total Interruption Time: 8.00 seconds
+Interruption Expected Value: 0.28
+Total GPU Communicated: 27.00 sizeThroughput (size): 0.95 size per seconds
+Throughput (task): 0.11 tasks per second
+evaluate_result: [46.940059423446655,42.20071315765381,69.55651042233801,0.2821363088955431,0.10580111583582864]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6, 4, 'interrupted', 'A']
+[4, 11.886842966079712, 8, 'done', 'C']
+[11.886842966079712, 18.044299364089966, 4, 'done', 'A_sub']
+[16, 18, 4, 'interrupted', 'A']
+[18.044299364089966, 21.826203107833862, 7, 'done', 'D']
+[21.826203107833862, 25.30401110649109, 9, 'done', 'B_sub']
+[25.30401110649109, 29.29495859146118, 11, 'done', 'B_sub']
+[29.29495859146118, 32.734769344329834, 5, 'done', 'B_sub']
+Task A completed in 18.04 seconds with waiting time 0.00 and 2 interruptions (8.00 seconds).
+Task C completed in 7.89 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 3.78 seconds with waiting time 13.04 and 0 interruptions (0.00 seconds).
+Task B completed in 10.91 seconds with waiting time 21.83 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 32.73 seconds
+Total Waiting Time: 34.87 seconds
+Average Waiting Time: 8.72 seconds
+Total Execute Duration: 40.62 seconds
+Average Execute Duration: 10.16 seconds
+Total Completion Time: 40.62 seconds
+Average Completion Time: 10.16 seconds
+Total Net GPU Time: 32.73 seconds
+Total GPU Utilization: 238.60 size * seconds
+Total GPU Capacity: 335.35 size * seconds
+GPU Utilization Rate: 71.15%
+Total Interruptions: 2 times
+Total Interruption Time: 8.00 seconds
+Interruption Expected Value: 0.24
+Total GPU Communicated: 52.00 sizeThroughput (size): 1.59 size per seconds
+Throughput (task): 0.12 tasks per second
+evaluate_result: [34.87050247192383,40.621612310409546,71.14933195571783,0.24438846401664727,0.12219423200832363]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 3.306779623031616, 6, 'done', 'B_sub']
+[0, 7.297727108001709, 4, 'done', 'A']
+[2, 6, 2, 'interrupted', 'B_sub']
+[3.306779623031616, 6.898629188537598, 6, 'done', 'B_sub']
+[6.898629188537598, 8, 2, 'interrupted', 'B_sub']
+[6.898629188537598, 10.908570766448975, 4, 'done', 'D_sub']
+[7.297727108001709, 11.288670063018799, 3, 'done', 'D_sub']
+[7.297727108001709, 12.847037315368652, 1, 'done', 'C_sub']
+[10.908570766448975, 15.108561992645264, 2, 'done', 'B_sub']
+[10.908570766448975, 15.127569675445557, 2, 'done', 'C_sub']
+[11.288670063018799, 16.02079486846924, 3, 'done', 'C_sub']
+[12, 19.33573341369629, 2, 'done', 'C_sub']
+[12.847037315368652, 16.83797574043274, 1, 'done', 'B_sub']
+[14, 17.325782775878906, 1, 'done', 'B_sub']
+[15.108561992645264, 19.631643056869507, 2, 'done', 'B_sub']
+[15.127569675445557, 18.681408405303955, 2, 'done', 'B_sub']
+[16, 18, 1, 'interrupted', 'B_sub']
+[16.02079486846924, 20.068742752075195, 3, 'done', 'B_sub']
+[16.83797574043274, 20.961949825286865, 1, 'done', 'B_sub']
+[17.325782775878906, 21.22170090675354, 1, 'done', 'B_sub']
+[18.681408405303955, 20, 1, 'interrupted', 'B_sub']
+Task B completed in 21.22 seconds with waiting time 0.00 and 4 interruptions (8.42 seconds).
+Task A completed in 7.30 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 4.39 seconds with waiting time 1.90 and 0 interruptions (0.00 seconds).
+Task C completed in 12.04 seconds with waiting time 3.30 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 21.22 seconds
+Total Waiting Time: 5.20 seconds
+Average Waiting Time: 1.30 seconds
+Total Execute Duration: 44.95 seconds
+Average Execute Duration: 11.24 seconds
+Total Completion Time: 44.95 seconds
+Average Completion Time: 11.24 seconds
+Total Net GPU Time: 21.22 seconds
+Total GPU Utilization: 207.01 size * seconds
+Total GPU Capacity: 219.00 size * seconds
+GPU Utilization Rate: 94.53%
+Total Interruptions: 4 times
+Total Interruption Time: 8.42 seconds
+Interruption Expected Value: 0.40
+Total GPU Communicated: 50.00 sizeThroughput (size): 2.36 size per seconds
+Throughput (task): 0.19 tasks per second
+evaluate_result: [5.196356296539307,44.94747519493103,94.52533119235684,0.3967619015627018,0.18848630548397985]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[2, 6, 4, 'interrupted', 'A']
+[14, 20, 4, 'interrupted', 'A']
+[26, 32, 4, 'interrupted', 'A']
+[40, 44, 4, 'interrupted', 'A']
+Task A have not completed. Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, doing, 0.00/2/None/9.07, Is Subtask: False, Is Main task: True, Interruptions: 4)
+Task C have not completed. Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task D have not completed. Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task B have not completed. Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 1 tasks
+Number of Completed Tasks: 0 tasks
+Total Work Time: 42.00 seconds
+Total Waiting Time: 125.00 seconds
+Average Waiting Time: 31.25 seconds
+Total Execute Duration: 42.00 seconds
+Average Execute Duration: 42.00 seconds
+Total Completion Time: -1.00 seconds
+Average Completion Time: -1.00 seconds
+Total Net GPU Time: 20.00 seconds
+Total GPU Utilization: 80.00 size * seconds
+Total GPU Capacity: 138.00 size * seconds
+GPU Utilization Rate: 57.97%
+Total Interruptions: 4 times
+Total Interruption Time: 20.00 seconds
+Interruption Expected Value: 0.48
+Total GPU Communicated: 16.00 sizeThroughput (size): 0.38 size per seconds
+Throughput (task): 0.00 tasks per second
+evaluate_result: [125,-1,57.971014492753625,0.47619047619047616,0.0]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.09318470954895, 3, 'done', 'A_sub']
+[2, 8, 1, 'interrupted', 'A']
+[12, 22, 1, 'interrupted', 'A']
+[24, 34, 1, 'interrupted', 'A']
+[38, 46, 1, 'interrupted', 'A']
+[50, 56.38550329208374, 1, 'done', 'A_sub']
+[56.38550329208374, 59.92032980918884, 3, 'done', 'D_sub']
+[59.92032980918884, 63.36013150215149, 3, 'done', 'D_sub']
+[63.36013150215149, 67.38907623291016, 1, 'done', 'D_sub']
+[67.38907623291016, 71.5130684375763, 3, 'done', 'C_sub']
+[71.5130684375763, 75.66482925415039, 3, 'done', 'C_sub']
+[75.66482925415039, 79.95983171463013, 2, 'done', 'C_sub']
+[79.95983171463013, 83.3880684375763, 3, 'done', 'B_sub']
+[83.3880684375763, 86.88000988960266, 3, 'done', 'B_sub']
+[86.88000988960266, 90.64289236068726, 3, 'done', 'B_sub']
+[90.64289236068726, 94.65283393859863, 3, 'done', 'B_sub']
+[94.65283393859863, 98.54874753952026, 3, 'done', 'B_sub']
+[98.54874753952026, 102.4256579875946, 3, 'done', 'B_sub']
+[102.4256579875946, 107.0627670288086, 3, 'done', 'B_sub']
+[107.0627670288086, 110.95867609977722, 3, 'done', 'B_sub']
+[110.95867609977722, 116.2229073047638, 1, 'done', 'B_sub']
+Task A completed in 56.39 seconds with waiting time 0.00 and 4 interruptions (34.00 seconds).
+Task D completed in 11.00 seconds with waiting time 51.39 and 0 interruptions (0.00 seconds).
+Task C completed in 12.57 seconds with waiting time 63.39 and 0 interruptions (0.00 seconds).
+Task B completed in 36.26 seconds with waiting time 79.96 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 116.22 seconds
+Total Waiting Time: 194.73 seconds
+Average Waiting Time: 48.68 seconds
+Total Execute Duration: 116.22 seconds
+Average Execute Duration: 29.06 seconds
+Total Completion Time: 116.22 seconds
+Average Completion Time: 29.06 seconds
+Total Net GPU Time: 102.22 seconds
+Total GPU Utilization: 212.30 size * seconds
+Total GPU Capacity: 342.67 size * seconds
+GPU Utilization Rate: 61.95%
+Total Interruptions: 4 times
+Total Interruption Time: 34.00 seconds
+Interruption Expected Value: 0.29
+Total GPU Communicated: 48.00 sizeThroughput (size): 0.41 size per seconds
+Throughput (task): 0.03 tasks per second
+evaluate_result: [194.73441123962402,116.2229073047638,61.953689248562405,0.29254129662101813,0.03441662313188448]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 4.732115745544434, 3, 'done', 'A_sub']
+[2, 8, 1, 'interrupted', 'A']
+[2, 6, 2, 'interrupted', 'B_sub']
+[4.732115745544434, 6, 3, 'interrupted', 'C_sub']
+[6, 8, 2, 'interrupted', 'B_sub']
+[12, 18.423505067825317, 1, 'done', 'A_sub']
+[12, 17.207221746444702, 1, 'done', 'B_sub_sub']
+[14, 18, 1, 'interrupted', 'B_sub']
+[14, 18.808132886886597, 2, 'done', 'C_sub_sub']
+[16, 20, 1, 'interrupted', 'C_sub']
+[17.207221746444702, 18, 1, 'interrupted', 'C_sub']
+[18.423505067825317, 22, 1, 'interrupted', 'B_sub']
+[18.808132886886597, 20, 1, 'interrupted', 'B_sub']
+[18.808132886886597, 20, 1, 'interrupted', 'C_sub']
+[24, 28.618069648742676, 1, 'done', 'B_sub']
+[26, 29.876914978027344, 1, 'done', 'C_sub']
+[26, 30.295020580291748, 1, 'done', 'C_sub']
+[26, 30, 1, 'interrupted', 'C_sub']
+[28, 32, 2, 'interrupted', 'C_sub']
+[28.618069648742676, 34, 1, 'interrupted', 'C']
+[29.876914978027344, 32, 1, 'interrupted', 'C_sub']
+[30.295020580291748, 34, 1, 'interrupted', 'D_sub']
+[38, 44, 1, 'interrupted', 'C_sub']
+[38, 41.87692856788635, 1, 'done', 'C_sub']
+[38, 42.103734254837036, 1, 'done', 'D_sub']
+[40, 44, 2, 'interrupted', 'C_sub']
+[40, 44, 1, 'interrupted', 'D_sub']
+[41.87692856788635, 46, 1, 'interrupted', 'D_sub']
+[42.103734254837036, 46, 1, 'interrupted', 'D_sub']
+[44, 46, 1, 'interrupted', 'C_sub']
+[50, 54.9791522026062, 1, 'done', 'C_sub']
+[50, 54.05722975730896, 1, 'done', 'D_sub']
+[50, 54.50249695777893, 1, 'done', 'D_sub']
+[54.05722975730896, 60.27169108390808, 1, 'done', 'C_sub_sub']
+[54.50249695777893, 58.68347144126892, 1, 'done', 'C_sub']
+[54.9791522026062, 59.065101861953735, 1, 'done', 'D_sub']
+[58.68347144126892, 62.541369676589966, 1, 'done', 'D_sub']
+[59.065101861953735, 62.84701466560364, 1, 'done', 'D_sub']
+[60.27169108390808, 64.28162813186646, 1, 'done', 'D_sub']
+[62.541369676589966, 67.46353054046631, 1, 'done', 'B_sub']
+[62.84701466560364, 67.18003249168396, 1, 'done', 'B_sub']
+[64.28162813186646, 68.29158782958984, 1, 'done', 'B_sub']
+[67.18003249168396, 72.19721364974976, 1, 'done', 'B_sub']
+[67.46353054046631, 71.51148295402527, 1, 'done', 'B_sub']
+[68.29158782958984, 74.64855694770813, 1, 'done', 'B_sub']
+[71.51148295402527, 75.88251161575317, 1, 'done', 'B_sub']
+[72.19721364974976, 76.43522477149963, 1, 'done', 'B_sub']
+[74.64855694770813, 78.94358658790588, 1, 'done', 'B_sub']
+[75.88251161575317, 79.62795376777649, 1, 'done', 'B_sub']
+[76.43522477149963, 80.84416913986206, 1, 'done', 'B_sub']
+[78.94358658790588, 82.76349663734436, 1, 'done', 'B_sub']
+[79.62795376777649, 85.80892515182495, 1, 'done', 'B_sub']
+[80.84416913986206, 84.78299498558044, 1, 'done', 'B_sub']
+[82.76349663734436, 86.71641063690186, 1, 'done', 'B_sub']
+[84.78299498558044, 88.90696907043457, 1, 'done', 'B_sub']
+[85.80892515182495, 89.91390061378479, 1, 'done', 'B_sub']
+[86.71641063690186, 92.14921045303345, 1, 'done', 'B_sub']
+[88.90696907043457, 93.01191735267639, 1, 'done', 'B_sub']
+[89.91390061378479, 93.82881283760071, 1, 'done', 'B_sub']
+[92.14921045303345, 96.04511499404907, 1, 'done', 'B_sub']
+[93.01191735267639, 97.66075444221497, 1, 'done', 'B_sub']
+[93.82881283760071, 98.7433135509491, 1, 'done', 'B_sub']
+Task A completed in 18.42 seconds with waiting time 0.00 and 1 interruptions (6.00 seconds).
+Task B completed in 96.74 seconds with waiting time 2.00 and 5 interruptions (14.77 seconds).
+Task C completed in 55.54 seconds with waiting time 0.73 and 11 interruptions (34.76 seconds).
+Task D completed in 33.99 seconds with waiting time 25.30 and 4 interruptions (15.72 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 98.74 seconds
+Total Waiting Time: 28.03 seconds
+Average Waiting Time: 7.01 seconds
+Total Execute Duration: 204.69 seconds
+Average Execute Duration: 51.17 seconds
+Total Completion Time: 204.69 seconds
+Average Completion Time: 51.17 seconds
+Total Net GPU Time: 84.74 seconds
+Total GPU Utilization: 286.45 size * seconds
+Total GPU Capacity: 290.23 size * seconds
+GPU Utilization Rate: 98.70%
+Total Interruptions: 21 times
+Total Interruption Time: 71.25 seconds
+Interruption Expected Value: 0.72
+Total GPU Communicated: 71.00 sizeThroughput (size): 0.72 size per seconds
+Throughput (task): 0.04 tasks per second
+evaluate_result: [28.02713632583618,204.69300150871277,98.69732335088185,0.7215701101610678,0.04050907201869521]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 8, 3, 'interrupted', 'A']
+[12, 22, 3, 'interrupted', 'A']
+[24, 34, 3, 'interrupted', 'A']
+[38, 46, 3, 'interrupted', 'A']
+[50, 58.913108348846436, 3, 'done', 'A_sub']
+Task A completed in 58.91 seconds with waiting time 0.00 and 4 interruptions (36.00 seconds).
+Task D have not completed. Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task B have not completed. Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task C have not completed. Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 1 tasks
+Number of Completed Tasks: 1 tasks
+Total Work Time: 58.91 seconds
+Total Waiting Time: 167.74 seconds
+Average Waiting Time: 41.93 seconds
+Total Execute Duration: 58.91 seconds
+Average Execute Duration: 58.91 seconds
+Total Completion Time: 58.91 seconds
+Average Completion Time: 58.91 seconds
+Total Net GPU Time: 44.91 seconds
+Total GPU Utilization: 134.74 size * seconds
+Total GPU Capacity: 298.57 size * seconds
+GPU Utilization Rate: 45.13%
+Total Interruptions: 4 times
+Total Interruption Time: 36.00 seconds
+Interruption Expected Value: 0.61
+Total GPU Communicated: 15.00 sizeThroughput (size): 0.25 size per seconds
+Throughput (task): 0.02 tasks per second
+evaluate_result: [167.7393250465393,58.913108348846436,45.128893394524574,0.6110694378376813,0.0169741510510467]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.720338582992554, 3, 'done', 'A']
+[5.720338582992554, 8, 5, 'interrupted', 'C_sub']
+[8, 10, 2, 'interrupted', 'C']
+[10, 13.28776741027832, 1, 'done', 'C_sub']
+[12, 15.686865329742432, 1, 'done', 'C_sub']
+[14, 20, 5, 'interrupted', 'C_sub']
+[20, 22, 3, 'interrupted', 'C_sub_sub']
+[22, 26.215433835983276, 1, 'done', 'C_sub_sub']
+[24, 27.534826517105103, 1, 'done', 'C_sub']
+[26, 29.762882471084595, 3, 'done', 'C_sub_sub']
+[29.762882471084595, 34, 4, 'interrupted', 'D_sub']
+[34, 37.40180444717407, 1, 'done', 'D_sub']
+[38, 43.66333365440369, 2, 'done', 'D_sub']
+[40, 43.7438702583313, 4, 'done', 'D_sub']
+[43.7438702583313, 46, 5, 'interrupted', 'B_sub']
+[46, 49.87689232826233, 1, 'done', 'B_sub_sub']
+[49.87689232826233, 53.606099128723145, 4, 'done', 'B_sub']
+[53.606099128723145, 57.34997844696045, 5, 'done', 'B_sub']
+[57.34997844696045, 61.212610483169556, 5, 'done', 'B_sub']
+[61.212610483169556, 64.82345867156982, 5, 'done', 'B_sub']
+[64.82345867156982, 68.624351978302, 5, 'done', 'B_sub']
+Task A completed in 5.72 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 24.04 seconds with waiting time 1.72 and 4 interruptions (12.28 seconds).
+Task D completed in 13.98 seconds with waiting time 24.76 and 1 interruptions (4.24 seconds).
+Task B completed in 24.88 seconds with waiting time 43.74 and 1 interruptions (2.26 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 68.62 seconds
+Total Waiting Time: 70.23 seconds
+Average Waiting Time: 17.56 seconds
+Total Execute Duration: 68.62 seconds
+Average Execute Duration: 17.16 seconds
+Total Completion Time: 68.62 seconds
+Average Completion Time: 17.16 seconds
+Total Net GPU Time: 68.03 seconds
+Total GPU Utilization: 246.39 size * seconds
+Total GPU Capacity: 347.12 size * seconds
+GPU Utilization Rate: 70.98%
+Total Interruptions: 6 times
+Total Interruption Time: 18.77 seconds
+Interruption Expected Value: 0.27
+Total GPU Communicated: 66.00 sizeThroughput (size): 0.96 size per seconds
+Throughput (task): 0.06 tasks per second
+evaluate_result: [70.22709131240845,68.624351978302,70.98112167001483,0.27356045115773575,0.0582883464060213]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 8.114894390106201, 3, 'done', 'A']
+[18, 28, 7, 'interrupted', 'C']
+[32, 36.028940200805664, 7, 'done', 'D']
+[36.028940200805664, 40, 7, 'interrupted', 'C']
+[44, 52.799057722091675, 7, 'done', 'C_sub']
+Task A completed in 8.11 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 34.80 seconds with waiting time 14.00 and 2 interruptions (13.97 seconds).
+Task D completed in 4.03 seconds with waiting time 27.00 and 0 interruptions (0.00 seconds).
+Task B have not completed. Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 3 tasks
+Number of Completed Tasks: 3 tasks
+Total Work Time: 52.80 seconds
+Total Waiting Time: 93.80 seconds
+Average Waiting Time: 23.45 seconds
+Total Execute Duration: 46.94 seconds
+Average Execute Duration: 15.65 seconds
+Total Completion Time: 46.94 seconds
+Average Completion Time: 15.65 seconds
+Total Net GPU Time: 34.91 seconds
+Total GPU Utilization: 211.94 size * seconds
+Total GPU Capacity: 371.59 size * seconds
+GPU Utilization Rate: 57.03%
+Total Interruptions: 2 times
+Total Interruption Time: 13.97 seconds
+Interruption Expected Value: 0.26
+Total GPU Communicated: 31.00 sizeThroughput (size): 0.59 size per seconds
+Throughput (task): 0.06 tasks per second
+evaluate_result: [93.79905772209167,46.94289231300354,57.034943277355765,0.26460812753006197,0.056819195823352146]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.720334053039551, 3, 'done', 'A']
+[5.720334053039551, 14, 7, 'interrupted', 'C']
+[14, 18.295020580291748, 6, 'done', 'D_sub']
+[18, 22.238002061843872, 1, 'done', 'D_sub']
+[20, 28, 7, 'interrupted', 'C']
+[28, 33.80913019180298, 6, 'done', 'C_sub']
+[32, 36.123974084854126, 1, 'done', 'C_sub']
+[33.80913019180298, 37.381967544555664, 6, 'done', 'B_sub']
+[37.381967544555664, 41.125842332839966, 6, 'done', 'B_sub']
+[41.125842332839966, 44.850709438323975, 6, 'done', 'B_sub']
+[44.850709438323975, 48.32853102684021, 7, 'done', 'B_sub']
+Task A completed in 5.72 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 30.40 seconds with waiting time 1.72 and 2 interruptions (16.28 seconds).
+Task D completed in 8.24 seconds with waiting time 9.00 and 0 interruptions (0.00 seconds).
+Task B completed in 14.52 seconds with waiting time 33.81 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 48.33 seconds
+Total Waiting Time: 44.53 seconds
+Average Waiting Time: 11.13 seconds
+Total Execute Duration: 58.88 seconds
+Average Execute Duration: 14.72 seconds
+Total Completion Time: 58.88 seconds
+Average Completion Time: 14.72 seconds
+Total Net GPU Time: 48.33 seconds
+Total GPU Utilization: 290.70 size * seconds
+Total GPU Capacity: 338.63 size * seconds
+GPU Utilization Rate: 85.85%
+Total Interruptions: 2 times
+Total Interruption Time: 16.28 seconds
+Interruption Expected Value: 0.34
+Total GPU Communicated: 56.00 sizeThroughput (size): 1.16 size per seconds
+Throughput (task): 0.08 tasks per second
+evaluate_result: [44.52946424484253,58.88137698173523,85.84628503334937,0.33685414394075447,0.08276684424317636]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 4.028944730758667, 4, 'done', 'B_sub']
+[0, 2, 3, 'interrupted', 'A']
+[2, 8.394137382507324, 2, 'done', 'A_sub']
+[4.028944730758667, 8.609017133712769, 1, 'done', 'A_sub']
+[4.028944730758667, 8.856085300445557, 4, 'done', 'C_sub']
+[8, 12.047943353652954, 1, 'done', 'C_sub']
+[8.394137382507324, 12.442080736160278, 1, 'done', 'C_sub']
+[8.394137382507324, 12, 1, 'interrupted', 'D_sub']
+[8.609017133712769, 14.55742073059082, 1, 'done', 'C_sub']
+[8.856085300445557, 12.847028255462646, 1, 'done', 'D_sub']
+[8.856085300445557, 12.98005485534668, 3, 'done', 'D_sub']
+[12.047943353652954, 16.74205732345581, 1, 'done', 'B_sub']
+[12.442080736160278, 14, 1, 'interrupted', 'D_sub']
+[12.847028255462646, 16.93297791481018, 1, 'done', 'D_sub']
+[12.98005485534668, 16.799951314926147, 1, 'done', 'B_sub']
+[12.98005485534668, 17.17003035545349, 2, 'done', 'D_sub']
+[14.55742073059082, 19.16207718849182, 1, 'done', 'B_sub']
+[16.74205732345581, 21.170109033584595, 1, 'done', 'B_sub']
+[16.799951314926147, 20.524836540222168, 1, 'done', 'B_sub']
+[16.93297791481018, 20.82889151573181, 2, 'done', 'B_sub']
+[17.17003035545349, 21.347457885742188, 2, 'done', 'B_sub']
+[19.16207718849182, 23.000967741012573, 2, 'done', 'B_sub']
+[20.524836540222168, 24.629802942276, 1, 'done', 'B_sub']
+[20.82889151573181, 24.895838022232056, 2, 'done', 'B_sub']
+[21.170109033584595, 24.99000096321106, 1, 'done', 'B_sub']
+[21.347457885742188, 25.689463138580322, 2, 'done', 'B_sub']
+[23.000967741012573, 28.740318536758423, 2, 'done', 'B_sub']
+[24.629802942276, 29.228878498077393, 1, 'done', 'B_sub']
+[24.99000096321106, 30.4262797832489, 1, 'done', 'B_sub']
+Task B completed in 30.43 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task A completed in 8.61 seconds with waiting time 0.00 and 1 interruptions (2.00 seconds).
+Task C completed in 10.53 seconds with waiting time 0.03 and 0 interruptions (0.00 seconds).
+Task D completed in 8.78 seconds with waiting time 3.39 and 2 interruptions (5.16 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 30.43 seconds
+Total Waiting Time: 3.42 seconds
+Average Waiting Time: 0.86 seconds
+Total Execute Duration: 58.34 seconds
+Average Execute Duration: 14.58 seconds
+Total Completion Time: 58.34 seconds
+Average Completion Time: 14.58 seconds
+Total Net GPU Time: 30.43 seconds
+Total GPU Utilization: 198.18 size * seconds
+Total GPU Capacity: 212.56 size * seconds
+GPU Utilization Rate: 93.24%
+Total Interruptions: 3 times
+Total Interruption Time: 7.16 seconds
+Interruption Expected Value: 0.24
+Total GPU Communicated: 47.00 sizeThroughput (size): 1.54 size per seconds
+Throughput (task): 0.13 tasks per second
+evaluate_result: [3.423082113265991,58.33966588973999,93.2369976257553,0.23544718356518882,0.13146530001351622]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.328484773635864, 3.414, 'done', 'A']
+[6.328484773635864, 10.300429105758667, 6.768, 'done', 'D']
+[20, 26, 7.175, 'interrupted', 'C']
+[34, 38, 7.175, 'interrupted', 'C']
+[46, 50, 7.175, 'interrupted', 'C']
+Task A completed in 6.33 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 3.97 seconds with waiting time 1.33 and 0 interruptions (0.00 seconds).
+Task C have not completed. Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, doing, 4.00/20/None/37.65, Is Subtask: False, Is Main task: True, Interruptions: 3)
+Task B have not completed. Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 3 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 50.00 seconds
+Total Waiting Time: 67.33 seconds
+Average Waiting Time: 16.83 seconds
+Total Execute Duration: 40.30 seconds
+Average Execute Duration: 13.43 seconds
+Total Completion Time: 10.30 seconds
+Average Completion Time: 5.15 seconds
+Total Net GPU Time: 24.30 seconds
+Total GPU Utilization: 148.94 size * seconds
+Total GPU Capacity: 352.00 size * seconds
+GPU Utilization Rate: 42.31%
+Total Interruptions: 3 times
+Total Interruption Time: 14.00 seconds
+Interruption Expected Value: 0.28
+Total GPU Communicated: 31.71 sizeThroughput (size): 0.63 size per seconds
+Throughput (task): 0.04 tasks per second
+evaluate_result: [67.32848477363586,10.300429105758667,42.311808595738626,0.28,0.04]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.993608713150024, 3.414, 'done', 'A']
+[6.993608713150024, 12.352846622467041, 6.768, 'done', 'D']
+[12.352846622467041, 14, 7.0, 'interrupted', 'C_sub']
+[14, 14.430463414634147, 0.17499999999999982, 'done', 'C_sub']
+[14.430463414634147, 18.858492474997917, 6.0, 'done', 'C_sub_sub']
+[18, 21.933897256851196, 1.0, 'done', 'C_sub']
+[18.858492474997917, 22.27928648516027, 6.0, 'done', 'B_sub']
+[22.27928648516027, 25.757094483817497, 6.0, 'done', 'B_sub']
+[25.757094483817497, 29.21589479967443, 6.0, 'done', 'B_sub']
+[29.21589479967443, 32.65568743273107, 6.0, 'done', 'B_sub']
+[32, 35.553816080093384, 0.6769999999999996, 'done', 'B_sub']
+Task A completed in 6.99 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 5.36 seconds with waiting time 1.99 and 0 interruptions (0.00 seconds).
+Task C completed in 9.58 seconds with waiting time 8.35 and 1 interruptions (1.65 seconds).
+Task B completed in 16.70 seconds with waiting time 18.86 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 35.55 seconds
+Total Waiting Time: 29.20 seconds
+Average Waiting Time: 7.30 seconds
+Total Execute Duration: 38.63 seconds
+Average Execute Duration: 9.66 seconds
+Total Completion Time: 38.63 seconds
+Average Completion Time: 9.66 seconds
+Total Net GPU Time: 35.55 seconds
+Total GPU Utilization: 187.44 size * seconds
+Total GPU Capacity: 248.43 size * seconds
+GPU Utilization Rate: 75.45%
+Total Interruptions: 1 times
+Total Interruption Time: 1.65 seconds
+Interruption Expected Value: 0.05
+Total GPU Communicated: 49.03 sizeThroughput (size): 1.38 size per seconds
+Throughput (task): 0.11 tasks per second
+evaluate_result: [29.204947810614982,38.62922086194666,75.4513074276634,0.04632845525842729,0.11250550407835416]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 8.289496898651123, 3.414, 'done', 'A']
+[18, 22.028958320617676, 6.768, 'done', 'D']
+[22.028958320617676, 26, 7.175, 'interrupted', 'C']
+[34, 38, 7.175, 'interrupted', 'C']
+[46, 50, 7.175, 'interrupted', 'C']
+Task A completed in 8.29 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 4.03 seconds with waiting time 13.00 and 0 interruptions (0.00 seconds).
+Task C have not completed. Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, doing, 4.00/22.03/None/39.68, Is Subtask: False, Is Main task: True, Interruptions: 3)
+Task B have not completed. Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 3 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 50.00 seconds
+Total Waiting Time: 81.03 seconds
+Average Waiting Time: 20.26 seconds
+Total Execute Duration: 40.29 seconds
+Average Execute Duration: 13.43 seconds
+Total Completion Time: 12.32 seconds
+Average Completion Time: 6.16 seconds
+Total Net GPU Time: 24.29 seconds
+Total GPU Utilization: 141.46 size * seconds
+Total GPU Capacity: 352.00 size * seconds
+GPU Utilization Rate: 40.19%
+Total Interruptions: 3 times
+Total Interruption Time: 11.97 seconds
+Interruption Expected Value: 0.24
+Total GPU Communicated: 31.71 sizeThroughput (size): 0.63 size per seconds
+Throughput (task): 0.04 tasks per second
+evaluate_result: [81.02895832061768,12.318455219268799,40.18765806122259,0.2394208335876465,0.04]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.492278099060059, 3.414, 'done', 'A']
+[5.492278099060059, 10.851525068283081, 6.768, 'done', 'D']
+[10.851525068283081, 12, 7.175, 'interrupted', 'C']
+[12, 14, 7.0, 'interrupted', 'C_sub']
+[14, 14.430463414634147, 0.17499999999999982, 'done', 'C_sub']
+[14.430463414634147, 19.675682406867423, 6.0, 'done', 'C_sub_sub']
+[18, 21.325769186019897, 1.0, 'done', 'C_sub']
+[19.675682406867423, 23.058465581382194, 6.0, 'done', 'B_sub']
+[23.058465581382194, 26.593301158393302, 6.0, 'done', 'B_sub']
+[26.593301158393302, 29.843053203071037, 6.0, 'done', 'B_sub']
+[29.843053203071037, 33.16883144899694, 6.0, 'done', 'B_sub']
+[32, 35.534831047058105, 0.6769999999999996, 'done', 'B_sub']
+Task A completed in 5.49 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 5.36 seconds with waiting time 0.49 and 0 interruptions (0.00 seconds).
+Task C completed in 10.47 seconds with waiting time 6.85 and 2 interruptions (3.15 seconds).
+Task B completed in 15.86 seconds with waiting time 19.68 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 35.53 seconds
+Total Waiting Time: 27.02 seconds
+Average Waiting Time: 6.75 seconds
+Total Execute Duration: 37.18 seconds
+Average Execute Duration: 9.30 seconds
+Total Completion Time: 37.18 seconds
+Average Completion Time: 9.30 seconds
+Total Net GPU Time: 35.53 seconds
+Total GPU Utilization: 195.49 size * seconds
+Total GPU Capacity: 248.28 size * seconds
+GPU Utilization Rate: 78.74%
+Total Interruptions: 2 times
+Total Interruption Time: 3.15 seconds
+Interruption Expected Value: 0.09
+Total GPU Communicated: 56.21 sizeThroughput (size): 1.58 size per seconds
+Throughput (task): 0.11 tasks per second
+evaluate_result: [27.019485574210563,37.18491782621058,78.7368220907828,0.08860250179739008,0.11256561188381269]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.252454042434692, 3.414, 'done', 'A']
+[6.252454042434692, 14, 6.768, 'interrupted', 'D']
+[18, 21.68687891960144, 6.768, 'done', 'D_sub']
+[34, 38, 7.175, 'interrupted', 'C']
+[46, 50, 7.175, 'interrupted', 'C']
+Task A completed in 6.25 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 15.43 seconds with waiting time 1.25 and 1 interruptions (7.75 seconds).
+Task C have not completed. Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, doing, 4.00/34/None/51.65, Is Subtask: False, Is Main task: True, Interruptions: 2)
+Task B have not completed. Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 3 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 50.00 seconds
+Total Waiting Time: 81.25 seconds
+Average Waiting Time: 20.31 seconds
+Total Execute Duration: 37.69 seconds
+Average Execute Duration: 12.56 seconds
+Total Completion Time: 21.69 seconds
+Average Completion Time: 10.84 seconds
+Total Net GPU Time: 25.69 seconds
+Total GPU Utilization: 156.13 size * seconds
+Total GPU Capacity: 352.00 size * seconds
+GPU Utilization Rate: 44.36%
+Total Interruptions: 3 times
+Total Interruption Time: 15.75 seconds
+Interruption Expected Value: 0.31
+Total GPU Communicated: 31.30 sizeThroughput (size): 0.63 size per seconds
+Throughput (task): 0.04 tasks per second
+evaluate_result: [81.25245404243469,21.68687891960144,44.35626865611835,0.31495091915130613,0.04]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.986382722854614, 3.414, 'done', 'A']
+[5.986382722854614, 10.015327453613281, 6.768, 'done', 'D']
+[10.015327453613281, 12, 7.175, 'interrupted', 'C']
+[12, 14, 7.0, 'interrupted', 'C_sub']
+[14, 18.14296817779541, 0.17499999999999982, 'done', 'C_sub']
+[20, 28, 7.0, 'interrupted', 'C_sub']
+[28, 33.58732557296753, 6.0, 'done', 'C_sub_sub']
+[32, 36.18097448348999, 1.0, 'done', 'C_sub']
+[33.58732557296753, 36.98911190032959, 6.0, 'done', 'B_sub']
+[36.98911190032959, 40.409910440444946, 6.0, 'done', 'B_sub']
+[40.409910440444946, 43.792689085006714, 6.0, 'done', 'B_sub']
+[43.792689085006714, 47.38451600074768, 6.677, 'done', 'B_sub']
+Task A completed in 5.99 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 4.03 seconds with waiting time 0.99 and 0 interruptions (0.00 seconds).
+Task C completed in 26.17 seconds with waiting time 6.02 and 3 interruptions (11.98 seconds).
+Task B completed in 13.80 seconds with waiting time 33.59 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 47.38 seconds
+Total Waiting Time: 40.59 seconds
+Average Waiting Time: 10.15 seconds
+Total Execute Duration: 49.98 seconds
+Average Execute Duration: 12.49 seconds
+Total Completion Time: 49.98 seconds
+Average Completion Time: 12.49 seconds
+Total Net GPU Time: 45.53 seconds
+Total GPU Utilization: 255.59 size * seconds
+Total GPU Capacity: 331.08 size * seconds
+GPU Utilization Rate: 77.20%
+Total Interruptions: 3 times
+Total Interruption Time: 11.98 seconds
+Interruption Expected Value: 0.25
+Total GPU Communicated: 63.21 sizeThroughput (size): 1.33 size per seconds
+Throughput (task): 0.08 tasks per second
+evaluate_result: [40.589035749435425,49.97816491127014,77.19982481200041,0.25292381473723635,0.08441576146808978]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 3.743865728378296, 3.586, 'done', 'B_sub']
+[0, 2, 3.414, 'interrupted', 'A']
+[2, 6.808101177215576, 2.414, 'done', 'A_sub']
+[3.743865728378296, 7.373703479766846, 2.586, 'done', 'B_sub']
+[3.743865728378296, 10.300397396087646, 1.0, 'done', 'A_sub']
+[6, 9.971917152404785, 1.0, 'done', 'D_sub']
+[6.808101177215576, 11.008074283599854, 2.414, 'done', 'D_sub']
+[7.373703479766846, 11.744718551635742, 2.3539999999999996, 'done', 'D_sub']
+[7.373703479766846, 12, 0.2320000000000002, 'interrupted', 'C_sub']
+[8, 11.724858045578003, 1.0, 'done', 'D_sub']
+[9.971917152404785, 14, 1.0, 'interrupted', 'C_sub']
+[10.300397396087646, 14.063279867172241, 1.0, 'done', 'C_sub_sub']
+[11.008074283599854, 15.816189050674438, 2.414, 'done', 'C_sub']
+[11.724858045578003, 16.68500256538391, 1.0, 'done', 'C_sub']
+[11.744718551635742, 12, 2.3539999999999996, 'interrupted', 'C_sub']
+[12, 16.523067474365234, 1.1789999999999998, 'done', 'C_sub_sub']
+[12, 14, 0.2320000000000002, 'interrupted', 'C_sub']
+[12, 16.5610511302948, 0.17499999999999982, 'done', 'C_sub']
+[14, 17.80087971687317, 0.057000000000000384, 'done', 'C_sub_sub']
+[14, 17.97192621231079, 0.17499999999999982, 'done', 'C_sub']
+[14.063279867172241, 18.3012592792511, 0.17499999999999982, 'done', 'C_sub']
+[14.063279867172241, 17.655115842819214, 0.8250000000000002, 'done', 'C_sub_sub']
+[15.816189050674438, 19.636080980300903, 2.2390000000000003, 'done', 'B_sub']
+[15.816189050674438, 20.472269535064697, 0.17499999999999982, 'done', 'C_sub']
+[16.523067474365234, 20.666017532348633, 1.1789999999999998, 'done', 'B_sub']
+[16.5610511302948, 21.046085119247437, 0.17499999999999982, 'done', 'B_sub']
+[16.68500256538391, 20.504880905151367, 1.0, 'done', 'B_sub']
+[17.655115842819214, 22.311182737350464, 0.8250000000000002, 'done', 'B_sub']
+[17.80087971687317, 21.924826622009277, 0.057000000000000384, 'done', 'B_sub']
+[17.97192621231079, 23.787276029586792, 0.17499999999999982, 'done', 'B_sub']
+[18, 22.46824598312378, 1.0, 'done', 'B_sub']
+[18.3012592792511, 22.710280656814575, 0.17499999999999982, 'done', 'B_sub']
+[19.636080980300903, 24.0870361328125, 3.2390000000000003, 'done', 'B_sub']
+[20.472269535064697, 24.63423180580139, 0.17499999999999982, 'done', 'B_sub']
+[20.504880905151367, 24.191728115081787, 1.0, 'done', 'B_sub']
+[20.666017532348633, 24.770965814590454, 1.1789999999999998, 'done', 'B_sub']
+[21.046085119247437, 24.694926023483276, 0.17499999999999982, 'done', 'B_sub']
+[21.924826622009277, 26, 0.057000000000000384, 'interrupted', 'B_sub']
+[22.311182737350464, 25.941025018692017, 0.8250000000000002, 'done', 'B_sub']
+[22.46824598312378, 27.599427938461304, 1.0, 'done', 'B_sub']
+[22.710280656814575, 26, 0.17499999999999982, 'interrupted', 'B_sub']
+[23.787276029586792, 26, 0.17499999999999982, 'interrupted', 'B_sub']
+[24.0870361328125, 28.553066968917847, 3.2390000000000003, 'done', 'B_sub']
+[24.191728115081787, 27.42249059677124, 0.4409999999999994, 'done', 'B_sub']
+[24.770965814590454, 27.90668535232544, 0.17499999999999982, 'done', 'B_sub']
+[24.770965814590454, 28.685868978500366, 0.057000000000000384, 'done', 'B_sub']
+[24.770965814590454, 28.153748989105225, 0.17499999999999982, 'done', 'B_sub']
+Task B completed in 28.69 seconds with waiting time 0.00 and 3 interruptions (9.58 seconds).
+Task A completed in 10.30 seconds with waiting time 0.00 and 1 interruptions (2.00 seconds).
+Task D completed in 5.74 seconds with waiting time 1.00 and 0 interruptions (0.00 seconds).
+Task C completed in 13.10 seconds with waiting time 3.37 and 4 interruptions (10.91 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 28.69 seconds
+Total Waiting Time: 4.37 seconds
+Average Waiting Time: 1.09 seconds
+Total Execute Duration: 57.83 seconds
+Average Execute Duration: 14.46 seconds
+Total Completion Time: 57.83 seconds
+Average Completion Time: 14.46 seconds
+Total Net GPU Time: 28.69 seconds
+Total GPU Utilization: 193.25 size * seconds
+Total GPU Capacity: 202.12 size * seconds
+GPU Utilization Rate: 95.61%
+Total Interruptions: 8 times
+Total Interruption Time: 22.49 seconds
+Interruption Expected Value: 0.78
+Total GPU Communicated: 49.67 sizeThroughput (size): 1.73 size per seconds
+Throughput (task): 0.14 tasks per second
+evaluate_result: [4.373703479766846,57.829550981521606,95.61280714586137,0.7839148092266567,0.13944147911286706]
+----------------------------------------------------------------------
+///////////////////Baseline///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 7.449720621109009, 3.414, 'done', 'A']
+[7.449720621109009, 11.098561525344849, 6.768, 'done', 'D']
+Task A completed in 7.45 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 3.65 seconds with waiting time 2.45 and 0 interruptions (0.00 seconds).
+Task B have not completed. Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task C have not completed. Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 2 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 11.10 seconds
+Total Waiting Time: 20.65 seconds
+Average Waiting Time: 5.16 seconds
+Total Execute Duration: 11.10 seconds
+Average Execute Duration: 5.55 seconds
+Total Completion Time: 11.10 seconds
+Average Completion Time: 5.55 seconds
+Total Net GPU Time: 11.10 seconds
+Total GPU Utilization: 50.13 size * seconds
+Total GPU Capacity: 76.79 size * seconds
+GPU Utilization Rate: 65.28%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00
+Total GPU Communicated: 10.18 sizeThroughput (size): 0.92 size per seconds
+Throughput (task): 0.18 tasks per second
+evaluate_result: [20.646843671798706,11.098561525344849,65.28152852379272,0.0,0.18020353317254392]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.385476112365723, 3.414, 'done', 'A']
+[6.385476112365723, 10.395399570465088, 6.768, 'done', 'D']
+[20, 26, 7.175, 'interrupted', 'C']
+[34, 38, 7.175, 'interrupted', 'C']
+[46, 50, 7.175, 'interrupted', 'C']
+Task A completed in 6.39 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 4.01 seconds with waiting time 1.39 and 0 interruptions (0.00 seconds).
+Task C have not completed. Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, doing, 4.00/20/None/37.65, Is Subtask: False, Is Main task: True, Interruptions: 3)
+Task B have not completed. Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 3 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 50.00 seconds
+Total Waiting Time: 67.39 seconds
+Average Waiting Time: 16.85 seconds
+Total Execute Duration: 40.40 seconds
+Average Execute Duration: 13.47 seconds
+Total Completion Time: 10.40 seconds
+Average Completion Time: 5.20 seconds
+Total Net GPU Time: 24.40 seconds
+Total GPU Utilization: 149.39 size * seconds
+Total GPU Capacity: 352.00 size * seconds
+GPU Utilization Rate: 42.44%
+Total Interruptions: 3 times
+Total Interruption Time: 14.00 seconds
+Interruption Expected Value: 0.35
+Total GPU Communicated: 31.71 sizeThroughput (size): 0.63 size per seconds
+Throughput (task): 0.04 tasks per second
+evaluate_result: [67.38547611236572,10.395399570465088,42.44010721932758,0.3465741185596797,0.04]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.632526159286499, 3.414, 'done', 'A']
+[6.632526159286499, 10.60445237159729, 6.768, 'done', 'D']
+[10.60445237159729, 14, 7.0, 'interrupted', 'C_sub']
+[14, 18.656075954437256, 0.17499999999999982, 'done', 'C_sub']
+[18.656075954437256, 28, 7.0, 'interrupted', 'C_sub']
+[28, 33.03616166114807, 6.0, 'done', 'C_sub_sub']
+[32, 35.743865728378296, 1.0, 'done', 'C_sub']
+[33.03616166114807, 36.24791193008423, 6.0, 'done', 'B_sub']
+[36.24791193008423, 39.59267973899841, 6.0, 'done', 'B_sub']
+[39.59267973899841, 43.16550803184509, 6.0, 'done', 'B_sub']
+[43.16550803184509, 46.833356618881226, 6.0, 'done', 'B_sub']
+[44, 48.84612560272217, 0.6769999999999996, 'done', 'B_sub']
+Task A completed in 6.63 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 3.97 seconds with waiting time 1.63 and 0 interruptions (0.00 seconds).
+Task C completed in 25.14 seconds with waiting time 6.60 and 2 interruptions (12.74 seconds).
+Task B completed in 15.81 seconds with waiting time 33.04 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 48.85 seconds
+Total Waiting Time: 41.27 seconds
+Average Waiting Time: 10.32 seconds
+Total Execute Duration: 51.55 seconds
+Average Execute Duration: 12.89 seconds
+Total Completion Time: 51.55 seconds
+Average Completion Time: 12.89 seconds
+Total Net GPU Time: 48.85 seconds
+Total GPU Utilization: 259.54 size * seconds
+Total GPU Capacity: 342.77 size * seconds
+GPU Utilization Rate: 75.72%
+Total Interruptions: 2 times
+Total Interruption Time: 12.74 seconds
+Interruption Expected Value: 0.25
+Total GPU Communicated: 56.03 sizeThroughput (size): 1.15 size per seconds
+Throughput (task): 0.08 tasks per second
+evaluate_result: [41.27314019203186,51.55382966995239,75.71903665331854,0.2471100935764336,0.08188981112919798]
+----------------------------------------------------------------------
+///////////////////Baseline///////////////////
+///////////////////Lyra///////////////////
+///////////////////Lyra Plus///////////////////
+///////////////////Baseline///////////////////
+///////////////////Lyra///////////////////
+///////////////////Lyra Plus///////////////////
+///////////////////HongTu///////////////////
+///////////////////ESGNN///////////////////
+///////////////////Baseline///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.473256826400757, 3.414, 'done', 'A']
+[5.473256826400757, 9.559192895889282, 6.768, 'done', 'D']
+Task A completed in 5.47 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 4.09 seconds with waiting time 0.47 and 0 interruptions (0.00 seconds).
+Task B have not completed. Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task C have not completed. Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 2 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 9.56 seconds
+Total Waiting Time: 15.59 seconds
+Average Waiting Time: 3.90 seconds
+Total Execute Duration: 9.56 seconds
+Average Execute Duration: 4.78 seconds
+Total Completion Time: 9.56 seconds
+Average Completion Time: 4.78 seconds
+Total Net GPU Time: 9.56 seconds
+Total GPU Utilization: 46.34 size * seconds
+Total GPU Capacity: 66.91 size * seconds
+GPU Utilization Rate: 69.25%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00
+Total GPU Communicated: 10.18 sizeThroughput (size): 1.07 size per seconds
+Throughput (task): 0.21 tasks per second
+evaluate_result: [15.591642618179321,9.559192895889282,69.25168358626014,0.0,0.20922268456995521]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.670931100845337, 3.414, 'done', 'A']
+[6.670931100845337, 10.661851406097412, 6.768, 'done', 'D']
+[20, 26, 7.175, 'interrupted', 'C']
+[34, 38, 7.175, 'interrupted', 'C']
+[46, 50, 7.175, 'interrupted', 'C']
+Task A completed in 6.67 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 3.99 seconds with waiting time 1.67 and 0 interruptions (0.00 seconds).
+Task C have not completed. Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, doing, 4.00/20/None/37.65, Is Subtask: False, Is Main task: True, Interruptions: 3)
+Task B have not completed. Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 3 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 50.00 seconds
+Total Waiting Time: 67.67 seconds
+Average Waiting Time: 16.92 seconds
+Total Execute Duration: 40.66 seconds
+Average Execute Duration: 13.55 seconds
+Total Completion Time: 10.66 seconds
+Average Completion Time: 5.33 seconds
+Total Net GPU Time: 24.66 seconds
+Total GPU Utilization: 150.24 size * seconds
+Total GPU Capacity: 352.00 size * seconds
+GPU Utilization Rate: 42.68%
+Total Interruptions: 3 times
+Total Interruption Time: 14.00 seconds
+Interruption Expected Value: 0.34
+Total GPU Communicated: 31.71 sizeThroughput (size): 0.63 size per seconds
+Throughput (task): 0.04 tasks per second
+evaluate_result: [67.67093110084534,10.661851406097412,42.68042823983864,0.34430306333519883,0.04]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.138407945632935, 3.414, 'done', 'A']
+[6.138407945632935, 11.649680137634277, 6.768, 'done', 'D']
+[11.649680137634277, 14, 7.0, 'interrupted', 'C_sub']
+[14, 18.54204797744751, 0.17499999999999982, 'done', 'C_sub']
+[18.54204797744751, 28, 7.0, 'interrupted', 'C_sub']
+[28, 31.553820610046387, 6.0, 'done', 'C_sub_sub']
+[31.553820610046387, 34.97461462020874, 6.0, 'done', 'B_sub']
+[32, 35.971917152404785, 1.0, 'done', 'C_sub']
+[34.97461462020874, 38.699477195739746, 6.0, 'done', 'B_sub']
+[38.699477195739746, 42.538363218307495, 6.0, 'done', 'B_sub']
+[42.538363218307495, 46.130194664001465, 6.0, 'done', 'B_sub']
+[44, 47.83888602256775, 0.6769999999999996, 'done', 'B_sub']
+Task A completed in 6.14 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 5.51 seconds with waiting time 1.14 and 0 interruptions (0.00 seconds).
+Task C completed in 24.32 seconds with waiting time 7.65 and 2 interruptions (11.81 seconds).
+Task B completed in 16.29 seconds with waiting time 31.55 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 47.84 seconds
+Total Waiting Time: 40.34 seconds
+Average Waiting Time: 10.09 seconds
+Total Execute Duration: 52.26 seconds
+Average Execute Duration: 13.06 seconds
+Total Completion Time: 52.26 seconds
+Average Completion Time: 13.06 seconds
+Total Net GPU Time: 47.84 seconds
+Total GPU Utilization: 257.06 size * seconds
+Total GPU Capacity: 334.71 size * seconds
+GPU Utilization Rate: 76.80%
+Total Interruptions: 2 times
+Total Interruption Time: 11.81 seconds
+Interruption Expected Value: 0.23
+Total GPU Communicated: 56.03 sizeThroughput (size): 1.17 size per seconds
+Throughput (task): 0.08 tasks per second
+evaluate_result: [40.3419086933136,52.25698256492615,76.8010372418169,0.22596543668106261,0.08361398712572489]
+----------------------------------------------------------------------
+///////////////////HongTu///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 4.5610511302948, 0.8535, 'done', 'A_sub_2']
+[0, 4.5610737800598145, 0.8535, 'done', 'A_sub_1']
+[0, 3.724844455718994, 0.8535, 'done', 'A_sub_0']
+[0, 4.066941976547241, 0.8535, 'done', 'A_sub']
+[4.066941976547241, 8.532972812652588, 1.79375, 'done', 'C_sub_1']
+[4.066941976547241, 8.3239426612854, 1.79375, 'done', 'C_sub']
+[4.5610737800598145, 13.132030248641968, 1.79375, 'done', 'C_sub_0']
+[8.3239426612854, 13.056040287017822, 1.692, 'done', 'D_sub_2']
+[8.532972812652588, 14.310307264328003, 1.692, 'done', 'D_sub_0']
+[13.056040287017822, 17.122973203659058, 1.692, 'done', 'D_sub_1']
+[13.056040287017822, 18.035165309906006, 1.692, 'done', 'D_sub']
+[14.310307264328003, 18.681317806243896, 1.79375, 'done', 'C_sub_2']
+[18.681317806243896, 22.63423180580139, 6.16925, 'done', 'B_sub_2']
+[22.63423180580139, 27.06226086616516, 6.16925, 'done', 'B_sub']
+[27.06226086616516, 31.96538233757019, 6.16925, 'done', 'B_sub_1']
+[31.96538233757019, 36.69747996330261, 6.16925, 'done', 'B_sub_0']
+Task A completed in 4.56 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 14.61 seconds with waiting time 0.07 and 0 interruptions (0.00 seconds).
+Task D completed in 9.71 seconds with waiting time 3.32 and 0 interruptions (0.00 seconds).
+Task B completed in 18.02 seconds with waiting time 18.68 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 36.70 seconds
+Total Waiting Time: 22.07 seconds
+Average Waiting Time: 5.52 seconds
+Total Execute Duration: 46.90 seconds
+Average Execute Duration: 11.73 seconds
+Total Completion Time: 46.90 seconds
+Average Completion Time: 11.73 seconds
+Total Net GPU Time: 36.70 seconds
+Total GPU Utilization: 197.53 size * seconds
+Total GPU Capacity: 256.88 size * seconds
+GPU Utilization Rate: 76.90%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00
+Total GPU Communicated: 42.03 sizeThroughput (size): 1.15 size per seconds
+Throughput (task): 0.11 tasks per second
+evaluate_result: [22.072202444076538,46.90283441543579,76.89578690422508,0.0,0.10899931014336652]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 4.409021377563477, 3.586, 'done', 'B_sub']
+[0, 2, 3.414, 'interrupted', 'A']
+[2, 6.979152202606201, 2.414, 'done', 'A_sub']
+[4.409021377563477, 9.084100484848022, 1.0, 'done', 'A_sub']
+[4.409021377563477, 8.190893411636353, 2.586, 'done', 'C_sub']
+[6, 9.534817457199097, 1.0, 'done', 'C_sub']
+[6.979152202606201, 11.82527780532837, 2.414, 'done', 'C_sub']
+[8, 14.523032665252686, 1.0, 'done', 'C_sub']
+[8.190893411636353, 14.006234169006348, 0.17500000000000027, 'done', 'C_sub']
+[8.190893411636353, 12.846964836120605, 2.4109999999999996, 'done', 'D_sub']
+[9.084100484848022, 12, 1.0, 'interrupted', 'D_sub']
+[9.534817457199097, 13.29768180847168, 1.0, 'done', 'D_sub']
+[11.82527780532837, 16.139278888702393, 1.4140000000000001, 'done', 'D_sub']
+[11.82527780532837, 14, 1.0, 'interrupted', 'D_sub']
+[12.846964836120605, 17.008922576904297, 0.4679999999999995, 'done', 'B_sub']
+[12.846964836120605, 16.57182288169861, 1.0, 'done', 'D_sub']
+[12.846964836120605, 17.579039812088013, 0.9430000000000001, 'done', 'D_sub']
+[13.29768180847168, 17.022539854049683, 1.0, 'done', 'B_sub']
+[14.006234169006348, 17.579062461853027, 0.17500000000000027, 'done', 'B_sub']
+[14.523032665252686, 18.190876722335815, 1.0, 'done', 'B_sub']
+[16.139278888702393, 20.30123209953308, 1.4140000000000001, 'done', 'B_sub']
+[16.57182288169861, 21.322919130325317, 1.0, 'done', 'B_sub']
+[17.008922576904297, 20.752788305282593, 0.4679999999999995, 'done', 'B_sub']
+[17.022539854049683, 21.526581525802612, 1.0, 'done', 'B_sub']
+[17.579039812088013, 21.70298671722412, 0.9430000000000001, 'done', 'B_sub']
+[17.579062461853027, 23.07133150100708, 0.17500000000000027, 'done', 'B_sub']
+[18, 21.724862575531006, 1.0, 'done', 'B_sub']
+[18.190876722335815, 25.450552225112915, 1.0, 'done', 'B_sub']
+[20, 23.40178632736206, 1.0, 'done', 'B_sub']
+[20.30123209953308, 24.46319890022278, 1.4140000000000001, 'done', 'B_sub']
+[20.752788305282593, 24.648692846298218, 0.4679999999999995, 'done', 'B_sub']
+[21.322919130325317, 25.636911153793335, 1.0, 'done', 'B_sub']
+[21.526581525802612, 25.289445877075195, 1.0, 'done', 'B_sub']
+[21.70298671722412, 26, 0.9430000000000001, 'interrupted', 'B_sub']
+[21.724862575531006, 25.316694021224976, 1.0, 'done', 'B_sub']
+[23.07133150100708, 26, 0.17500000000000027, 'interrupted', 'B_sub']
+[23.40178632736206, 27.202661514282227, 1.0, 'done', 'B_sub']
+[24.46319890022278, 29.366329431533813, 1.4140000000000001, 'done', 'B_sub']
+[24.648692846298218, 28.455244064331055, 0.4679999999999995, 'done', 'B_sub']
+[25.289445877075195, 30.43963098526001, 1.0, 'done', 'B_sub']
+[25.316694021224976, 29.23160171508789, 0.17500000000000027, 'done', 'B_sub']
+[25.316694021224976, 32.234299182891846, 0.9430000000000001, 'done', 'B_sub']
+[25.636911153793335, 29.494800329208374, 0.565999999999999, 'done', 'B_sub']
+Task B completed in 32.23 seconds with waiting time 0.00 and 2 interruptions (7.23 seconds).
+Task A completed in 9.08 seconds with waiting time 0.00 and 1 interruptions (2.00 seconds).
+Task C completed in 10.11 seconds with waiting time 0.41 and 0 interruptions (0.00 seconds).
+Task D completed in 9.39 seconds with waiting time 3.19 and 2 interruptions (5.09 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 32.23 seconds
+Total Waiting Time: 3.60 seconds
+Average Waiting Time: 0.90 seconds
+Total Execute Duration: 60.82 seconds
+Average Execute Duration: 15.21 seconds
+Total Completion Time: 60.82 seconds
+Average Completion Time: 15.21 seconds
+Total Net GPU Time: 32.23 seconds
+Total GPU Utilization: 203.35 size * seconds
+Total GPU Capacity: 223.64 size * seconds
+GPU Utilization Rate: 90.93%
+Total Interruptions: 5 times
+Total Interruption Time: 14.32 seconds
+Interruption Expected Value: 0.24
+Total GPU Communicated: 48.57 sizeThroughput (size): 1.51 size per seconds
+Throughput (task): 0.12 tasks per second
+evaluate_result: [3.599914789199829,60.82055735588074,90.92621355735866,0.2353859305797395,0.12409142129334629]
+----------------------------------------------------------------------
+///////////////////Baseline///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 10.300379276275635, 3.414, 'done', 'A']
+[10.300379276275635, 14.329310417175293, 6.768, 'done', 'D']
+Task A completed in 10.30 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 4.03 seconds with waiting time 5.30 and 0 interruptions (0.00 seconds).
+Task B have not completed. Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task C have not completed. Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 2 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 14.33 seconds
+Total Waiting Time: 29.96 seconds
+Average Waiting Time: 7.49 seconds
+Total Execute Duration: 14.33 seconds
+Average Execute Duration: 7.16 seconds
+Total Completion Time: 14.33 seconds
+Average Completion Time: 7.16 seconds
+Total Net GPU Time: 14.33 seconds
+Total GPU Utilization: 62.43 size * seconds
+Total GPU Capacity: 100.31 size * seconds
+GPU Utilization Rate: 62.24%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00
+Total GPU Communicated: 10.18 sizeThroughput (size): 0.71 size per seconds
+Throughput (task): 0.14 tasks per second
+evaluate_result: [29.95900011062622,14.329310417175293,62.24335095904502,0.0,0.13957405777201773]
+----------------------------------------------------------------------
+///////////////////Lyra///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 5.777338981628418, 3.414, 'done', 'A']
+[5.777338981628418, 9.42618441581726, 6.768, 'done', 'D']
+[9.42618441581726, 12, 7.175, 'interrupted', 'C']
+[20, 26, 7.175, 'interrupted', 'C']
+[34, 38, 7.175, 'interrupted', 'C']
+[46, 50, 7.175, 'interrupted', 'C']
+Task A completed in 5.78 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 3.65 seconds with waiting time 0.78 and 0 interruptions (0.00 seconds).
+Task C have not completed. Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, doing, 4.00/9.43/None/27.08, Is Subtask: False, Is Main task: True, Interruptions: 4)
+Task B have not completed. Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 3 tasks
+Number of Completed Tasks: 2 tasks
+Total Work Time: 50.00 seconds
+Total Waiting Time: 56.20 seconds
+Average Waiting Time: 14.05 seconds
+Total Execute Duration: 50.00 seconds
+Average Execute Duration: 16.67 seconds
+Total Completion Time: 9.43 seconds
+Average Completion Time: 4.71 seconds
+Total Net GPU Time: 26.00 seconds
+Total GPU Utilization: 163.34 size * seconds
+Total GPU Capacity: 352.00 size * seconds
+GPU Utilization Rate: 46.40%
+Total Interruptions: 4 times
+Total Interruption Time: 16.57 seconds
+Interruption Expected Value: 0.33
+Total GPU Communicated: 38.88 sizeThroughput (size): 0.78 size per seconds
+Throughput (task): 0.04 tasks per second
+evaluate_result: [56.20352339744568,9.42618441581726,46.40237159044904,0.33147631168365477,0.04]
+----------------------------------------------------------------------
+///////////////////Lyra Plus///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 6.936603784561157, 3.414, 'done', 'A']
+[6.936603784561157, 10.927537679672241, 6.768, 'done', 'D']
+[10.927537679672241, 14, 7.0, 'interrupted', 'C_sub']
+[14, 18.960153579711914, 0.17499999999999982, 'done', 'C_sub']
+[20, 28, 7.0, 'interrupted', 'C_sub']
+[28, 35.22166466712952, 6.0, 'done', 'C_sub_sub']
+[32, 35.85788011550903, 1.0, 'done', 'C_sub']
+[35.22166466712952, 38.92751955986023, 6.0, 'done', 'B_sub']
+[38.92751955986023, 42.27229189872742, 6.0, 'done', 'B_sub']
+[42.27229189872742, 45.59805655479431, 6.0, 'done', 'B_sub']
+[45.59805655479431, 50.69124126434326, 6.677, 'done', 'B_sub']
+Task A completed in 6.94 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task D completed in 3.99 seconds with waiting time 1.94 and 0 interruptions (0.00 seconds).
+Task C completed in 24.93 seconds with waiting time 6.93 and 2 interruptions (11.07 seconds).
+Task B completed in 15.47 seconds with waiting time 35.22 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 50.69 seconds
+Total Waiting Time: 44.09 seconds
+Average Waiting Time: 11.02 seconds
+Total Execute Duration: 51.33 seconds
+Average Execute Duration: 12.83 seconds
+Total Completion Time: 51.33 seconds
+Average Completion Time: 12.83 seconds
+Total Net GPU Time: 49.65 seconds
+Total GPU Utilization: 272.52 size * seconds
+Total GPU Capacity: 356.84 size * seconds
+GPU Utilization Rate: 76.37%
+Total Interruptions: 2 times
+Total Interruption Time: 11.07 seconds
+Interruption Expected Value: 0.22
+Total GPU Communicated: 56.03 sizeThroughput (size): 1.11 size per seconds
+Throughput (task): 0.08 tasks per second
+evaluate_result: [44.085806131362915,51.32745671272278,76.37089007059139,0.2157220137031098,0.07890909554060656]
+----------------------------------------------------------------------
+///////////////////HongTu///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 4.047929763793945, 0.8535, 'done', 'A_sub_2']
+[0, 4.466026306152344, 0.8535, 'done', 'A_sub_1']
+[0, 6.575512170791626, 0.8535, 'done', 'A_sub_0']
+[0, 4.104948282241821, 0.8535, 'done', 'A_sub']
+[4.047929763793945, 8.496416091918945, 1.79375, 'done', 'C_sub_1']
+[4.047929763793945, 8.26690149307251, 1.79375, 'done', 'C_sub_0']
+[4.466026306152344, 8.704005718231201, 1.79375, 'done', 'C_sub']
+[8.26690149307251, 14.880433559417725, 1.692, 'done', 'D_sub_0']
+[8.496416091918945, 12.358391284942627, 1.692, 'done', 'D_sub_1']
+[8.496416091918945, 12.354305267333984, 1.692, 'done', 'D_sub']
+[8.704005718231201, 12.75194001197815, 1.692, 'done', 'D_sub_2']
+[12.358391284942627, 16.501368522644043, 1.79375, 'done', 'C_sub_2']
+[16.501368522644043, 21.694891691207886, 6.16925, 'done', 'B_sub_0']
+[21.694891691207886, 25.761829137802124, 6.16925, 'done', 'B_sub']
+[25.761829137802124, 29.904783725738525, 6.16925, 'done', 'B_sub_2']
+[29.904783725738525, 33.952736139297485, 6.16925, 'done', 'B_sub_1']
+Task A completed in 6.58 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task C completed in 12.45 seconds with waiting time 0.05 and 0 interruptions (0.00 seconds).
+Task D completed in 6.61 seconds with waiting time 3.27 and 0 interruptions (0.00 seconds).
+Task B completed in 17.45 seconds with waiting time 16.50 and 0 interruptions (0.00 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 33.95 seconds
+Total Waiting Time: 19.82 seconds
+Average Waiting Time: 4.95 seconds
+Total Execute Duration: 43.09 seconds
+Average Execute Duration: 10.77 seconds
+Total Completion Time: 43.09 seconds
+Average Completion Time: 10.77 seconds
+Total Net GPU Time: 33.95 seconds
+Total GPU Utilization: 185.73 size * seconds
+Total GPU Capacity: 237.67 size * seconds
+GPU Utilization Rate: 78.14%
+Total Interruptions: 0 times
+Total Interruption Time: 0.00 seconds
+Interruption Expected Value: 0.00
+Total GPU Communicated: 42.03 sizeThroughput (size): 1.24 size per seconds
+Throughput (task): 0.12 tasks per second
+evaluate_result: [19.816199779510498,43.09385061264038,78.14480226828576,0.0,0.11781082925362032]
+----------------------------------------------------------------------
+///////////////////ESGNN///////////////////
+=============================Evaluation==============================
+total_gpu_time_ranges: [start_time, end_time, size, status, name]
+[0, 4.580067873001099, 3.586, 'done', 'B_sub']
+[0, 2, 3.414, 'interrupted', 'A']
+[2, 6.4470367431640625, 2.414, 'done', 'A_sub']
+[4.580067873001099, 12.010785341262817, 1.0, 'done', 'A_sub']
+[4.580067873001099, 8.62800669670105, 2.586, 'done', 'C_sub']
+[6, 9.89589548110962, 1.0, 'done', 'C_sub']
+[6.4470367431640625, 10.7230224609375, 2.414, 'done', 'C_sub']
+[8, 12, 1.0, 'interrupted', 'C_sub']
+[8.62800669670105, 13.018020391464233, 2.586, 'done', 'D_sub']
+[9.89589548110962, 15.008074283599854, 0.17500000000000027, 'done', 'C_sub']
+[9.89589548110962, 12, 0.8249999999999997, 'interrupted', 'D_sub']
+[10.7230224609375, 15.569139003753662, 1.0, 'done', 'C_sub']
+[10.7230224609375, 14.618922472000122, 0.8249999999999997, 'done', 'D_sub']
+[10.7230224609375, 15.265074968338013, 1.4140000000000001, 'done', 'D_sub']
+[12.010785341262817, 14, 1.0, 'interrupted', 'D_sub']
+[13.018020391464233, 17.446049451828003, 1.6430000000000002, 'done', 'B_sub']
+[13.018020391464233, 17.008949756622314, 0.9429999999999996, 'done', 'D_sub']
+[14.618922472000122, 18.400789976119995, 0.8249999999999997, 'done', 'D_sub_sub']
+[15.008074283599854, 18.961001873016357, 0.17500000000000027, 'done', 'B_sub']
+[15.265074968338013, 19.674100875854492, 1.2389999999999999, 'done', 'B_sub']
+[15.265074968338013, 19.978169441223145, 0.17500000000000027, 'done', 'D_sub']
+[15.569139003753662, 19.351011037826538, 1.0, 'done', 'B_sub']
+[17.008949756622314, 20.714813709259033, 0.9429999999999996, 'done', 'B_sub']
+[17.446049451828003, 21.436965227127075, 1.6430000000000002, 'done', 'B_sub']
+[18, 21.819891929626465, 1.0, 'done', 'B_sub']
+[18.400789976119995, 22.37270712852478, 0.8249999999999997, 'done', 'B_sub']
+[18.961001873016357, 22.66685676574707, 0.17500000000000027, 'done', 'B_sub']
+[19.351011037826538, 22.961836576461792, 1.0, 'done', 'B_sub']
+[19.674100875854492, 23.455963850021362, 1.2389999999999999, 'done', 'B_sub']
+[19.978169441223145, 24.995327949523926, 0.17500000000000027, 'done', 'B_sub']
+[20, 26.25243592262268, 1.0, 'done', 'B_sub']
+[20.714813709259033, 24.268638849258423, 0.9429999999999996, 'done', 'B_sub']
+[21.436965227127075, 26.796203136444092, 1.6430000000000002, 'done', 'B_sub']
+[21.819891929626465, 25.98334002494812, 1.0, 'done', 'B_sub']
+[22.37270712852478, 27.427876472473145, 0.8249999999999997, 'done', 'B_sub']
+[22.66685676574707, 26.524759531021118, 0.17500000000000027, 'done', 'B_sub']
+[22.961836576461792, 29.043244123458862, 1.0, 'done', 'B_sub']
+[23.455963850021362, 29.15729022026062, 1.2389999999999999, 'done', 'B_sub']
+[24.268638849258423, 29.13376760482788, 0.9429999999999996, 'done', 'B_sub']
+[24.995327949523926, 25.052649544531423, 0.17500000000000027, 'done', 'B_sub']
+[25.052649544531423, 25.10997113953892, 0.17500000000000027, 'done', 'B_sub']
+[25.10997113953892, 25.167292734546418, 0.17500000000000027, 'done', 'B_sub']
+[25.167292734546418, 25.224614329553916, 0.17500000000000027, 'done', 'B_sub']
+[25.224614329553916, 25.281935924561413, 0.17500000000000027, 'done', 'B_sub']
+[25.281935924561413, 25.33925751956891, 0.17500000000000027, 'done', 'B_sub']
+[25.33925751956891, 25.396579114576408, 0.17500000000000027, 'done', 'B_sub']
+[25.396579114576408, 25.410008745406735, 0.040999999999997705, 'done', 'B_sub']
+Task B completed in 29.16 seconds with waiting time 0.00 and 0 interruptions (0.00 seconds).
+Task A completed in 12.01 seconds with waiting time 0.00 and 1 interruptions (2.00 seconds).
+Task C completed in 10.99 seconds with waiting time 0.58 and 1 interruptions (4.00 seconds).
+Task D completed in 11.35 seconds with waiting time 3.63 and 2 interruptions (4.09 seconds).
+Number of Arrived Tasks: 4 tasks
+Number of Executed Tasks: 4 tasks
+Number of Completed Tasks: 4 tasks
+Total Work Time: 29.16 seconds
+Total Waiting Time: 4.21 seconds
+Average Waiting Time: 1.05 seconds
+Total Execute Duration: 63.51 seconds
+Average Execute Duration: 15.88 seconds
+Total Completion Time: 63.51 seconds
+Average Completion Time: 15.88 seconds
+Total Net GPU Time: 29.16 seconds
+Total GPU Utilization: 197.67 size * seconds
+Total GPU Capacity: 204.94 size * seconds
+GPU Utilization Rate: 96.45%
+Total Interruptions: 4 times
+Total Interruption Time: 10.09 seconds
+Interruption Expected Value: 0.16
+Total GPU Communicated: 48.27 sizeThroughput (size): 1.66 size per seconds
+Throughput (task): 0.14 tasks per second
+evaluate_result: [4.208074569702148,63.507309436798096,96.45207773662551,0.15893161381167226,0.13718695975459705]
+----------------------------------------------------------------------

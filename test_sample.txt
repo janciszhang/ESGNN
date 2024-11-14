@@ -1,0 +1,424 @@
+available_size: 10
+borrow_schedule: [(0, 2, 0), (2, 4, 5), (4, 6, 6), (6, 8, 0), (8, 10, -5), (10, 12, -6), (12, 14, -1), (14, 16, 4), (16, 18, 6), (18, 20, 2), (20, 22, -3), (22, 24, -6), (24, 26, -3), (26, 28, 2), (28, 30, 6), (30, 32, 4), (32, 34, -2), (34, 36, -6), (36, 38, -5), (38, 40, 1), (40, 42, 6), (42, 44, 5), (44, 46, 0), (46, 48, -5), (48, 50, -6), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////ESGNN///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 10
+borrow_schedule: [(0, 2, 0), (2, 4, 0), (4, 6, 0), (6, 8, 0), (8, 10, 0), (10, 12, 0), (12, 14, 0), (14, 16, 0), (16, 18, 0), (18, 20, 0), (20, 22, 0), (22, 24, 0), (24, 26, 0), (26, 28, 0), (28, 30, 0), (30, 32, 0), (32, 34, 0), (34, 36, 0), (36, 38, 0), (38, 40, 0), (40, 42, 0), (42, 44, 0), (44, 46, 0), (46, 48, 0), (48, 50, 0), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////Lyra///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 3
+borrow_schedule: [(0, 2, 0), (2, 4, -3), (4, 6, -3), (6, 8, 0), (8, 10, 3), (10, 12, 3), (12, 14, 1), (14, 16, -2), (16, 18, -3), (18, 20, -1), (20, 22, 2), (22, 24, 3), (24, 26, 2), (26, 28, -1), (28, 30, -3), (30, 32, -2), (32, 34, 1), (34, 36, 3), (36, 38, 3), (38, 40, 0), (40, 42, -3), (42, 44, -3), (44, 46, 0), (46, 48, 3), (48, 50, 3), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////Lyra///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 10
+borrow_schedule: [(0, 2, 0), (2, 4, 3), (4, 6, 3), (6, 8, 0), (8, 10, -3), (10, 12, -3), (12, 14, -1), (14, 16, 2), (16, 18, 3), (18, 20, 1), (20, 22, -2), (22, 24, -3), (24, 26, -2), (26, 28, 1), (28, 30, 3), (30, 32, 2), (32, 34, -1), (34, 36, -3), (36, 38, -3), (38, 40, 0), (40, 42, 3), (42, 44, 3), (44, 46, 0), (46, 48, -3), (48, 50, -3), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////Lyra///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 3
+borrow_schedule: [(0, 2, 0), (2, 4, 0), (4, 6, 0), (6, 8, 0), (8, 10, 0), (10, 12, 0), (12, 14, 0), (14, 16, 0), (16, 18, 0), (18, 20, 0), (20, 22, 0), (22, 24, 0), (24, 26, 0), (26, 28, 0), (28, 30, 0), (30, 32, 0), (32, 34, 0), (34, 36, 0), (36, 38, 0), (38, 40, 0), (40, 42, 0), (42, 44, 0), (44, 46, 0), (46, 48, 0), (48, 50, 0), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////Lyra///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 10
+borrow_schedule: [(0, 2, 0), (2, 4, 0), (4, 6, 0), (6, 8, 0), (8, 10, 0), (10, 12, 0), (12, 14, 0), (14, 16, 0), (16, 18, 0), (18, 20, 0), (20, 22, 0), (22, 24, 0), (24, 26, 0), (26, 28, 0), (28, 30, 0), (30, 32, 0), (32, 34, 0), (34, 36, 0), (36, 38, 0), (38, 40, 0), (40, 42, 0), (42, 44, 0), (44, 46, 0), (46, 48, 0), (48, 50, 0), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////Lyra///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 9
+borrow_schedule: [(0, 2, 0), (2, 4, 0), (4, 6, 0), (6, 8, 0), (8, 10, 0), (10, 12, 0), (12, 14, 0), (14, 16, 0), (16, 18, 0), (18, 20, 0), (20, 22, 0), (22, 24, 0), (24, 26, 0), (26, 28, 0), (28, 30, 0), (30, 32, 0), (32, 34, 0), (34, 36, 0), (36, 38, 0), (38, 40, 0), (40, 42, 0), (42, 44, 0), (44, 46, 0), (46, 48, 0), (48, 50, 0), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////Lyra///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 4
+borrow_schedule: [(0, 2, 0), (2, 4, -3), (4, 6, -3), (6, 8, 0), (8, 10, 3), (10, 12, 3), (12, 14, 1), (14, 16, -2), (16, 18, -3), (18, 20, -1), (20, 22, 2), (22, 24, 3), (24, 26, 2), (26, 28, -1), (28, 30, -3), (30, 32, -2), (32, 34, 1), (34, 36, 3), (36, 38, 3), (38, 40, 0), (40, 42, -3), (42, 44, -3), (44, 46, 0), (46, 48, 3), (48, 50, 3), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////Lyra///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 8
+borrow_schedule: [(0, 2, 0), (2, 4, -4), (4, 6, -4), (6, 8, 0), (8, 10, 3), (10, 12, 4), (12, 14, 1), (14, 16, -3), (16, 18, -4), (18, 20, -2), (20, 22, 2), (22, 24, 4), (24, 26, 2), (26, 28, -2), (28, 30, -4), (30, 32, -3), (32, 34, 1), (34, 36, 4), (36, 38, 3), (38, 40, 0), (40, 42, -4), (42, 44, -4), (44, 46, 0), (46, 48, 4), (48, 50, 4), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////Lyra///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 9
+borrow_schedule: [(0, 2, 0), (2, 4, -1), (4, 6, -1), (6, 8, 0), (8, 10, 1), (10, 12, 1), (12, 14, 0), (14, 16, -1), (16, 18, -1), (18, 20, 0), (20, 22, 1), (22, 24, 1), (24, 26, 1), (26, 28, 0), (28, 30, -1), (30, 32, -1), (32, 34, 0), (34, 36, 1), (36, 38, 1), (38, 40, 0), (40, 42, -1), (42, 44, -1), (44, 46, 0), (46, 48, 1), (48, 50, 1), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////Lyra///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 10
+borrow_schedule: [(0, 2, 0), (2, 4, 2), (4, 6, 2), (6, 8, 0), (8, 10, -2), (10, 12, -2), (12, 14, 0), (14, 16, 1), (16, 18, 2), (18, 20, 1), (20, 22, -1), (22, 24, -2), (24, 26, -1), (26, 28, 1), (28, 30, 2), (30, 32, 1), (32, 34, 0), (34, 36, -2), (36, 38, -2), (38, 40, 0), (40, 42, 2), (42, 44, 2), (44, 46, 0), (46, 48, -2), (48, 50, -2), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////Lyra///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 10
+borrow_schedule: [(0, 2, 0), (2, 4, -4), (4, 6, -4), (6, 8, 0), (8, 10, 3), (10, 12, 4), (12, 14, 1), (14, 16, -3), (16, 18, -4), (18, 20, -2), (20, 22, 2), (22, 24, 4), (24, 26, 2), (26, 28, -2), (28, 30, -4), (30, 32, -3), (32, 34, 1), (34, 36, 4), (36, 38, 3), (38, 40, 0), (40, 42, -4), (42, 44, -4), (44, 46, 0), (46, 48, 4), (48, 50, 4), (50, 52, 0)]
+random_task_select: [True, False, True, False]
+///////////////////Lyra///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 7
+borrow_schedule: [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1), (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1), (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1), (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+random_task_select: [True, True, True, True]
+///////////////////Lyra///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+available_size: 10
+borrow_schedule: [(0, 2, 0), (2, 4, -2), (4, 6, -2), (6, 8, 0), (8, 10, 2), (10, 12, 2), (12, 14, 0), (14, 16, -1), (16, 18, -2), (18, 20, -1), (20, 22, 1), (22, 24, 2), (24, 26, 1), (26, 28, -1), (28, 30, -2), (30, 32, -1), (32, 34, 0), (34, 36, 2), (36, 38, 2), (38, 40, 0), (40, 42, -2), (42, 44, -2), (44, 46, 0), (46, 48, 2), (48, 50, 2), (50, 52, 0)]
+random_task_select: [True, True, True, True]
+///////////////////Lyra///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 10
+borrow_schedule = [(0, 2, 0), (2, 4, -2), (4, 6, -2), (6, 8, 0), (8, 10, 2), (10, 12, 2), (12, 14, 0), (14, 16, -1), (16, 18, -2), (18, 20, -1), (20, 22, 1), (22, 24, 2), (24, 26, 1), (26, 28, -1), (28, 30, -2), (30, 32, -1), (32, 34, 0), (34, 36, 2), (36, 38, 2), (38, 40, 0), (40, 42, -2), (42, 44, -2), (44, 46, 0), (46, 48, 2), (48, 50, 2), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Lyra///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 3
+borrow_schedule = [(0, 2, 0), (2, 4, -3), (4, 6, -3), (6, 8, 0), (8, 10, 3), (10, 12, 3), (12, 14, 1), (14, 16, -2), (16, 18, -3), (18, 20, -1), (20, 22, 2), (22, 24, 3), (24, 26, 2), (26, 28, -1), (28, 30, -3), (30, 32, -2), (32, 34, 1), (34, 36, 3), (36, 38, 3), (38, 40, 0), (40, 42, -3), (42, 44, -3), (44, 46, 0), (46, 48, 3), (48, 50, 3), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Lyra///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 4.00/4.00/4.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 5
+borrow_schedule = [(0, 2, 0), (2, 4, -4), (4, 6, -4), (6, 8, 0), (8, 10, 3), (10, 12, 4), (12, 14, 1), (14, 16, -3), (16, 18, -4), (18, 20, -2), (20, 22, 2), (22, 24, 4), (24, 26, 2), (26, 28, -2), (28, 30, -4), (30, 32, -3), (32, 34, 1), (34, 36, 4), (36, 38, 3), (38, 40, 0), (40, 42, -4), (42, 44, -4), (44, 46, 0), (46, 48, 4), (48, 50, 4), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Lyra///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 7
+borrow_schedule = [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1), (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1), (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1), (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Lyra///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.00/3.00/3.00, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.00/7.00/7.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 7.00/7.00/7.00, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 7
+borrow_schedule = [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1), (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1), (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1), (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Lyra///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 7
+borrow_schedule = [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1), (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1), (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1), (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Lyra///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 7
+borrow_schedule = [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1), (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1), (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1), (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Lyra///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 7
+borrow_schedule = [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1), (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1), (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1), (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Baseline///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 7
+borrow_schedule = [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1), (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1), (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1), (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Baseline///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 7
+borrow_schedule = [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1), (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1), (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1), (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Baseline///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 7
+borrow_schedule = [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1), (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1), (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1), (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Baseline///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////HongTu///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 7
+borrow_schedule = [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1), (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1), (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1), (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Baseline///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////HongTu///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+=================================Sample=======================================available_size = 7
+borrow_schedule = [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1), (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1), (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1), (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+random_task_select = [True, True, True, True]
+///////////////////Baseline///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////Lyra Plus///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////HongTu///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+///////////////////ESGNN///////////////////
+Task(A, size: 3.41/3.41/3.41, duration: 7.07/7.07/7.07, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(B, size: 24.68/24.68/24.68, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 7.17/7.17/7.17, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 6.77/6.77/6.77, duration: 5.91/5.91/5.91, waiting, 5.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)

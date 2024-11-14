@@ -1,0 +1,7 @@
+Task(A, size: 0.00/4.00/4.00, duration: 0.00/15.35/7.07, done, 0.00/0/8.02/15.35, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(D, size: 0.00/7.00/7.00, duration: 0.00/5.91/5.91, done, 5.00/18/22.5/23.91, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 6.42/8.00/8.00, duration: 14.15/17.65/17.65, interrupted, 4.00/22.5/26/40.15, Is Subtask: True, Is Main task: False, Interruptions: 1)
+Task(C, size: 6.19/8.00/8.00, duration: 13.65/17.65/17.65, interrupted, 4.00/34/38/51.65, Is Subtask: True, Is Main task: False, Interruptions: 1)
+Task(C, size: 6.19/8.00/8.00, duration: 13.65/17.65/17.65, interrupted, 4.00/46/50/63.65, Is Subtask: True, Is Main task: False, Interruptions: 1)
+Task(B, size: 25.00/25.00/25.00, duration: 8.08/8.08/8.08, waiting, 0.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
+Task(C, size: 8.00/8.00/8.00, duration: 17.65/17.65/17.65, waiting, 4.00/None/None/None, Is Subtask: False, Is Main task: True, Interruptions: 0)
