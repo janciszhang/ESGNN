@@ -1,55 +1,59 @@
 import random
+
+import torch
 from ogb.nodeproppred import PygNodePropPredDataset
 from torch_geometric.datasets import Planetoid, Reddit, PPI, Amazon, Flickr, TUDataset
+
+from es_cpu_time_memory import es_cpu
 from es_gpu_time_memory import es_gpu
 from task import Task
 
 
 # 定義數據集加載函數
 def load_cora():
-    return Planetoid(root='./dataset/Cora', name='Cora')
+    return Planetoid(root='../dataset/Cora', name='Cora')
 
 def load_citeseer():
-    return Planetoid(root='./dataset/Citeseer', name='Citeseer')
+    return Planetoid(root='../dataset/Citeseer', name='Citeseer')
 
 def load_pubmed():
-    return Planetoid(root='./dataset/Pubmed', name='Pubmed')
+    return Planetoid(root='../dataset/Pubmed', name='Pubmed')
 
 def load_reddit():
-    return Reddit(root='./dataset/Reddit')
+    return Reddit(root='../dataset/Reddit')
 
 def load_ppi():
-    return PPI(root='./dataset/PPI')
+    return PPI(root='../dataset/PPI')
 
 def load_flickr():
-    return Flickr(root='./dataset/Flickr')
+    return Flickr(root='../dataset/Flickr')
 
 def load_amazon_computers():
-    return Amazon(root='./dataset/Amazon/Computers', name='Computers')
+    return Amazon(root='../dataset/Amazon/Computers', name='Computers')
 
 def load_amazon_photo():
-    return Amazon(root='./dataset/Amazon/Photo', name='Photo')
+    return Amazon(root='../dataset/Amazon/Photo', name='Photo')
 
 def load_tu_proteins():
-    return TUDataset(root='./dataset/TUDataset/PROTEINS', name='PROTEINS')
+    return TUDataset(root='../dataset/TUDataset/PROTEINS', name='PROTEINS')
 
 def load_tu_enzymes():
-    return TUDataset(root='./dataset/TUDataset/ENZYMES', name='ENZYMES')
+    return TUDataset(root='../dataset/TUDataset/ENZYMES', name='ENZYMES')
 
 def load_tu_imdb():
-    return TUDataset(root='./dataset/TUDataset/IMDB-BINARY', name='IMDB-BINARY')
+    return TUDataset(root='../dataset/TUDataset/IMDB-BINARY', name='IMDB-BINARY')
 
 def load_ogbn_products():
-    return PygNodePropPredDataset(root='./dataset/ogbn_products', name='ogbn-products')
+    return PygNodePropPredDataset(root='../dataset/ogbn_products', name='ogbn-products')
 
 def load_ogbn_proteins():
-    return PygNodePropPredDataset(root='./dataset/ogbn_proteins', name='ogbn-proteins')
+    return PygNodePropPredDataset(root='../dataset/ogbn_proteins', name='ogbn-proteins')
 
 def load_ogbn_arxiv():
-    return PygNodePropPredDataset(root='./dataset/ogbn_arxiv', name='ogbn-arxiv')
+    return PygNodePropPredDataset(root='../dataset/ogbn_arxiv', name='ogbn-arxiv')
 
 def load_ogbn_papers100m():
-    return PygNodePropPredDataset(root='./dataset/ogbn_papers100M', name='ogbn-papers100M')
+    return PygNodePropPredDataset(root='../dataset/ogbn_papers100M', name='ogbn-papers100M')
 
 # 將數據集名稱和對應的加載函數存入字典
 dataset_loaders = {
@@ -118,11 +122,16 @@ def load_tasks(dataset_category_list):
     for dataset,category in dataset_category_list:
         # print(dataset[0])
         name=generate_random_name(category)
-        [es_time, es_max_memory, k] = es_gpu(dataset)
+        if torch.cuda.is_available():
+            [es_time, es_max_memory, k] = es_gpu(dataset)
+        else:
+            [es_time, es_max_memory, k] = es_cpu(dataset)
+        print([es_time, es_max_memory, k])
         duration = es_time
-        size = es_max_memory
+        size = es_max_memory # 有问题？cpu m可能是复数？
         task = Task(name, size, duration)
         task.data = dataset[0]
+        task.calculate_pmc()
         task.arrival_time = random.randint(0,10)
         tasks.append(task)
 
@@ -132,5 +141,5 @@ def load_tasks(dataset_category_list):
 
 
 if __name__ == '__main__':
-    dataset_category_list = select_datasets(num_small=2,num_medium=0,num_large=0)
+    dataset_category_list = select_datasets(num_small=2,num_medium=1,num_large=1)
     tasks = load_tasks(dataset_category_list)

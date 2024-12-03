@@ -1,5 +1,5 @@
-from ESGNN.scheduer_Baseline import schedule_tasks_Baseline
-from ESGNN.scheduer_HongTu import schedule_tasks_HongTu
+from scheduer_Baseline import schedule_tasks_Baseline
+from scheduer_HongTu import schedule_tasks_HongTu
 from viz import viz_evaluate_results, plot_tasks
 from scheduler_evaluation import evaluation_tasks_scheduler
 from load_data import get_data_info
@@ -163,6 +163,7 @@ def schedule_total():
             print(e)
             # f2.write(str(e))
             # f2.write('\n')
+
     viz_evaluate_results(evaluate_results,schedule_method_name)
 
 

@@ -1,3 +1,5 @@
+import re
+
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.lines import Line2D
@@ -196,11 +198,128 @@ def viz_evaluate_results(evaluate_results, schedule_method_name):
         plt.tight_layout()
         plt.show()
 
-if __name__ == '__main__':
-    evaluate_results = [
-        [25.572810173034668, 57.981799840927124, 67.6614804257861, 0.4546301615757951, 0.03449358256361468],
-        [25.572810173034668, 57.981799840927124, 67.6614804257861, 0.4546301615757951, 0.03449358256361468],
-        [0, 33.40258026123047, 77.84535238269129, 0.45977273498147503, 0.06540214633226274]]
 
-    schedule_method_name = ['Lyra', 'Lyra Plus', 'ESGNN']
-    viz_evaluate_results(evaluate_results, schedule_method_name)
+def viz_evaluate_results2(evaluate_results, schedule_method_name):
+    task_completion_rate=[]
+    total_waiting_time = []
+    total_completion_time = []
+    gpu_utilization_rate = []
+    interrupt_expected_value = []
+    throughput_task = []
+    throughput_size = []
+    for evaluate_result in evaluate_results:
+        task_completion_rate.append(evaluate_result[0])
+        total_waiting_time.append(evaluate_result[1])
+        total_completion_time.append(evaluate_result[2])
+        gpu_utilization_rate.append(evaluate_result[3])
+        interrupt_expected_value.append(evaluate_result[4])
+        throughput_task.append(evaluate_result[5])
+        throughput_size.append(evaluate_result[6])
+
+    # 数据准备
+    metrics = [
+        task_completion_rate,
+        total_waiting_time,
+        total_completion_time,
+        gpu_utilization_rate,
+        interrupt_expected_value,
+        throughput_task,
+        throughput_size
+    ]
+
+    metric_names = [
+        'Task Completion Rate',
+        'Total Waiting Time (seconds)',
+        'Total Work Time (seconds)',
+        'GPU Utilization Rate (%)',
+        'Interrupt Expected Value',
+        'Throughput (task/second)',
+        'Throughput (size/second)'
+    ]
+
+    colors = plt.cm.viridis(np.linspace(0, 1, len(schedule_method_name)))
+
+    # 绘制每个指标的独立图
+    for i, metric in enumerate(metrics):
+        plt.figure(figsize=(8, 5))
+        x = np.arange(len(schedule_method_name))
+        bars = plt.bar(x, metric, color=colors)
+        plt.xticks(x, schedule_method_name)
+        plt.ylabel(metric_names[i])
+        plt.title(f'Comparison of {metric_names[i]}')
+
+        # 添加图例
+        plt.legend([bars[i] for i in range(len(bars))], schedule_method_name, title='Methods')
+
+        plt.grid(axis='y')
+        plt.tight_layout()
+        plt.show()
+
+def get_evaluate_results_from_str(file_path = "evaluation.txt"):
+    with open(file_path, "r") as file:
+        log_text = file.read()
+
+    # 提取 evaluate_result 中的数值
+    evaluate_result_pattern = r"evaluate_result: \[([^\]]+)\]"
+    evaluate_result_match = re.search(evaluate_result_pattern, log_text)
+    if evaluate_result_match:
+        evaluate_result = list(map(float, evaluate_result_match.group(1).split(',')))
+        print("evaluate_result:", evaluate_result)
+
+    # 提取其他关键指标
+    patterns = {
+        "Total Waiting Time": r"Total Waiting Time: ([\d.]+) seconds",
+        "Total Completion Time": r"Total Completion Time: ([\d.]+) seconds",
+        "GPU Utilization Rate": r"GPU Utilization Rate: ([\d.]+)%",
+        "Total Interruptions": r"Total Interruptions: (\d+) times",
+        "Throughput \(size\)": r"Throughput \(size\): ([\d.]+) size per seconds",
+        "Throughput \(task\)": r"Throughput \(task\): ([\d.]+) tasks per second",
+    }
+
+    results = {}
+    for key, pattern in patterns.items():
+        match = re.search(pattern, log_text)
+        if match:
+            results[key] = float(match.group(1)) if '.' in match.group(1) else int(match.group(1))
+
+    # 打印提取结果
+    for key, value in results.items():
+        print(f"{key}: {value}")
+
+def get_evalution_info_from_str(file_path = "evaluation.txt"):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        log_data = file.read()
+
+    # 定义正则表达式
+    pattern = re.compile(
+        r"///////////////////Baseline///////////////////\s*"
+        r"(.*?)"
+        r"///////////////////ESGNN///////////////////",
+        re.DOTALL  # 匹配跨行内容
+    )
+
+    # 提取匹配结果
+    matches = pattern.findall(log_data)
+
+    # 输出结果
+    for i, match in enumerate(matches, 1):
+        print(f"Block {i}:\n{match}\n{'=' * 50}")
+
+if __name__ == '__main__':
+    # evaluate_results1 = [
+    #     [25.572810173034668, 57.981799840927124, 67.6614804257861, 0.4546301615757951, 0.03449358256361468],
+    #     [25.572810173034668, 57.981799840927124, 67.6614804257861, 0.4546301615757951, 0.03449358256361468],
+    #     [0, 33.40258026123047, 77.84535238269129, 0.45977273498147503, 0.06540214633226274]]
+    evaluate_results2 =[
+    [2/4,29.95900011062622, 14.329310417175293, 62.24335095904502, 0.0, 0.13957405777201773,0.71],
+    [2/4,67.67093110084534, 10.661851406097412, 42.68042823983864, 0.34430306333519883, 0.04,0.63],
+    [4 / 4, 22.072202444076538, 46.90283441543579, 76.89578690422508, 0.0, 0.10899931014336652, 1.15],
+    [2/4,56.20352339744568, 9.42618441581726, 46.40237159044904, 0.33147631168365477, 0.04,0.78],
+    [4/4,44.085806131362915, 51.32745671272278, 76.37089007059139, 0.2157220137031098, 0.07890909554060656,1.11],
+    [4/4,19.816199779510498, 43.09385061264038, 78.14480226828576, 0.0, 0.11781082925362032,1.24],
+    [4/4,4.208074569702148, 63.507309436798096, 96.45207773662551, 0.15893161381167226, 0.13718695975459705,1.66]]
+    schedule_method_name = ['Baseline', 'CoGNN','CoGNN Plus','Lyra', 'Lyra Plus',  'HongTu', 'ESGNN']
+    # viz_evaluate_results(evaluate_results1, schedule_method_name)
+    viz_evaluate_results2(evaluate_results2, schedule_method_name)
+    # get_evalution_info_from_str()
+    # get_evaluate_results_from_str()

@@ -32,9 +32,9 @@ import psutil
 import dgl
 import torch.nn.functional as F
 
-from ESGNN.test_cuda import set_gpu_memory
+# from test_cuda import set_gpu_memory
 from load_data import get_data_info, load_dataset_by_name
-from test_cuda import clean_gpu
+# from test_cuda import clean_gpu
 from metis_calculation_job_GPU import estimate_task_gpu
 
 
@@ -312,7 +312,7 @@ def train_model(model, data, epochs=200,patience=20,early_stopping=True,split_ra
         gpu_usage = gpu_after - gpu_before
         print(f'GPU allocated: {torch.cuda.memory_allocated(0) / (1024 ** 2):.2f} MB')
         # print('kkkkk')
-        clean_gpu()
+        # clean_gpu()
         del gpu_after
         del gpu_before
 

@@ -8,7 +8,6 @@ import torch.nn.functional as F
 import torch_geometric
 from torch_geometric.datasets import Planetoid
 from torch_geometric.nn import GCNConv
-import metis
 import networkx as nx
 import time
 

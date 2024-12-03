@@ -1,6 +1,11 @@
+import tracemalloc
+
 import torch
 import time
-
+import torch
+import time
+import psutil
+import os
 from ogb.nodeproppred import PygNodePropPredDataset
 from torch_geometric.datasets import Planetoid, Reddit, TUDataset, Amazon, Flickr, PPI
 from torch_geometric.utils import subgraph
@@ -20,21 +25,18 @@ os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 
 # 訓練模型
 def train_model(model,data):
-    # train_loader = DataLoader([data], batch_size=32, shuffle=True)
-    # train_loader = NeighborSampler(data.edge_index, node_idx=data.train_mask, sizes=[15, 10], batch_size=32,shuffle=True)
-    train_loader = GraphSAINTNodeSampler(data, batch_size=6000, shuffle=True, num_workers=4)
-    # cluster_data = ClusterData(data, num_parts=150)  # 將大圖分成 150 個子圖
-    # train_loader = ClusterLoader(cluster_data, batch_size=32, shuffle=True)
-    # print(f"Dataset size: {len(train_loader.dataset)}")
 
+    train_loader = GraphSAINTNodeSampler(data, batch_size=6000, shuffle=True, num_workers=4)
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     criterion = torch.nn.CrossEntropyLoss()
     model.train()
     # for batch_size, n_id, adjs in train_loader:
     for batch in train_loader:
         # print(batch)
-        batch = batch.to('cuda')
+        batch = batch.to('cpu')
         train(model, batch)
+
+    return
 
 
 
@@ -90,13 +92,16 @@ def load_sub_data(data,num_sub_nodes=10000,k=10):
     return sub_data,k
 
 
-def es_gpu(dataset,num_sub_nodes=10000,k=10):
+def measure_cpu_usage():
+    """Measures CPU memory usage during model training."""
+    process = psutil.Process(os.getpid())
+    return process.memory_info().rss / (1024 ** 2)  # Convert to MB
+
+
+def es_cpu(dataset, num_sub_nodes=10000, k=10):
     data = dataset[0]
     # print(data)
-
-    # train_subset = partition_K(data,100)[0]
-    train_subset,k = load_sub_data(data,num_sub_nodes,k)
-    # data_loader = DataLoader(dataset, batch_size=32, shuffle=True, num_workers=4)
+    train_subset, k = load_sub_data(data, num_sub_nodes, k)
     # print(train_subset)
 
     # 創建 DataLoader
@@ -105,20 +110,29 @@ def es_gpu(dataset,num_sub_nodes=10000,k=10):
     # 模型、優化器和損失函數
     input_dim = train_subset.x.size(1)  # 1433
     output_dim = len(torch.unique(train_subset.y))  # 根據 y 的唯一值計算類別數
-    model = GNN(input_dim, output_dim).cuda()
+    model = GNN(input_dim, output_dim)   # Keep the model on CPU
 
+    tracemalloc.start()  # Start tracking memory usage
     start_time = time.time()
-    # train_model(model, train_loader)
+    memory_before = measure_cpu_usage()
     train_model(model, train_subset)
+    memory_after = measure_cpu_usage()
     end_time = time.time()
+    print(f"CPU Memory: {memory_after} - {memory_before} = {memory_after - memory_before}")
+    current, peak = tracemalloc.get_traced_memory()
+    print(f"Current memory usage: {current / 1024 ** 2:.2f} MB")
+    print(f"Peak memory usage: {peak / 1024 ** 2:.2f} MB")
+    tracemalloc.stop()  # Stop tracking memory usage
+
 
     # print(f"訓練時間: {end_time - start_time:.2f} 秒")
     # print(f"訓練後的 GPU 記憶體佔用: {torch.cuda.memory_allocated() / 1024 ** 2:.2f} MB")
     # print(f"訓練中最大 GPU 記憶體佔用: {torch.cuda.max_memory_allocated() / 1024 ** 2:.2f} MB")
 
-    es_time = (end_time - start_time)*k
-    es_memory =(torch.cuda.memory_allocated() / 1024 ** 2)*k
-    es_max_memory=(torch.cuda.max_memory_allocated() / 1024 ** 2)*k
+    es_time = (end_time - start_time) * k
+    es_max_memory = (memory_after - memory_before)* k
+    # es_memory = (torch.cuda.memory_allocated() / 1024 ** 2) * k
+    # es_max_memory = (torch.cuda.max_memory_allocated() / 1024 ** 2) * k
     # print(f"es Runtime on GPU: {es_memory:.2f} 秒")
     # print(f"es GPU Memory Used: {es_memory:.2f} MB")
     # print(f"es Max GPU Memory Used: {es_max_memory:.2f} MB")
@@ -140,17 +154,21 @@ es Max GPU Memory Used: 4746.01 MB
     # ]
     # datasets = ['PPI', 'PROTEINS', 'ENZYMES', 'IMDB-BINARY', 'ogbn-proteins'] # have problem
     # datasets = ['ogbn-proteins']  # have problem
-    # datasets = ['Cora', 'Citeseer', 'Pubmed', 'Flickr', 'Amazon-Computers', 'Amazon-Photo']
+    datasets = ['Cora', 'Citeseer', 'Pubmed', 'Flickr', 'Amazon-Computers', 'Amazon-Photo']
     # datasets = ['Reddit']
     # datasets = ['PPI', 'PROTEINS', 'ENZYMES', 'IMDB-BINARY']
     # datasets = ['ogbn-products', 'ogbn-proteins', 'ogbn-arxiv']
-    datasets = ['ogbn-arxiv','ogbn-products']
+    # datasets = ['ogbn-arxiv','ogbn-products']
+
+    # datasets = ['Cora']
+
 
     for dataset_name in datasets:
         dataset = load_dataset_by_name(dataset_name)
         # get_data_info(dataset)
         # print(dataset[0])
-        [es_time, es_max_memory, k] = es_gpu(dataset, num_sub_nodes=30000, k=10)
+        [es_time, es_max_memory, k] = es_cpu(dataset, num_sub_nodes=30000, k=10)
+        print([es_time, es_max_memory, k])
         # try:
         #     [es_time, es_max_memory, k] = es_gpu(dataset, num_sub_nodes=30000, k=10)
         # except Exception as e:

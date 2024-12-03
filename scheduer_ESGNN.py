@@ -1,8 +1,8 @@
 """
 有时候会报错，可以多运行几次，会有成功的
 """
-from ESGNN.es_gpu_time_memory import es_gpu
-from ESGNN.load_task import select_datasets, load_tasks
+from es_gpu_time_memory import es_gpu
+from load_task import select_datasets, load_tasks
 from load_data import get_folder_size
 from test_cuda import set_gpu_memory
 from scheduer_base import find_minimum_end_time_indexes, get_result, borrow_handler, interrupt_handler, execute_handler, \

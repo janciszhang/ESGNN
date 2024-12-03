@@ -46,16 +46,16 @@ def load_graph_data():
     dataset = Planetoid(root='data/Cora', name='Cora')
 
     # 加载Reddit数据集
-    # dataset = Reddit(root='./dataset/Reddit')
+    # dataset = Reddit(root='../dataset/Reddit')
 
     # 加载Pubmed数据集
-    # dataset = Planetoid(root='./dataset/Pubmed', name='Pubmed')
+    # dataset = Planetoid(root='../dataset/Pubmed', name='Pubmed')
 
     # 加载Reddit数据集
-    # dataset = Reddit(root='./dataset/Reddit')
+    # dataset = Reddit(root='../dataset/Reddit')
 
     # 加载PPI数据集
-    # dataset = PPI(root='./dataset/PPI')
+    # dataset = PPI(root='../dataset/PPI')
 
     data = dataset[0]
 
@@ -135,33 +135,33 @@ def get_data_info(dataset,is_print=True,is_save=False):
 
 def load_dataset_by_name(name):
     if name == 'Cora':
-        return Planetoid(root='./dataset/Cora', name='Cora')
+        return Planetoid(root='../dataset/Cora', name='Cora')
     elif name == 'Citeseer':
-        return Planetoid(root='./dataset/Citeseer', name='Citeseer')
+        return Planetoid(root='../dataset/Citeseer', name='Citeseer')
     elif name == 'Pubmed':
-        return Planetoid(root='./dataset/Pubmed', name='Pubmed')
+        return Planetoid(root='../dataset/Pubmed', name='Pubmed')
     elif name == 'Reddit':
-        return Reddit(root='./dataset/Reddit')
+        return Reddit(root='../dataset/Reddit')
     elif name == 'PPI':
-        return PPI(root='./dataset/PPI')
+        return PPI(root='../dataset/PPI')
     elif name == 'Flickr':
-        return Flickr(root='./dataset/Flickr')
+        return Flickr(root='../dataset/Flickr')
     elif name == 'Amazon-Computers':
-        return Amazon(root='./dataset/Amazon/Computers', name='Computers')
+        return Amazon(root='../dataset/Amazon/Computers', name='Computers')
     elif name == 'Amazon-Photo':
-        return Amazon(root='./dataset/Amazon/Photo', name='Photo')
+        return Amazon(root='../dataset/Amazon/Photo', name='Photo')
     elif name == 'PROTEINS':
-        return TUDataset(root='./dataset/TUDataset/PROTEINS', name='PROTEINS')
+        return TUDataset(root='../dataset/TUDataset/PROTEINS', name='PROTEINS')
     elif name == 'ENZYMES':
-        return TUDataset(root='./dataset/TUDataset/ENZYMES', name='ENZYMES')
+        return TUDataset(root='../dataset/TUDataset/ENZYMES', name='ENZYMES')
     elif name == 'IMDB-BINARY':
-        return TUDataset(root='./dataset/TUDataset/IMDB-BINARY', name='IMDB-BINARY')
+        return TUDataset(root='../dataset/TUDataset/IMDB-BINARY', name='IMDB-BINARY')
     elif name == 'ogbn-products':
-        return PygNodePropPredDataset(root='./dataset/ogbn_products', name='ogbn-products')
+        return PygNodePropPredDataset(root='../dataset/ogbn_products', name='ogbn-products')
     elif name == 'ogbn-proteins':
-        return PygNodePropPredDataset(root='./dataset/ogbn_proteins', name='ogbn-proteins')
+        return PygNodePropPredDataset(root='../dataset/ogbn_proteins', name='ogbn-proteins')
     elif name == 'ogbn-arxiv':
-        return PygNodePropPredDataset(root='./dataset/ogbn_arxiv', name='ogbn-arxiv')
+        return PygNodePropPredDataset(root='../dataset/ogbn_arxiv', name='ogbn-arxiv')
     else:
         raise ValueError(f"Unknown dataset name: {name}")
 
@@ -169,22 +169,35 @@ def load_dataset_by_name(name):
 def load_all_datasets():
     datasets = []
 
-    dataset_Cora = Planetoid(root='./dataset/Cora', name='Cora') # 加载Cora数据集500 KB
-    dataset_Citeseer = Planetoid(root='./dataset/Citeseer', name='Citeseer') # 加载Citeseer数据集2 MB
-    dataset_Pubmed = Planetoid(root='./dataset/Pubmed', name='Pubmed') # 加载Pubmed数据集20 MB
-    dataset_Reddit = Reddit(root='./dataset/Reddit') # 加载Reddit数据集300 MB
-    dataset_PPI = PPI(root='./dataset/PPI') # 加载PPI数据集1 GB
-    dataset_Flickr = Flickr(root='./dataset/Flickr') # Flickr
-    dataset_Amazon_Computers = Amazon(root='./dataset/Amazon/Computers', name='Computers') # Amazon Computers 40MB
-    dataset_Amazon_Photo = Amazon(root='./dataset/Amazon/Photo', name='Photo') # Amazon Photo 30 MB
-    dataset_TU_PROTEINS = TUDataset(root='./dataset/TUDataset/PROTEINS',name='PROTEINS')  # 选择适合的名称 ENZYMES, PROTEINS, IMDB-BINARY
-    dataset_TU_ENZYMES = TUDataset(root='./dataset/TUDataset/ENZYMES', name='ENZYMES') # TUDataset
-    dataset_TU_IMDB = TUDataset(root='./dataset/TUDataset/IMDB-BINARY', name='IMDB-BINARY') # no x
-    dataset_OGBN_products = PygNodePropPredDataset(root='./dataset/ogbn_products', name='ogbn-products')
-    dataset_OGBN_proteins = PygNodePropPredDataset(root='./dataset/ogbn_proteins', name='ogbn-proteins') # no x
-    dataset_OGBN_arxiv = PygNodePropPredDataset(root='./dataset/ogbn_arxiv', name='ogbn-arxiv')
-    # dataset_OGBN_papers100M = PygNodePropPredDataset(name='ogbn-papers100M') # 很大，文件大小:  ~250 GB
-    # dataset_OGBN_mag = PygNodePropPredDataset(name='ogbn-mag') # 该数据结构包含多个图结构的复杂对象，不是单一图结构，不能之间get_data_info()
+    try:
+        dataset_Cora = Planetoid(root='../dataset/Cora', name='Cora') # 加载Cora数据集500 KB
+        dataset_Citeseer = Planetoid(root='../dataset/Citeseer', name='Citeseer') # 加载Citeseer数据集2 MB
+        dataset_Pubmed = Planetoid(root='../dataset/Pubmed', name='Pubmed') # 加载Pubmed数据集20 MB
+        datasets.extend([dataset_Cora, dataset_Citeseer, dataset_Pubmed])
+    except:
+        pass
+    try:
+        dataset_PPI = PPI(root='../dataset/PPI') # 加载PPI数据集1 GB
+        dataset_Flickr = Flickr(root='../dataset/Flickr') # Flickr
+        dataset_Amazon_Computers = Amazon(root='../dataset/Amazon/Computers', name='Computers') # Amazon Computers 40MB
+        dataset_Amazon_Photo = Amazon(root='../dataset/Amazon/Photo', name='Photo') # Amazon Photo 30 MB
+        dataset_TU_PROTEINS = TUDataset(root='../dataset/TUDataset/PROTEINS',name='PROTEINS')  # 选择适合的名称 ENZYMES, PROTEINS, IMDB-BINARY
+        dataset_TU_ENZYMES = TUDataset(root='../dataset/TUDataset/ENZYMES', name='ENZYMES') # TUDataset
+        dataset_TU_IMDB = TUDataset(root='../dataset/TUDataset/IMDB-BINARY', name='IMDB-BINARY') # no x
+        dataset_Reddit = Reddit(root='../dataset/Reddit')  # 加载Reddit数据集300 MB
+        datasets.extend([dataset_PPI,dataset_Flickr,dataset_Amazon_Computers,dataset_Amazon_Photo,dataset_Reddit])
+        # datasets.extend([dataset_TU_PROTEINS,dataset_TU_ENZYMES, dataset_TU_IMDB])
+    except:
+        pass
+    try:
+        dataset_OGBN_products = PygNodePropPredDataset(root='../dataset/ogbn_products', name='ogbn-products')
+        dataset_OGBN_proteins = PygNodePropPredDataset(root='../dataset/ogbn_proteins', name='ogbn-proteins') # no x
+        dataset_OGBN_arxiv = PygNodePropPredDataset(root='../dataset/ogbn_arxiv', name='ogbn-arxiv')
+        # dataset_OGBN_papers100M = PygNodePropPredDataset(name='ogbn-papers100M') # 很大，文件大小:  ~250 GB
+        # dataset_OGBN_mag = PygNodePropPredDataset(name='ogbn-mag') # 该数据结构包含多个图结构的复杂对象，不是单一图结构，不能之间get_data_info()
+        datasets.extend([dataset_OGBN_products,dataset_OGBN_proteins,dataset_OGBN_arxiv])
+    except:
+        pass
 
     print(dataset_Cora[0])
     print(dataset_Citeseer[0])
@@ -222,4 +235,5 @@ def load_all_datasets():
 
 
 if __name__ == '__main__':
-    load_all_datasets()
+    datasets = load_all_datasets()
+    # dataset = load_dataset_by_name('Cora')

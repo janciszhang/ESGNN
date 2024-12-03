@@ -228,7 +228,7 @@ def evaluation_tasks_scheduler(tasks, available_gpu_size,borrow_schedule=[(5, 6,
             f.write(f"Total Interruptions: {total_interruptions:.0f} times\n")
             f.write(f"Total Interruption Time: {total_interruption_time:.2f} seconds\n")
             f.write(f"Interruption Expected Value: {interrupt_expected_value:.2f}\n")
-            f.write(f"Total GPU Communicated: {total_gpu_communicated:.2f} size")
+            f.write(f"Total GPU Communicated: {total_gpu_communicated:.2f} size\n")
             f.write(f"Throughput (size): {throughput2:.2f} size per seconds\n")
             f.write(f"Throughput (task): {throughput:.2f} tasks per second\n")
 

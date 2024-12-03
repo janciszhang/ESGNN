@@ -94,6 +94,52 @@ class Task:
         self.status = 'waiting'  # waiting，doing，done，interrupted
         self.subtasks = []  # 子任务列表
 
+        self.pmc = self.calculate_pmc()  # Peak Memory Consumption placeholder(CoGNN)
+
+    def calculate_pmc(self):
+        """
+        Estimate the Peak Memory Consumption (PMC) for the task.
+
+        - feature_size (int): The number of features per node.
+        - batch_size (int): The number of nodes in a batch.
+        - adjacency_size (int): The number of edges (size of adjacency matrix).
+
+        Returns:
+        - pmc (int): Estimated peak memory consumption in bytes.
+        """
+        if self.data is not None:
+            # Feature size from dataset metadata
+            # feature_size = dataset.num_node_features
+            # feature_size = len(data.x[0])
+            # feature_size = data.x.shape[1]
+            if self.data.x is None:
+                # feature_size = dataset.num_node_features
+                feature_size = self.data.node_species.size(1)
+            else:
+                feature_size = self.data.x.shape[1]
+
+            # Adjacency size from dataset metadata
+            adjacency_size = self.data.num_edges
+
+            print(f"Feature size: {feature_size}")
+            print(f"Adjacency size: {adjacency_size}")
+
+            # Memory for features: nodes × features × data type size
+            feature_memory = self.size * feature_size * 4  # Assume float32, 4 bytes per value
+
+            # Memory for adjacency matrix (sparse format)
+            adjacency_memory = adjacency_size * 4  # Assume integer indices, 4 bytes per value
+
+            # Model parameters or temporary buffers (dummy value, depends on model size)
+            buffer_memory = 100 * 1024 * 1024  # Example: 100 MB for intermediate buffers
+
+            # Total memory consumption
+            self.pmc = feature_memory + adjacency_memory + buffer_memory
+        else:
+            self.pmc = 0
+        print(f"PMC: {self.pmc}")
+        return self.pmc
+
     def get_waiting_time(self, current_time=time.time()):
         if self.start_time is None:
             return current_time - self.arrival_time
@@ -239,13 +285,13 @@ class Task:
             return (f"Task({self.name}, size: {self.remaining_size:.2f}/{self.size:.2f}/{self.original_size:.2f}, "
                     f"duration: {self.remaining_duration:.2f}/{self.duration:.2f}/{self.original_duration:.2f}, {self.status}, "
                     f"{self.arrival_time:.2f}/{start_time}/{end_time}/{estimated_end_time}, "
-                    f"Is Subtask: {self.is_sub}, Is Main task: {self.is_main}, Interruptions: {self.interruptions})")
+                    f"Is Subtask: {self.is_sub}, Is Main task: {self.is_main}, Interruptions: {self.interruptions}), PMC: {self.pmc}")
         if option == 2:
             task_info = ""
             task_info += f"Task(Name: {self.name} "
             task_info += f"\nSize: {self.remaining_size}/{self.size}/{self.original_size}, Duration: {self.remaining_duration}/{self.duration}/{self.original_duration}, Status: {self.status}"
             task_info += f"\nTime: {self.arrival_time}/{start_time}/{end_time}/{estimated_end_time}, Waiting Time: {self.get_waiting_time()}"
-            task_info += f"\nRun Priority: {self.run_priority}, Interrupt Priority: {self.interrupt_priority}"
+            task_info += f"\nRun Priority: {self.run_priority}, Interrupt Priority: {self.interrupt_priority}, PMC: {self.pmc}"
             task_info += f"\nIs Subtask: {self.is_sub}, Is Main task: {self.is_main}, Interruptions: {self.interruptions}"
             if self.data:
                 task_info += f"\nData: {self.data}"

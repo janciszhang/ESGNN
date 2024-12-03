@@ -26,8 +26,8 @@ from functools import reduce
 
 import dgl
 import networkx as nx
-import metis
-# import pymetis
+# import metis
+import pymetis
 import torch
 from torch_geometric.datasets import Planetoid
 from torch_geometric.datasets import Reddit

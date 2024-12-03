@@ -7,8 +7,8 @@ import torch
 from matplotlib import pyplot as plt
 from matplotlib.lines import Line2D
 
-from ESGNN.test_cuda import clean_gpu
-from ESGNN.viz import plot_tasks
+# from test_cuda import clean_gpu
+from viz import plot_tasks
 from task import Task, split_task, merge_subtasks
 import copy
 import heapq
