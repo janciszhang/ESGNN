@@ -53,7 +53,8 @@ def generate_available_size_schedule(time_range=[0, 10], available_size=4, borro
         # 在借出之前的时间段，保持默认的可用容量
         if start_time < borrow_start <= end_time:
             available_size_schedule.append((start_time, borrow_start, available_size))
-        if borrow_start <= start_time <= end_time:
+        if borrow_start <= end_time:
+        # if borrow_start <= start_time <= end_time:
             # 在借出时间段，减少借出的容量
             if borrow_end > end_time:
                 available_size_schedule.append((borrow_start, end_time, available_size - borrowed_size))
@@ -211,16 +212,16 @@ def execute_handler(current_time, available_size, running_tasks, completed_tasks
                     available_size = - allocated_memory
 
                 end_times.append(None)
-            except Exception as e:
-                print(f'Exception: {e}')
-                print(task.data)
-                print(f'{{"CUDA error" in str(e)}}')
-                if 'CUDA error' in str(e):
-                    print(f'aaaaa GPU allocated: {torch.cuda.memory_allocated(0) / (1024 ** 2):.2f} MB')
-                    del task.data
-                    del task.model
-                    print(f'hhhhhh GPU allocated: {torch.cuda.memory_allocated(0) / (1024 ** 2):.2f} MB')
-                    return 0
+            # except Exception as e:
+            #     print(f'Exception: {e}')
+            #     print(task.data)
+            #     print(f'{{"CUDA error" in str(e)}}')
+            #     if 'CUDA error' in str(e):
+            #         print(f'aaaaa GPU allocated: {torch.cuda.memory_allocated(0) / (1024 ** 2):.2f} MB')
+            #         del task.data
+            #         del task.model
+            #         print(f'hhhhhh GPU allocated: {torch.cuda.memory_allocated(0) / (1024 ** 2):.2f} MB')
+            #         return 0
                 end_time = task.start_time + task.duration
                 end_times.append(None)
                 print(end_times)
@@ -258,11 +259,18 @@ def execute_handler(current_time, available_size, running_tasks, completed_tasks
 
 def advance_time_handler(current_time, next_time, next_borrow_start_time, next_borrow_end_time, task_queue,
                          running_tasks, n):
+    print(current_time, next_time, next_borrow_start_time, next_borrow_end_time, task_queue,
+                         running_tasks, n)
+
+
+
     if len(running_tasks) > 0 and current_time < next_time:
         next_time = current_time
         print(f'next_time --- {next_time}')
     else:
         next_times = [next_borrow_start_time, next_borrow_end_time]
+        if task_queue:
+            next_times.append(task_queue[0].arrival_time)
         for task in running_tasks[:]:
             next_times.append(task.get_estimated_end_time())
         try:
@@ -270,13 +278,18 @@ def advance_time_handler(current_time, next_time, next_borrow_start_time, next_b
             current_time = next_time
             print(f'next_time:  {next_times} --- {next_time}')
         except:
-            if len(running_tasks) == 0 and len(task_queue) == 0:
-                print('ALl DONE')
+            if len(running_tasks) == 0 and len(task_queue) != 0:
+                next_time = task_queue[0].arrival_time
+                current_time = next_time
             else:
-                n += 1
-                # if n >4:
-                #     return running_tasks
+                if len(running_tasks) == 0 and len(task_queue) == 0:
+                    print('ALl DONE')
+                else:
+                    n += 1
+                    # if n >4:
+                    #     return running_tasks
         # print(f'n = {n}')
+    print(current_time, next_time, n)
     return current_time, next_time, n
 
 

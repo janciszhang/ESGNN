@@ -24,10 +24,11 @@ OGBN-Arxiv (OGB Benchmark): 节点数: 169,343，边数: 1,166,243，类别: 40�
 import os
 import sys
 import torch_geometric
-from torch_geometric.datasets import Planetoid
+from torch_geometric.datasets import Planetoid, KarateClub, WikiCS, WebKB
 from torch_geometric.datasets import Reddit
 from torch_geometric.datasets import PPI
 from torch_geometric.utils import to_networkx
+from torch_geometric.datasets import CitationFull
 # from torch_geometric.datasets import OGB
 from torch_geometric.datasets import OGB_MAG
 from ogb.nodeproppred import NodePropPredDataset
@@ -140,6 +141,16 @@ def load_dataset_by_name(name):
         return Planetoid(root='../dataset/Citeseer', name='Citeseer')
     elif name == 'Pubmed':
         return Planetoid(root='../dataset/Pubmed', name='Pubmed')
+    elif name == 'DBLP':
+        return CitationFull(root='../dataset/DBLP', name='DBLP')
+    elif name == 'WikiCS':
+        return WikiCS(root='../dataset/WikiCS', is_undirected=False)
+    elif name == 'Cornell':
+        return WebKB(root='../dataset/WebKB/Cornell', name='Cornell')  # or 'Texas', 'Wisconsin'
+    elif name == 'Texas':
+        return WebKB(root='../dataset/WebKB/Texas', name='Texas')  # or 'Texas', 'Wisconsin'
+    elif name == 'Wisconsin':
+        return WebKB(root='../dataset/WebKB/Wisconsin', name='Wisconsin')  # or 'Texas', 'Wisconsin'
     elif name == 'Reddit':
         return Reddit(root='../dataset/Reddit')
     elif name == 'PPI':
@@ -177,6 +188,15 @@ def load_all_datasets():
     except:
         pass
     try:
+        DBLP_dataset = CitationFull(root='../dataset/DBLP', name='DBLP')
+        WikiCS_dataset = WikiCS(root='../dataset/WikiCS', is_undirected=False)
+        Cornell_dataset = WebKB(root='../dataset/WebKB/Cornell', name='Cornell')  # or 'Texas', 'Wisconsin'
+        Texas_dataset = WebKB(root='../dataset/WebKB/Texas', name='Texas')  # or 'Texas', 'Wisconsin'
+        Wisconsin_dataset = WebKB(root='../dataset/WebKB/Wisconsin', name='Wisconsin')  # or 'Texas', 'Wisconsin'
+        datasets.extend([DBLP_dataset, WikiCS_dataset, Cornell_dataset,Texas_dataset,Wisconsin_dataset])
+    except:
+        pass
+    try:
         dataset_PPI = PPI(root='../dataset/PPI') # 加载PPI数据集1 GB
         dataset_Flickr = Flickr(root='../dataset/Flickr') # Flickr
         dataset_Amazon_Computers = Amazon(root='../dataset/Amazon/Computers', name='Computers') # Amazon Computers 40MB
@@ -202,6 +222,11 @@ def load_all_datasets():
     print(dataset_Cora[0])
     print(dataset_Citeseer[0])
     print(dataset_Pubmed[0])
+    print(DBLP_dataset[0])
+    print(WikiCS_dataset[0])
+    print(Cornell_dataset[0])
+    print(Texas_dataset[0])
+    print(Wisconsin_dataset[0])
     print(dataset_Reddit[0])
     print(dataset_PPI[0])
     print(dataset_Flickr[0])
@@ -217,6 +242,11 @@ def load_all_datasets():
     get_data_info(dataset_Cora)
     get_data_info(dataset_Citeseer)
     get_data_info(dataset_Pubmed)
+    get_data_info(DBLP_dataset)
+    get_data_info(WikiCS_dataset)
+    get_data_info(Cornell_dataset)
+    get_data_info(Texas_dataset)
+    get_data_info(Wisconsin_dataset)
     get_data_info(dataset_Reddit)
     get_data_info(dataset_PPI)
     get_data_info(dataset_Flickr)

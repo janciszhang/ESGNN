@@ -26,6 +26,7 @@ from sklearn.metrics import classification_report
 from torch_geometric.data import Data
 from torch_geometric.datasets import Planetoid
 
+from partition_others import partition_K_plus
 from flex_gnn import FlexibleGNN, combine_FlexibleGNN_models
 from load_data import get_folder_size
 from metis_calculation_job_CPU import estimate_task_cpu
@@ -194,7 +195,10 @@ class Task:
                     #     end_time = subtask.end_time
                     if subtask.status == 'interrupted':
                         self.interruptions += subtask.interruptions
+                        # print(f'interruption_time : {subtask.get_completion_time()}')
+                        subtask.interruption_time = subtask.get_completion_time()
                         self.interruption_time += subtask.get_completion_time()
+                        # print(f'interruption_time : {self.interruption_time}')
                     if self.status != 'done' and subtask.status != 'waiting':
                         self.status = 'doing'
 
@@ -285,14 +289,14 @@ class Task:
             return (f"Task({self.name}, size: {self.remaining_size:.2f}/{self.size:.2f}/{self.original_size:.2f}, "
                     f"duration: {self.remaining_duration:.2f}/{self.duration:.2f}/{self.original_duration:.2f}, {self.status}, "
                     f"{self.arrival_time:.2f}/{start_time}/{end_time}/{estimated_end_time}, "
-                    f"Is Subtask: {self.is_sub}, Is Main task: {self.is_main}, Interruptions: {self.interruptions}), PMC: {self.pmc}")
+                    f"Is Subtask: {self.is_sub}, Is Main task: {self.is_main}, Interruptions: {self.interruptions}/{self.interruption_time}), PMC: {self.pmc}")
         if option == 2:
             task_info = ""
             task_info += f"Task(Name: {self.name} "
             task_info += f"\nSize: {self.remaining_size}/{self.size}/{self.original_size}, Duration: {self.remaining_duration}/{self.duration}/{self.original_duration}, Status: {self.status}"
             task_info += f"\nTime: {self.arrival_time}/{start_time}/{end_time}/{estimated_end_time}, Waiting Time: {self.get_waiting_time()}"
             task_info += f"\nRun Priority: {self.run_priority}, Interrupt Priority: {self.interrupt_priority}, PMC: {self.pmc}"
-            task_info += f"\nIs Subtask: {self.is_sub}, Is Main task: {self.is_main}, Interruptions: {self.interruptions}"
+            task_info += f"\nIs Subtask: {self.is_sub}, Is Main task: {self.is_main}, Interruptions: {self.interruptions}/{self.interruption_time}"
             if self.data:
                 task_info += f"\nData: {self.data}"
                 if self.subtasks:
@@ -440,7 +444,11 @@ def split_task(task, available_size):
 
         sub_task = Task(f"{task.name}_sub", sub_size, sub_duration, is_sub=True, is_main=False)
         if task.data:
+            # if task.data.num_nodes < 20000:
             data_chunks = partition_K(task.data, K=2,target_ratios=[ceil(sub_size), ceil(task.remaining_size - sub_size)])  # partition_K分割比例数必须是整数
+            # else:
+            #     data_chunks = partition_K_plus(task.data, K=2, target_ratios=[ceil(sub_size), ceil(task.remaining_size - sub_size)])  # partition_K分割比例数必须是整数(for big data)
+            #     print('HHHHHHHHHHHHHHHHHHHHHHHHHH')
             sub_task.data = data_chunks[0]
             sub_task.arrival_time = task.arrival_time
 

@@ -256,11 +256,11 @@ def early_stop(patience,epoch,epoch_test_accuracy,best_test_accuracy,epochs_sinc
         return [False,epochs_since_improvement,best_test_accuracy]
 
 def train_model(model, data, epochs=200,patience=20,early_stopping=True,split_ratios=[6, 3, 2]):
-    if len(split_ratios) == 3:
-        try:
-            split_dataset(data, split_ratios)
-        except:
-            pass
+    # if len(split_ratios) == 3:
+    #     try:
+    #         split_dataset(data, split_ratios)
+    #     except:
+    #         pass
 
     # Check if GPU is available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -286,6 +286,12 @@ def train_model(model, data, epochs=200,patience=20,early_stopping=True,split_ra
             epoch_test_accuracy = 0
             for batch in train_loader:
                 # print(batch)
+                if len(split_ratios) == 3:
+                    try:
+                        split_dataset(batch, split_ratios) # 避免訓練時有空的test set報錯
+                        print(batch)
+                    except:
+                        pass
                 batch = batch.to('cuda')
                 epoch_loss, epoch_train_accuracy, epoch_test_accuracy = train_each_epoch(model, batch, epoch, epochs)
                 # loss = train(model, data)
@@ -319,8 +325,10 @@ def train_model(model, data, epochs=200,patience=20,early_stopping=True,split_ra
         torch.cuda.empty_cache()
 
         # print('aaa')
-        print(f"Edge index max value: {data.edge_index.max()}")
-        assert data.edge_index.max() < data.num_nodes, "Invalid node index in edge_index."
+        print(data)
+        print(data.edge_index)
+        # print(f"Edge index max value: {data.edge_index.max()}")
+        # assert data.edge_index.max() < data.num_nodes, "Invalid node index in edge_index."
         data = data.to("cpu")
         model = model.to("cpu")
         torch.cuda.empty_cache()

@@ -1,19 +1,16 @@
-from viz import plot_tasks
-from load_data import get_data_info
-from scheduer_Lyra_plus import schedule_tasks_Lyra_plus
+# from viz import plot_tasks
+# from load_data import get_data_info
 from scheduer_base import generate_available_size_schedule, generate_sine_borrow_schedule
-from scheduer_ESGNN import schedule_tasks_ESGNN
-from scheduer_Lyra import schedule_tasks_Lyra
-import copy
-import heapq
-import time
-from torch_geometric.datasets import Planetoid
-import copy
-import heapq
-import random
-import pandas as pd
+# import copy
+# import heapq
+# import time
+# from torch_geometric.datasets import Planetoid
+# import copy
+# import heapq
+# import random
+# import pandas as pd
 from torch_geometric.datasets import Planetoid, Flickr
-from metis_partition import partition_K
+# from metis_partition import partition_K
 from task import Task, split_task, merge_subtasks
 
 def merge_intervals(intervals):
@@ -54,7 +51,7 @@ def total_available_gpu_capacity(work_time_range=[0,10],available_size=4, borrow
         total_available_size_capacity += capacity
     return total_available_size_capacity
 
-def evaluation_tasks_scheduler(tasks, available_gpu_size,borrow_schedule=[(5, 6, 2)],is_save=False):
+def evaluation_tasks_scheduler(tasks, available_gpu_size,borrow_schedule=[],is_save=False,schedule_method_name=''):
     total_completion_time = 0
     total_waiting_time = 0
     total_net_gpu_time = 0
@@ -117,6 +114,7 @@ def evaluation_tasks_scheduler(tasks, available_gpu_size,borrow_schedule=[(5, 6,
             if end_time == None:
                 end_time = current_time
             total_gpu_utilization += task.size * (end_time - task.start_time)
+            # print(f'{task.size} * ({end_time} - {task.start_time}) = {task.size * (end_time - task.start_time)}')
             total_gpu_time_ranges.append([task.start_time, end_time,task.size,task.status,task.name])
             # Throughput is the total communication handled by the GPU
             total_gpu_communicated += task.size
@@ -145,7 +143,9 @@ def evaluation_tasks_scheduler(tasks, available_gpu_size,borrow_schedule=[(5, 6,
     # total_time = max([task.end_time for task in tasks]) - min([task.arrival_time for task in tasks])
     # work_time_range=[min([task.start_time for task in tasks]),max([task.end_time for task in tasks])]
     work_time_range = [min([gpu_time_range[0] for gpu_time_range in total_gpu_time_ranges]), max([gpu_time_range[1] for gpu_time_range in total_gpu_time_ranges])]
+
     total_available_size_capacity = total_available_gpu_capacity(work_time_range,available_gpu_size,borrow_schedule)
+    print(f'{work_time_range},{available_gpu_size},{borrow_schedule} -- {total_available_size_capacity}')
     gpu_utilization_rate = (total_gpu_utilization / total_available_size_capacity) * 100  # Utilization as a percentage
     average_waiting_time = total_waiting_time / arrived_tasks_num if arrived_tasks_num > 0 else 0
 
@@ -161,7 +161,9 @@ def evaluation_tasks_scheduler(tasks, available_gpu_size,borrow_schedule=[(5, 6,
 
 
     # Print the calculated metrics
+    print(f'///////////////////{schedule_method_name}///////////////////')
     print('=================================Evaluation=======================================')
+    print(task)
     print(f'total_gpu_time_ranges: [start_time, end_time, size, status, name]') # start_time, end_time, size, status, name
     for gpu_time_range in total_gpu_time_ranges:
         print(f'{gpu_time_range}')
@@ -198,6 +200,7 @@ def evaluation_tasks_scheduler(tasks, available_gpu_size,borrow_schedule=[(5, 6,
     if is_save:
         # 将输出内容写入文件
         with open('evaluation.txt', 'a') as f:
+            f.write(f'///////////////////{schedule_method_name}///////////////////\n')
             f.write('=============================Evaluation==============================\n')
             f.write(f'total_gpu_time_ranges: [start_time, end_time, size, status, name]\n')
             for gpu_time_range in total_gpu_time_ranges:
@@ -276,11 +279,11 @@ if __name__ == "__main__":
 
     # final_tasks = schedule_tasks_Lyra(tasks, available_size=available_size, borrow_schedule=borrow_schedule,is_save=is_save)
     # final_tasks = schedule_tasks_Lyra_plus(tasks, available_size=available_size, borrow_schedule=borrow_schedule,is_save=is_save)
-    final_tasks = schedule_tasks_ESGNN(tasks, available_size=available_size, borrow_schedule=borrow_schedule,is_save=is_save)
+    # final_tasks = schedule_tasks_ESGNN(tasks, available_size=available_size, borrow_schedule=borrow_schedule,is_save=is_save)
 
-    plot_tasks(final_tasks)
-    evaluate_result = evaluation_tasks_scheduler(final_tasks, available_gpu_size=available_size, is_save=is_save)
-    print(evaluate_result)
+    # plot_tasks(final_tasks)
+    # evaluate_result = evaluation_tasks_scheduler(final_tasks, available_gpu_size=available_size, is_save=is_save)
+    # print(evaluate_result)
 
 
 

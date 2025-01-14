@@ -2,7 +2,8 @@ import random
 
 import torch
 from ogb.nodeproppred import PygNodePropPredDataset
-from torch_geometric.datasets import Planetoid, Reddit, PPI, Amazon, Flickr, TUDataset
+from torch_geometric.datasets import Planetoid, Reddit, PPI, Amazon, Flickr, TUDataset, CitationFull, WebKB, WikiCS, \
+    KarateClub
 
 from es_cpu_time_memory import es_cpu
 from es_gpu_time_memory import es_gpu
@@ -19,6 +20,16 @@ def load_citeseer():
 def load_pubmed():
     return Planetoid(root='../dataset/Pubmed', name='Pubmed')
 
+def load_DBLP():
+    return CitationFull(root='../dataset/DBLP', name='DBLP')
+def load_WikiCS():
+    return WikiCS(root='../dataset/WikiCS', is_undirected=False)
+def load_Cornell():
+    return WebKB(root='../dataset/WebKB/Cornell', name='Cornell')  # or 'Texas', 'Wisconsin'
+def load_Texas():
+    return WebKB(root='../dataset/WebKB/Texas', name='Texas')  # or 'Texas', 'Wisconsin'
+def load_Wisconsin():
+    return WebKB(root='../dataset/WebKB/Wisconsin', name='Wisconsin')  # or 'Texas', 'Wisconsin'
 def load_reddit():
     return Reddit(root='../dataset/Reddit')
 
@@ -60,6 +71,11 @@ dataset_loaders = {
     'Cora': load_cora,
     'Citeseer': load_citeseer,
     'Pubmed': load_pubmed,
+    'DBLP': load_DBLP,
+    'WikiCS': load_WikiCS,
+    'Cornell': load_Cornell,
+    'Texas': load_Texas,
+    'Wisconsin': load_Wisconsin,
     'Reddit': load_reddit,
     # 'PPI': load_ppi, # 多標籤分類
     'Flickr': load_flickr,
@@ -76,10 +92,10 @@ dataset_loaders = {
 
 
 # 根據大小將數據集分為 "小"、"中"、"大" 三類
-small_datasets = ['Cora', 'Citeseer', 'Pubmed']
-medium_datasets = ['Amazon_Computers', 'Amazon_Photo', 'Flickr']
+small_datasets = ['Cora', 'Citeseer', 'Pubmed'] # 'Cornell','Texas','Wisconsin'有時會報錯
+medium_datasets = ['DBLP', 'WikiCS', 'Amazon_Computers', 'Amazon_Photo', 'Flickr']
 # large_datasets = ['Reddit', 'OGBN_arxiv','OGBN_products'] #, 'OGBN_papers100M'
-large_datasets = ['OGBN_products'] #, 'OGBN_papers100M'
+large_datasets = ['OGBN_arxiv','Reddit','OGBN_products'] #, 'OGBN_papers100M'
 
 
 # 定義隨機名稱生成函數
@@ -113,13 +129,40 @@ def select_datasets(num_small=2,num_medium=2,num_large=2):
         dataset = dataset_loaders[dataset_name]()  # 調用對應的加載函數
         dataset_category_list.append((dataset, 'L'))  # 'L' 表示大數據集
 
-    print(f"Loaded dataset_category_list: {dataset_category_list}")
+    print(f"Loaded dataset_category_list = {dataset_category_list}")
 
     return dataset_category_list
 
-def load_tasks(dataset_category_list):
+def select_datasets_by_name(dataset_name_list=['Cora']):
+    dataset_category_list = []
+
+    for dataset_name in dataset_name_list:
+        # 加載選擇的數據集，同時將分類（S, M, L）放進列表
+        if dataset_name in small_datasets:
+            print(f"Loading small dataset: {dataset_name}")
+            dataset = dataset_loaders[dataset_name]()  # 調用對應的加載函數
+            dataset_category_list.append((dataset, 'S'))  # 'S' 表示小數據集
+        else:
+            if dataset_name in medium_datasets:
+                print(f"Loading medium dataset: {dataset_name}")
+                dataset = dataset_loaders[dataset_name]()  # 調用對應的加載函數
+                dataset_category_list.append((dataset, 'M'))  # 'M' 表示中等數據集
+            else:
+                if dataset_name in large_datasets:
+                    print(f"Loading large dataset: {dataset_name}")
+                    dataset = dataset_loaders[dataset_name]()  # 調用對應的加載函數
+                    dataset_category_list.append((dataset, 'L'))  # 'L' 表示大數據集
+                else:
+                    print(f'Loading failed: there is no dataset named {dataset_name}')
+
+    print(f"Loaded dataset_category_list = {dataset_category_list}")
+
+    return dataset_category_list
+
+def load_tasks(dataset_category_list,arrival_time_range=[0,10]):
     tasks=[]
     for dataset,category in dataset_category_list:
+        print(f"Loading {dataset}")
         # print(dataset[0])
         name=generate_random_name(category)
         if torch.cuda.is_available():
@@ -132,7 +175,7 @@ def load_tasks(dataset_category_list):
         task = Task(name, size, duration)
         task.data = dataset[0]
         task.calculate_pmc()
-        task.arrival_time = random.randint(0,10)
+        task.arrival_time = random.randint(arrival_time_range[0],arrival_time_range[1]) # 随机生成任务到达时间
         tasks.append(task)
 
     for task in tasks:
@@ -141,5 +184,6 @@ def load_tasks(dataset_category_list):
 
 
 if __name__ == '__main__':
-    dataset_category_list = select_datasets(num_small=2,num_medium=1,num_large=1)
-    tasks = load_tasks(dataset_category_list)
+    dataset_category_list = select_datasets_by_name(dataset_name_list=['Cora', 'Citeseer', 'Pubmed','DBLP', 'WikiCS','Amazon_Computers', 'Amazon_Photo', 'Flickr','OGBN_arxiv', 'Reddit', 'OGBN_products'])
+    # dataset_category_list = select_datasets(num_small=2,num_medium=1,num_large=1)
+    tasks = load_tasks(dataset_category_list,arrival_time_range=[0,10])

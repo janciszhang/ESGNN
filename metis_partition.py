@@ -26,8 +26,8 @@ from functools import reduce
 
 import dgl
 import networkx as nx
-# import metis
-import pymetis
+import metis
+# import pymetis
 import torch
 from torch_geometric.datasets import Planetoid
 from torch_geometric.datasets import Reddit
@@ -123,6 +123,7 @@ def metis_partition(G, num_partitions, target_ratios=None):
         target_integer_ratios = calculate_min_integer_ratios(target_ratios)
         # print(target_integer_ratios)
         num_initial_partitions = len(target_integer_ratios)
+        print(num_initial_partitions)
         initial_parts = initial_metis_partition(G, num_initial_partitions)
         if initial_parts is None:
             return None  # 处理失败情况
@@ -196,7 +197,8 @@ def metis_main(dataset, K, target_ratios=None, is_save=False):
 
 if __name__ == '__main__':
     calculate_min_integer_ratios([400, 46.40625])
-    dataset = load_dataset_by_name('ogbn-proteins')
+    dataset = load_dataset_by_name('Cora')
+    # dataset = load_dataset_by_name('ogbn-proteins')
     data = dataset[0]
     start_time=time.time()
     # G = to_networkx(data, to_undirected=True)
@@ -207,14 +209,15 @@ if __name__ == '__main__':
     G_dgl = dgl.graph((data.edge_index[0], data.edge_index[1]), num_nodes=data.num_nodes) # 0.14s
     # data_from_dgl = from_networkx(G_dgl.to_networkx()) #MemoryError
     num_partitions = 4
-    from dgl import metis_partition
-    partitioned_graphs = metis_partition(G_dgl, num_partitions)
-
-    # partitioned_graphs 是一个包含多个子图的字典
-    for part_id, subgraph in partitioned_graphs.items():
-        print(f"Subgraph {part_id} has {subgraph.number_of_nodes()} nodes and {subgraph.number_of_edges()} edges")
-
-    print(f'Time: {time.time() - start_time}') # 91s
+    # from dgl import metis_partition
+    # partitioned_graphs = metis_partition(G_dgl, num_partitions)
+    #
+    # # partitioned_graphs 是一个包含多个子图的字典
+    # for part_id, subgraph in partitioned_graphs.items():
+    #     print(f"Subgraph {part_id} has {subgraph.number_of_nodes()} nodes and {subgraph.number_of_edges()} edges")
+    #
+    # print(f'Time: {time.time() - start_time}') # 91s
+    metis_main(dataset, K =4, target_ratios=[2,4,6,8])
     # metis_main(dataset=dataset, K=10)
     # 对dataset进行分割，并保存子图数据在对应路径
     # K_values = [1,2,4,8,16]

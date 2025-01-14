@@ -1,22 +1,30 @@
 """
 有时候会报错，可以多运行几次，会有成功的
 """
-from es_gpu_time_memory import es_gpu
-from load_task import select_datasets, load_tasks
-from load_data import get_folder_size
+
+# from scheduler_evaluation import evaluation_tasks_scheduler
+
+print('aaaaa')
+
+# from es_gpu_time_memory import es_gpu
+from load_task import select_datasets, load_tasks, select_datasets_by_name
+# from load_data import get_folder_size
+
 from test_cuda import set_gpu_memory
 from scheduer_base import find_minimum_end_time_indexes, get_result, borrow_handler, interrupt_handler, execute_handler, \
-    advance_time_handler
-from task import Task, split_task, merge_subtasks
-from viz import plot_tasks
-import copy
+    advance_time_handler, generate_sine_borrow_schedule
+# from task import Task, split_task, merge_subtasks
+from viz import plot_tasks, viz_evaluate_results
+# import copy
 import heapq
 import random
-from torch_geometric.datasets import Planetoid, Flickr
-from metis_partition import partition_K
-from task import Task, split_task, new_task
-import time
+# from torch_geometric.datasets import Planetoid, Flickr
+# from metis_partition import partition_K
+from task import Task, split_task, new_task, split_task_K
 
+# import time
+
+print('bbbbb')
 
 def schedule_tasks_ESGNN(tasks, available_size, borrow_schedule=[],is_save=False):
     n = 0  # 调控当task.remaining_duration>0，没有办法通过train model更新新的duration，而陷入循环
@@ -27,7 +35,12 @@ def schedule_tasks_ESGNN(tasks, available_size, borrow_schedule=[],is_save=False
 
     # Initial task queue
     for task in tasks:
-        heapq.heappush(task_queue, task)
+        sub_tasks = split_task_K(task, K=4)
+        for sub_task in sub_tasks:
+            print(sub_task)
+            heapq.heappush(task_queue, sub_task)
+    # for task in tasks:
+    #     heapq.heappush(task_queue, task)
 
     current_time = 0
     next_time = 0
@@ -152,21 +165,38 @@ if __name__ == "__main__":
     # tasks.append(task_B)
     # # tasks.append(task_C)
     # # tasks.append(task_D)
-    dataset_category_list = select_datasets(num_small=0, num_medium=0, num_large=1)
-    tasks = load_tasks(dataset_category_list)
-
-
+    print('ccccc')
+    # dataset_category_list = select_datasets_by_name(dataset_name_list=['Cora', 'Citeseer', 'Pubmed', 'Amazon_Computers', 'Amazon_Photo', 'Flickr'])
+    dataset_category_list = select_datasets_by_name(dataset_name_list=['Cornell','Cora','Texas','Pubmed', 'Wisconsin'])
+    # dataset_category_list = select_datasets(num_small=2, num_medium=2, num_large=0)
+    tasks = load_tasks(dataset_category_list, [0, 10])
 
     # Define borrow schedule (borrow_start_time, borrow_end_time, borrow_space)
     available_size = 200 # MB
-    set_gpu_memory(200)
-    borrow_schedule = [(2,3,-10),(15, 16, 20)]  # Borrow 1 unit of space between time 4 and 6
+    set_gpu_memory(1000)
+    # borrow_schedule = [(2,3,-10),(15, 16, 20)]  # Borrow 1 unit of space between time 4 and 6
+    # borrow_schedule = [(0, 2, 0), (2, 4, 1), (4, 6, 1), (6, 8, 0), (8, 10, -1), (10, 12, -1), (12, 14, 0), (14, 16, 1),
+    #                    (16, 18, 1), (18, 20, 0), (20, 22, -1), (22, 24, -1), (24, 26, -1), (26, 28, 0), (28, 30, 1),
+    #                    (30, 32, 1), (32, 34, 0), (34, 36, -1), (36, 38, -1), (38, 40, 0), (40, 42, 1), (42, 44, 1),
+    #                    (44, 46, 0), (46, 48, -1), (48, 50, -1), (50, 52, 0)]
+    borrow_schedule = [(15, 20, 50)]
 
+    # inferred_size = 5
+    # # Define borrow schedule (borrow_start_time, borrow_end_time, borrow_space)
+    # space = random.randint(-inferred_size, available_size - 3)
+    # borrow_schedule = generate_sine_borrow_schedule(0, 50, space, frequency=0.5, interval_duration=2)
+    # print(borrow_schedule)
 
     # Schedule tasks
     final_tasks = schedule_tasks_ESGNN(tasks, available_size=available_size, borrow_schedule=borrow_schedule,is_save=False)
+    for task in final_tasks:
+        print(task)
     plot_tasks(final_tasks)
 
-
-    # evaluation_tasks_scheduler(tasks,available_gpu_size=available_size)
+    from ESGNN.scheduler_evaluation import evaluation_tasks_scheduler
+    evaluate_result=evaluation_tasks_scheduler(final_tasks,available_gpu_size=available_size,borrow_schedule=borrow_schedule,is_save=False,schedule_method_name='ESGNN')
+    # evaluate_results = [evaluate_result]
+    # # schedule_method_name = ['Baseline', 'CoGNN', 'CoGNN Plus', 'Lyra', 'Lyra Plus', 'HongTu', 'ESGNN']
+    # schedule_method_name = ['ESGNN']
+    # viz_evaluate_results(evaluate_results, schedule_method_name)
 

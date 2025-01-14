@@ -1,11 +1,15 @@
+import random
 import re
+from datetime import time
 
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.lines import Line2D
 
+from task import get_tasks_from_str, merge_subtasks
 
-def plot_tasks(tasks,file_name='task_execution_timeline'):
+
+def plot_tasks(tasks,schedule_method_name='', folder_name='task_execution_timeline'):
     # 创建图形
     fig, ax = plt.subplots(figsize=(12, 6))
 
@@ -15,7 +19,7 @@ def plot_tasks(tasks,file_name='task_execution_timeline'):
     y_positions = []
     labels_added = set()  # 用于追踪已添加的图例标签
 
-    current_times=[]
+    current_times=[0]
     for task in tasks:
         print(task)
         current_times.append(task.start_time)
@@ -141,16 +145,49 @@ def plot_tasks(tasks,file_name='task_execution_timeline'):
     # 设置标签和图例
     ax.set_xlabel("Time/seconds")
     ax.set_ylabel("Task")
-    ax.set_title("Task Execution Timeline")
+    ax.set_title(f"Task Execution Timeline {schedule_method_name}")
     ax.legend(loc='best')
 
     # 显示图形
-    plt.savefig(f"img/{file_name}.png", dpi=300, bbox_inches='tight')
+    plt.savefig(f"../img/{folder_name}/{schedule_method_name}.png", dpi=300, bbox_inches='tight')
     plt.show()
 
 
 
-def viz_evaluate_results(evaluate_results, schedule_method_name):
+def plot_tasks_from_txt():
+    with open('execute_history.txt', 'r') as f:
+        tasks_str_all = f.read()
+    # 正则表达式：匹配以 "Running tasks" 开头，到下一个 "------------ Time" 之间的所有内容
+    pattern = r"(Running tasks.*?)(?=--------------------------------------------------------)"
+
+    # 使用 re.findall() 找到所有匹配项
+    matches = re.findall(pattern, tasks_str_all, re.DOTALL)
+    i = 0
+    for match in matches:
+        print(match)
+        print("##################################")
+        tasks_str=match
+
+        final_tasks = get_tasks_from_str(tasks_str)
+
+        # 打印提取到的任务信息
+        # for task in tasks:
+        #     print(task)
+
+        final_tasks=merge_subtasks(final_tasks)
+        print(f'===================================final_tasks {len(final_tasks)}=======================================')
+        for task in final_tasks:
+            print(task.__str__(option=2))
+            if task.is_main and task.subtasks:
+                print('---------subtasks---------')
+                for subtask in task.subtasks:
+                    print(subtask)
+            print('------------------')
+
+        plot_tasks(final_tasks, file_name=f'task_execution_timeline{i}')
+        i+=1
+
+def viz_evaluate_results(evaluate_results, schedule_method_names=[], folder_name='evaluation'):
     total_waiting_time = []
     total_completion_time = []
     gpu_utilization_rate = []
@@ -162,6 +199,7 @@ def viz_evaluate_results(evaluate_results, schedule_method_name):
         gpu_utilization_rate.append(evaluate_result[2])
         interrupt_expected_value.append(evaluate_result[3])
         throughput.append(evaluate_result[4])
+
 
     # 数据准备
     metrics = [
@@ -177,29 +215,30 @@ def viz_evaluate_results(evaluate_results, schedule_method_name):
         'Total Work Time (seconds)',
         'GPU Utilization Rate (%)',
         'Interrupt Expected Value',
-        'Throughput (task/second)'
+        'Throughput (task per second)'
     ]
 
-    colors = plt.cm.viridis(np.linspace(0, 1, len(schedule_method_name)))
+    colors = plt.cm.viridis(np.linspace(0, 1, len(schedule_method_names)))
 
     # 绘制每个指标的独立图
     for i, metric in enumerate(metrics):
         plt.figure(figsize=(8, 5))
-        x = np.arange(len(schedule_method_name))
+        x = np.arange(len(schedule_method_names))
         bars = plt.bar(x, metric, color=colors)
-        plt.xticks(x, schedule_method_name)
+        plt.xticks(x, schedule_method_names)
         plt.ylabel(metric_names[i])
         plt.title(f'Comparison of {metric_names[i]}')
 
         # 添加图例
-        plt.legend([bars[i] for i in range(len(bars))], schedule_method_name, title='Methods')
+        plt.legend([bars[i] for i in range(len(bars))], schedule_method_names, title='Methods')
 
         plt.grid(axis='y')
         plt.tight_layout()
+        plt.savefig(f"../img/{folder_name}/{metric_names[i]}-{str(metric)}.png", dpi=300, bbox_inches='tight')
         plt.show()
 
 
-def viz_evaluate_results2(evaluate_results, schedule_method_name):
+def viz_evaluate_results2(evaluate_results, schedule_method_names):
     task_completion_rate=[]
     total_waiting_time = []
     total_completion_time = []
@@ -237,19 +276,19 @@ def viz_evaluate_results2(evaluate_results, schedule_method_name):
         'Throughput (size/second)'
     ]
 
-    colors = plt.cm.viridis(np.linspace(0, 1, len(schedule_method_name)))
+    colors = plt.cm.viridis(np.linspace(0, 1, len(schedule_method_names)))
 
     # 绘制每个指标的独立图
     for i, metric in enumerate(metrics):
         plt.figure(figsize=(8, 5))
-        x = np.arange(len(schedule_method_name))
+        x = np.arange(len(schedule_method_names))
         bars = plt.bar(x, metric, color=colors)
-        plt.xticks(x, schedule_method_name)
+        plt.xticks(x, schedule_method_names)
         plt.ylabel(metric_names[i])
         plt.title(f'Comparison of {metric_names[i]}')
 
         # 添加图例
-        plt.legend([bars[i] for i in range(len(bars))], schedule_method_name, title='Methods')
+        plt.legend([bars[i] for i in range(len(bars))], schedule_method_names, title='Methods')
 
         plt.grid(axis='y')
         plt.tight_layout()
@@ -318,8 +357,8 @@ if __name__ == '__main__':
     [4/4,44.085806131362915, 51.32745671272278, 76.37089007059139, 0.2157220137031098, 0.07890909554060656,1.11],
     [4/4,19.816199779510498, 43.09385061264038, 78.14480226828576, 0.0, 0.11781082925362032,1.24],
     [4/4,4.208074569702148, 63.507309436798096, 96.45207773662551, 0.15893161381167226, 0.13718695975459705,1.66]]
-    schedule_method_name = ['Baseline', 'CoGNN','CoGNN Plus','Lyra', 'Lyra Plus',  'HongTu', 'ESGNN']
-    # viz_evaluate_results(evaluate_results1, schedule_method_name)
-    viz_evaluate_results2(evaluate_results2, schedule_method_name)
+    schedule_method_names = ['Baseline', 'CoGNN','CoGNN Plus','Lyra', 'Lyra Plus',  'HongTu', 'ESGNN']
+    # viz_evaluate_results(evaluate_results1, schedule_method_names)
+    viz_evaluate_results2(evaluate_results2, schedule_method_names)
     # get_evalution_info_from_str()
     # get_evaluate_results_from_str()

@@ -1,7 +1,10 @@
 """
 有时候会报错，可以多运行几次，会有成功的
 """
-from ESGNN.viz import plot_tasks
+from load_task import select_datasets, load_tasks
+from scheduler_evaluation import evaluation_tasks_scheduler
+from test_cuda import set_gpu_memory
+from viz import plot_tasks, viz_evaluate_results
 from scheduer_base import find_minimum_end_time_indexes, get_result, borrow_handler, interrupt_handler, execute_handler, \
     advance_time_handler
 from task import Task, split_task, merge_subtasks
@@ -121,34 +124,48 @@ def schedule_tasks_Lyra_plus(tasks, available_size, borrow_schedule=[],is_save=F
 
 
 if __name__ == "__main__":
-    dataset1 = Planetoid(root='/tmp/Cora', name='Cora')
-    dataset2 = Planetoid(root='/tmp/Citeseer', name='Citeseer')
-    # dataset3 = Planetoid(root='/tmp/Pubmed', name='Pubmed')
-    # dataset4 = Flickr(root='/tmp/Flickr')
+    # dataset1 = Planetoid(root='/tmp/Cora', name='Cora')
+    # dataset2 = Planetoid(root='/tmp/Citeseer', name='Citeseer')
+    # # dataset3 = Planetoid(root='/tmp/Pubmed', name='Pubmed')
+    # # dataset4 = Flickr(root='/tmp/Flickr')
+    #
+    # # Define tasks
+    # tasks = []
+    # task_A = Task("A", size=3.414, duration=7.071, arrival_time=0)
+    # task_B = Task("B", size=24.677, duration=8.083, arrival_time=0)
+    # task_C = Task("C", size=7.175, duration=17.649, arrival_time=4)
+    # task_D = Task("D", size=6.768, duration=5.908, arrival_time=5)
+    #
+    # task_A.data = dataset1[0]
+    # task_B.data = dataset2[0]
+    # task_C.data = dataset1[0]
+    # task_D.data = dataset2[0]
+    #
+    # tasks.append(task_A)
+    # tasks.append(task_B)
+    # tasks.append(task_C)
+    # tasks.append(task_D)
+    #
+    # # Define borrow schedule (borrow_start_time, borrow_end_time, borrow_space)
+    # available_size = 10
+    # borrow_schedule = [(2, 3, 9), (5, 6, 2), (8, 9, -1)]  # Borrow 1 unit of space between time 4 and 6
 
-    # Define tasks
-    tasks = []
-    task_A = Task("A", size=3.414, duration=7.071, arrival_time=0)
-    task_B = Task("B", size=24.677, duration=8.083, arrival_time=0)
-    task_C = Task("C", size=7.175, duration=17.649, arrival_time=4)
-    task_D = Task("D", size=6.768, duration=5.908, arrival_time=5)
-
-    task_A.data = dataset1[0]
-    task_B.data = dataset2[0]
-    task_C.data = dataset1[0]
-    task_D.data = dataset2[0]
-
-    tasks.append(task_A)
-    tasks.append(task_B)
-    tasks.append(task_C)
-    tasks.append(task_D)
+    dataset_category_list = select_datasets(num_small=2, num_medium=0, num_large=0)
+    tasks = load_tasks(dataset_category_list)
 
     # Define borrow schedule (borrow_start_time, borrow_end_time, borrow_space)
-    available_size = 10
-    borrow_schedule = [(2, 3, 9), (5, 6, 2), (8, 9, -1)]  # Borrow 1 unit of space between time 4 and 6
+    available_size = 200  # MB
+    set_gpu_memory(200)
+    borrow_schedule = [(2, 3, -10), (15, 16, 20)]  # Borrow 1 unit of space between time 4 and 6
 
     # Schedule tasks
     is_save = False
     final_tasks = schedule_tasks_Lyra_plus(tasks, available_size=available_size, borrow_schedule=borrow_schedule,
                                            is_save=is_save)
     plot_tasks(final_tasks)
+
+    evaluate_result = evaluation_tasks_scheduler(final_tasks, available_gpu_size=available_size)
+    evaluate_results = [evaluate_result]
+    # schedule_method_name = ['Baseline', 'CoGNN', 'CoGNN Plus', 'Lyra', 'Lyra Plus', 'HongTu', 'ESGNN']
+    schedule_method_name = ['Lyra Plus']
+    viz_evaluate_results(evaluate_results, schedule_method_name)
