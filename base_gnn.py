@@ -293,16 +293,19 @@ def train_model(model, data, epochs=200,patience=20,early_stopping=True,split_ra
                     except:
                         pass
                 batch = batch.to('cuda')
-                epoch_loss, epoch_train_accuracy, epoch_test_accuracy = train_each_epoch(model, batch, epoch, epochs)
-                # loss = train(model, data)
-                # epoch_train_accuracy = test(model, data, mask_type='train')
-                # epoch_test_accuracy = test(model, data, mask_type='test')
-                # print(f"Epoch {epoch + 1}/{epochs} - Loss: {epoch_loss:.4f} - Train Accuracy: {epoch_train_accuracy:.4f} - Test Accuracy: {epoch_test_accuracy:.4f}")
+                try:
+                    epoch_loss, epoch_train_accuracy, epoch_test_accuracy = train_each_epoch(model, batch, epoch, epochs)
+                    # loss = train(model, data)
+                    # epoch_train_accuracy = test(model, data, mask_type='train')
+                    # epoch_test_accuracy = test(model, data, mask_type='test')
+                    # print(f"Epoch {epoch + 1}/{epochs} - Loss: {epoch_loss:.4f} - Train Accuracy: {epoch_train_accuracy:.4f} - Test Accuracy: {epoch_test_accuracy:.4f}")
 
-                # 存储epoch结果：检查这些指标以确定模型是否已经收敛
-                losses.append(epoch_loss)
-                train_accuracies.append(epoch_train_accuracy)
-                test_accuracies.append(epoch_test_accuracy)
+                    # 存储epoch结果：检查这些指标以确定模型是否已经收敛
+                    losses.append(epoch_loss)
+                    train_accuracies.append(epoch_train_accuracy)
+                    test_accuracies.append(epoch_test_accuracy)
+                except:
+                    pass
 
             if early_stopping:
                 [result,epochs_since_improvement, best_test_accuracy] = early_stop(patience, epoch, epoch_test_accuracy, best_test_accuracy, epochs_since_improvement)

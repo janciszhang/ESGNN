@@ -187,7 +187,7 @@ def plot_tasks_from_txt():
         plot_tasks(final_tasks, file_name=f'task_execution_timeline{i}')
         i+=1
 
-def viz_evaluate_results(evaluate_results, schedule_method_names=[], folder_name='evaluation'):
+def viz_evaluate_results3(evaluate_results, schedule_method_names=[], folder_name='evaluation'):
     total_waiting_time = []
     total_completion_time = []
     gpu_utilization_rate = []
@@ -230,7 +230,7 @@ def viz_evaluate_results(evaluate_results, schedule_method_names=[], folder_name
         plt.title(f'Comparison of {metric_names[i]}')
 
         # 添加图例
-        plt.legend([bars[i] for i in range(len(bars))], schedule_method_names, title='Methods')
+        # plt.legend([bars[i] for i in range(len(bars))], schedule_method_names, title='Methods')
 
         plt.grid(axis='y')
         plt.tight_layout()
@@ -238,7 +238,14 @@ def viz_evaluate_results(evaluate_results, schedule_method_names=[], folder_name
         plt.show()
 
 
-def viz_evaluate_results2(evaluate_results, schedule_method_names):
+def viz_evaluate_results(evaluate_results, schedule_method_names, folder_name='evaluation'):
+    with open(f'../img/{folder_name}/evaluation_summary.txt', 'a') as f4:
+        f4.write(f'folder_name: {folder_name}\n')
+        f4.write(f'{evaluate_results}\n')
+    with open(f'../evaluation_summary.txt', 'a') as f5:
+        f5.write(f'folder_name: {folder_name} - ')
+        f5.write(f'{evaluate_results}\n')
+
     task_completion_rate=[]
     total_waiting_time = []
     total_completion_time = []
@@ -272,8 +279,8 @@ def viz_evaluate_results2(evaluate_results, schedule_method_names):
         'Total Work Time (seconds)',
         'GPU Utilization Rate (%)',
         'Interrupt Expected Value',
-        'Throughput (task/second)',
-        'Throughput (size/second)'
+        'Throughput (task per second)',
+        'Throughput (size per second)'
     ]
 
     colors = plt.cm.viridis(np.linspace(0, 1, len(schedule_method_names)))
@@ -288,10 +295,11 @@ def viz_evaluate_results2(evaluate_results, schedule_method_names):
         plt.title(f'Comparison of {metric_names[i]}')
 
         # 添加图例
-        plt.legend([bars[i] for i in range(len(bars))], schedule_method_names, title='Methods')
+        # plt.legend([bars[i] for i in range(len(bars))], schedule_method_names, title='Methods')
 
         plt.grid(axis='y')
         plt.tight_layout()
+        plt.savefig(f"../img/{folder_name}/{metric_names[i]}-{str(metric)}.png", dpi=300, bbox_inches='tight')
         plt.show()
 
 def get_evaluate_results_from_str(file_path = "evaluation.txt"):
@@ -349,16 +357,16 @@ if __name__ == '__main__':
     #     [25.572810173034668, 57.981799840927124, 67.6614804257861, 0.4546301615757951, 0.03449358256361468],
     #     [25.572810173034668, 57.981799840927124, 67.6614804257861, 0.4546301615757951, 0.03449358256361468],
     #     [0, 33.40258026123047, 77.84535238269129, 0.45977273498147503, 0.06540214633226274]]
-    evaluate_results2 =[
+    evaluate_results =[
     [2/4,29.95900011062622, 14.329310417175293, 62.24335095904502, 0.0, 0.13957405777201773,0.71],
-    [2/4,67.67093110084534, 10.661851406097412, 42.68042823983864, 0.34430306333519883, 0.04,0.63],
-    [4 / 4, 22.072202444076538, 46.90283441543579, 76.89578690422508, 0.0, 0.10899931014336652, 1.15],
+    [2/4,67.67093110084534, 10.661851406097412, 42.68042823983864, 0.0, 0.04,0.63],
+    [4/4, 22.072202444076538, 46.90283441543579, 76.89578690422508, 0.0, 0.10899931014336652, 1.15],
     [2/4,56.20352339744568, 9.42618441581726, 46.40237159044904, 0.33147631168365477, 0.04,0.78],
     [4/4,44.085806131362915, 51.32745671272278, 76.37089007059139, 0.2157220137031098, 0.07890909554060656,1.11],
     [4/4,19.816199779510498, 43.09385061264038, 78.14480226828576, 0.0, 0.11781082925362032,1.24],
     [4/4,4.208074569702148, 63.507309436798096, 96.45207773662551, 0.15893161381167226, 0.13718695975459705,1.66]]
     schedule_method_names = ['Baseline', 'CoGNN','CoGNN Plus','Lyra', 'Lyra Plus',  'HongTu', 'ESGNN']
     # viz_evaluate_results(evaluate_results1, schedule_method_names)
-    viz_evaluate_results2(evaluate_results2, schedule_method_names)
+    viz_evaluate_results(evaluate_results, schedule_method_names)
     # get_evalution_info_from_str()
     # get_evaluate_results_from_str()

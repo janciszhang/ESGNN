@@ -233,42 +233,42 @@ def main():
     # Call the function with the parsed list
     schedule_total(para_list)
 
-def test():
+def test(available_size = 800, space = 200):
     for i in range(3):
         try:
-            schedule_total([10, 0, 0, 400, 100, [0, 5]])
+            schedule_total([10, 0, 0, available_size, space, [0, 5]])
             i+=1
         except:
             pass
     for i in range(3):
         try:
-            schedule_total([10, 0, 0, 400, 100, [0, 100]])
-            i+=1
-        except:
-            pass
-
-    for i in range(3):
-        try:
-            schedule_total([5, 5, 0, 400, 100, [0, 5]])
-            i+=1
-        except:
-            pass
-    for i in range(3):
-        try:
-            schedule_total([5, 5, 0, 400, 100, [0, 100]])
+            schedule_total([10, 0, 0, available_size, space, [0, 100]])
             i+=1
         except:
             pass
 
     for i in range(3):
         try:
-            schedule_total([0, 10, 0, 400, 100, [0, 5]])
+            schedule_total([5, 5, 0, available_size, space, [0, 5]])
             i+=1
         except:
             pass
     for i in range(3):
         try:
-            schedule_total([0, 10, 0, 400, 100, [0, 100]])
+            schedule_total([5, 5, 0, available_size, space, [0, 100]])
+            i+=1
+        except:
+            pass
+
+    for i in range(3):
+        try:
+            schedule_total([0, 10, 0, available_size, space, [0, 5]])
+            i+=1
+        except:
+            pass
+    for i in range(3):
+        try:
+            schedule_total([0, 10, 0, available_size, space, [0, 100]])
             i+=1
         except:
             pass
@@ -276,5 +276,60 @@ def test():
 
 
 if __name__ == '__main__':
+    # schedule_total([3, 0, 0, 800, 200, [0, 5]])
     # main()
-    test()
+    # test(800, 200)
+    # test(400, 100)
+    # test(200, 50)
+
+
+    schedule_total([10, 0, 0, 800, 200, [0, 5]])
+    schedule_total([10, 0, 0, 800, 200, [0, 100]])
+    schedule_total([10, 0, 0, 800, 200, [0, 500]])
+    schedule_total([5, 5, 0, 800, 200, [0, 5]])
+    schedule_total([5, 5, 0, 800, 200, [0, 100]])
+    schedule_total([5, 5, 0, 800, 200, [0, 500]])
+    schedule_total([0, 10, 0, 800, 200, [0, 5]])
+    schedule_total([0, 10, 0, 800, 200, [0, 100]])
+    schedule_total([0, 10, 0, 800, 200, [0, 500]])
+
+    schedule_total([10, 0, 0, 400, 100, [0, 5]])
+    schedule_total([10, 0, 0, 400, 100, [0, 100]])
+    schedule_total([10, 0, 0, 400, 100, [0, 500]])
+    schedule_total([5, 5, 0, 400, 100, [0, 5]])
+    schedule_total([5, 5, 0, 400, 100, [0, 100]])
+    schedule_total([5, 5, 0, 400, 100, [0, 500]])
+    schedule_total([0, 10, 0, 400, 100, [0, 5]])
+    schedule_total([0, 10, 0, 400, 100, [0, 100]])
+    schedule_total([0, 10, 0, 400, 100, [0, 500]])
+
+    schedule_total([10, 0, 0, 200, 50, [0, 5]])
+    schedule_total([10, 0, 0, 200, 50, [0, 100]])
+    schedule_total([10, 0, 0, 200, 50, [0, 500]])
+    schedule_total([5, 5, 0, 200, 50, [0, 5]])
+    schedule_total([5, 5, 0, 200, 50, [0, 100]])
+    schedule_total([5, 5, 0, 200, 50, [0, 500]])
+    schedule_total([0, 10, 0, 200, 50, [0, 5]])
+    schedule_total([0, 10, 0, 200, 50, [0, 100]])
+    schedule_total([0, 10, 0, 200, 50, [0, 500]])
+
+    schedule_total([10, 0, 0, 100, 25, [0, 5]])
+    schedule_total([10, 0, 0, 100, 25, [0, 100]])
+    schedule_total([10, 0, 0, 100, 25, [0, 500]])
+    schedule_total([5, 5, 0, 100, 25, [0, 5]])
+    schedule_total([5, 5, 0, 100, 25, [0, 100]])
+    schedule_total([5, 5, 0, 100, 25, [0, 500]])
+    schedule_total([0, 10, 0, 100, 25, [0, 5]])
+    schedule_total([0, 10, 0, 100, 25, [0, 100]])
+    schedule_total([0, 10, 0, 100, 25, [0, 500]])
+
+    schedule_total([10, 0, 0, 20, 50, [0, 5]])
+    schedule_total([10, 0, 0, 20, 50, [0, 100]])
+    schedule_total([10, 0, 0, 20, 50, [0, 500]])
+    schedule_total([5, 5, 0, 20, 5, [0, 5]])
+    schedule_total([5, 5, 0, 20, 5, [0, 100]])
+    schedule_total([5, 5, 0, 20, 5, [0, 500]])
+    schedule_total([0, 10, 0, 200, 50, [0, 5]])
+    schedule_total([0, 10, 0, 200, 50, [0, 100]])
+    schedule_total([0, 10, 0, 200, 50, [0, 500]])
+

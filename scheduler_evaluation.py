@@ -235,13 +235,13 @@ def evaluation_tasks_scheduler(tasks, available_gpu_size,borrow_schedule=[],is_s
             f.write(f"Throughput (size): {throughput2:.2f} size per seconds\n")
             f.write(f"Throughput (task): {throughput:.2f} tasks per second\n")
 
-            f.write(f'evaluate_result: [{total_waiting_time},{total_completion_time},{gpu_utilization_rate},{interrupt_expected_value},{throughput}]\n')
+            f.write(f'evaluate_result: [{task_throughput/arrived_tasks_num},{total_waiting_time},{total_completion_time},{gpu_utilization_rate},{interrupt_expected_value},{throughput},{throughput2}]\n')
 
             f.write('----------------------------------------------------------------------\n')
 
 
     # Return the metrics for further analysis if needed
-    return [total_waiting_time,total_work_time,gpu_utilization_rate,interrupt_expected_value,throughput]
+    return [task_throughput/arrived_tasks_num,total_waiting_time,total_completion_time,gpu_utilization_rate,interrupt_expected_value,throughput,throughput2]
 
 
 
