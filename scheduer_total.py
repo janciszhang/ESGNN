@@ -82,11 +82,11 @@ def schedule_prepare(num_small=4, num_medium=0, num_large=0, available_size = 80
 
     return tasks_orginal,available_size,borrow_schedule
 
-def schedule_total(para_list=[4,0,0,800,200,[0, 10]], is_save = True):
+def schedule_total(para_list=[4,0,0,800,200,[0, 10]], schedule_method_names = ['Baseline','CoGNN','CoGNN Plus','Lyra', 'Lyra Plus','HongTu','ESGNN'], is_save = True):
     tasks_orginal, available_size, borrow_schedule = schedule_prepare(*para_list)
 
     # Schedule tasks
-    schedule_method_names = ['Baseline','CoGNN','CoGNN Plus','Lyra', 'Lyra Plus','HongTu','ESGNN']
+    # schedule_method_names = ['ESGNN','Baseline','CoGNN','CoGNN Plus','Lyra', 'Lyra Plus','HongTu']
     evaluate_results=[]
     number = random.randint(1, 99999)  # 隨機生成 1 到 99999 之間的數字
     folder_name = f"{int(time.time())}"  # 格式化為五位數字，前面補 0
@@ -198,7 +198,7 @@ def schedule_total(para_list=[4,0,0,800,200,[0, 10]], is_save = True):
 
 
         with open('evaluation.txt', 'a') as f2:
-            f2.write(f'folder_name: {folder_name}')
+            f2.write(f'folder_name: {folder_name} - {schedule_method_name}')
             # print(f'///////////////////{schedule_method_name///////////////////')
             # f2.write(f'///////////////////{schedule_method_name}///////////////////\n')
 
@@ -276,60 +276,59 @@ def test(available_size = 800, space = 200):
 
 
 if __name__ == '__main__':
-    # schedule_total([3, 0, 0, 800, 200, [0, 5]])
-    # main()
-    # test(800, 200)
-    # test(400, 100)
-    # test(200, 50)
+    # schedule_total([10, 0, 0, 800, 200, [0, 5]])
+    # schedule_total([10, 0, 0, 800, 200, [0, 100]])
+    # schedule_total([10, 0, 0, 800, 200, [0, 500]])
+    # schedule_total([5, 5, 0, 800, 200, [0, 5]])
+    # schedule_total([5, 5, 0, 800, 200, [0, 100]])
+    # schedule_total([5, 5, 0, 800, 200, [0, 500]])
+    # schedule_total([0, 10, 0, 800, 200, [0, 5]])
+    # schedule_total([0, 10, 0, 800, 200, [0, 100]])
+    # schedule_total([0, 10, 0, 800, 200, [0, 500]])
+    #
+    # schedule_total([10, 0, 0, 400, 100, [0, 5]])
+    # schedule_total([10, 0, 0, 400, 100, [0, 100]])
+    # schedule_total([10, 0, 0, 400, 100, [0, 500]])
+    # schedule_total([5, 5, 0, 400, 100, [0, 5]])
+    # schedule_total([5, 5, 0, 400, 100, [0, 100]])
+    # schedule_total([5, 5, 0, 400, 100, [0, 500]])
+    # schedule_total([0, 10, 0, 400, 100, [0, 5]])
+    # schedule_total([0, 10, 0, 400, 100, [0, 100]])
+    # schedule_total([0, 10, 0, 400, 100, [0, 500]])
+    #
+    # schedule_total([10, 0, 0, 200, 50, [0, 5]]) #error
+    # schedule_total([10, 0, 0, 200, 50, [0, 100]])
+    # schedule_total([10, 0, 0, 200, 50, [0, 500]]) #error
+    # schedule_total([5, 5, 0, 200, 50, [0, 5]])
+    # schedule_total([5, 5, 0, 200, 50, [0, 100]])
+    # schedule_total([5, 5, 0, 200, 50, [0, 500]])
+    # schedule_total([0, 10, 0, 200, 50, [0, 5]])
+    # schedule_total([0, 10, 0, 200, 50, [0, 100]])
+    # schedule_total([0, 10, 0, 200, 50, [0, 500]])
+    #
+    # schedule_total([10, 0, 0, 100, 25, [0, 5]]) #error
+    # schedule_total([10, 0, 0, 100, 25, [0, 100]]) #error
+    # schedule_total([10, 0, 0, 100, 25, [0, 500]]) #error
+    # schedule_total([5, 5, 0, 100, 25, [0, 5]])
+    # schedule_total([5, 5, 0, 100, 25, [0, 100]])
+    # schedule_total([5, 5, 0, 100, 25, [0, 500]])
+    # schedule_total([0, 10, 0, 100, 25, [0, 5]])
+    # schedule_total([0, 10, 0, 100, 25, [0, 100]])
+    # schedule_total([0, 10, 0, 100, 25, [0, 500]])
 
+    # schedule_total([10, 0, 0, 20, 50, [0, 5]]) #error
+    # schedule_total([10, 0, 0, 20, 50, [0, 100]]) #error
+    # schedule_total([10, 0, 0, 20, 50, [0, 500]]) #error
+    # schedule_total([5, 5, 0, 20, 5, [0, 5]])
+    # schedule_total([5, 5, 0, 20, 5, [0, 100]])
+    # schedule_total([5, 5, 0, 20, 5, [0, 500]])
+    # schedule_total([0, 10, 0, 200, 50, [0, 5]])
+    # schedule_total([0, 10, 0, 200, 50, [0, 100]])
+    # schedule_total([0, 10, 0, 200, 50, [0, 500]])
 
-    schedule_total([10, 0, 0, 800, 200, [0, 5]])
-    schedule_total([10, 0, 0, 800, 200, [0, 100]])
-    schedule_total([10, 0, 0, 800, 200, [0, 500]])
-    schedule_total([5, 5, 0, 800, 200, [0, 5]])
-    schedule_total([5, 5, 0, 800, 200, [0, 100]])
-    schedule_total([5, 5, 0, 800, 200, [0, 500]])
-    schedule_total([0, 10, 0, 800, 200, [0, 5]])
-    schedule_total([0, 10, 0, 800, 200, [0, 100]])
-    schedule_total([0, 10, 0, 800, 200, [0, 500]])
+    schedule_method_names = ['ESGNN', 'Baseline', 'CoGNN', 'CoGNN Plus', 'Lyra', 'Lyra Plus', 'HongTu']
 
-    schedule_total([10, 0, 0, 400, 100, [0, 5]])
-    schedule_total([10, 0, 0, 400, 100, [0, 100]])
-    schedule_total([10, 0, 0, 400, 100, [0, 500]])
-    schedule_total([5, 5, 0, 400, 100, [0, 5]])
-    schedule_total([5, 5, 0, 400, 100, [0, 100]])
-    schedule_total([5, 5, 0, 400, 100, [0, 500]])
-    schedule_total([0, 10, 0, 400, 100, [0, 5]])
-    schedule_total([0, 10, 0, 400, 100, [0, 100]])
-    schedule_total([0, 10, 0, 400, 100, [0, 500]])
+    # schedule_total([5, 5, 0, 200, 50, [0, 5]],schedule_method_names)
+    schedule_total([5, 0, 0, 100, 25, [0, 5]], schedule_method_names)
 
-    schedule_total([10, 0, 0, 200, 50, [0, 5]])
-    schedule_total([10, 0, 0, 200, 50, [0, 100]])
-    schedule_total([10, 0, 0, 200, 50, [0, 500]])
-    schedule_total([5, 5, 0, 200, 50, [0, 5]])
-    schedule_total([5, 5, 0, 200, 50, [0, 100]])
-    schedule_total([5, 5, 0, 200, 50, [0, 500]])
-    schedule_total([0, 10, 0, 200, 50, [0, 5]])
-    schedule_total([0, 10, 0, 200, 50, [0, 100]])
-    schedule_total([0, 10, 0, 200, 50, [0, 500]])
-
-    schedule_total([10, 0, 0, 100, 25, [0, 5]])
-    schedule_total([10, 0, 0, 100, 25, [0, 100]])
-    schedule_total([10, 0, 0, 100, 25, [0, 500]])
-    schedule_total([5, 5, 0, 100, 25, [0, 5]])
-    schedule_total([5, 5, 0, 100, 25, [0, 100]])
-    schedule_total([5, 5, 0, 100, 25, [0, 500]])
-    schedule_total([0, 10, 0, 100, 25, [0, 5]])
-    schedule_total([0, 10, 0, 100, 25, [0, 100]])
-    schedule_total([0, 10, 0, 100, 25, [0, 500]])
-
-    schedule_total([10, 0, 0, 20, 50, [0, 5]])
-    schedule_total([10, 0, 0, 20, 50, [0, 100]])
-    schedule_total([10, 0, 0, 20, 50, [0, 500]])
-    schedule_total([5, 5, 0, 20, 5, [0, 5]])
-    schedule_total([5, 5, 0, 20, 5, [0, 100]])
-    schedule_total([5, 5, 0, 20, 5, [0, 500]])
-    schedule_total([0, 10, 0, 200, 50, [0, 5]])
-    schedule_total([0, 10, 0, 200, 50, [0, 100]])
-    schedule_total([0, 10, 0, 200, 50, [0, 500]])
 

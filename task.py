@@ -445,7 +445,13 @@ def split_task(task, available_size):
         sub_task = Task(f"{task.name}_sub", sub_size, sub_duration, is_sub=True, is_main=False)
         if task.data:
             # if task.data.num_nodes < 20000:
-            data_chunks = partition_K(task.data, K=2,target_ratios=[ceil(sub_size), ceil(task.remaining_size - sub_size)])  # partition_K分割比例数必须是整数
+            try:
+                data_chunks = partition_K(task.data, K=2,target_ratios=[ceil(sub_size), ceil(task.remaining_size - sub_size)])  # partition_K分割比例数必须是整数
+            except ValueError as e:
+                data_chunks = partition_K_plus(task.data, K=2, target_ratios=[ceil(sub_size), ceil(task.remaining_size - sub_size)])  # partition_K分割比例数必须是整数(for big data)
+                #     except ValueError as e:
+                #         print(e)
+                #         continue
             # else:
             #     data_chunks = partition_K_plus(task.data, K=2, target_ratios=[ceil(sub_size), ceil(task.remaining_size - sub_size)])  # partition_K分割比例数必须是整数(for big data)
             #     print('HHHHHHHHHHHHHHHHHHHHHHHHHH')

@@ -243,7 +243,7 @@ def viz_evaluate_results(evaluate_results, schedule_method_names, folder_name='e
         f4.write(f'folder_name: {folder_name}\n')
         f4.write(f'{evaluate_results}\n')
     with open(f'../evaluation_summary.txt', 'a') as f5:
-        f5.write(f'folder_name: {folder_name} - ')
+        f5.write(f'folder_name: {folder_name} - {schedule_method_names} \nevaluate_results = ')
         f5.write(f'{evaluate_results}\n')
 
     task_completion_rate=[]
@@ -365,6 +365,15 @@ if __name__ == '__main__':
     [4/4,44.085806131362915, 51.32745671272278, 76.37089007059139, 0.2157220137031098, 0.07890909554060656,1.11],
     [4/4,19.816199779510498, 43.09385061264038, 78.14480226828576, 0.0, 0.11781082925362032,1.24],
     [4/4,4.208074569702148, 63.507309436798096, 96.45207773662551, 0.15893161381167226, 0.13718695975459705,1.66]]
+
+    evaluate_results = [
+        [1.0, 40.57705473899841, 172.72677325480217, 97.93932146425202, 1.5683749678861767, 0.01617664897815572,
+         6.876057235948378],
+        [1.0, 54.698832273483276, 103.49723148345947, 90.61458657960723, 0.0, 0.019324188399374068, 3.463681493449331],
+        [1.0, 93.93646430969238, 215.6017050743103, 73.01415583108891, 0.25949300796269514, 0.009276364485664297,
+         3.0635171066532108],
+        [1.0, 54.185701847076416, 105.35961747169495, 89.65536247011451, 0.0, 0.01898260498655762, 3.402455835688723]]
+
     schedule_method_names = ['Baseline', 'CoGNN','CoGNN Plus','Lyra', 'Lyra Plus',  'HongTu', 'ESGNN']
     # viz_evaluate_results(evaluate_results1, schedule_method_names)
     viz_evaluate_results(evaluate_results, schedule_method_names)

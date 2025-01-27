@@ -68,6 +68,7 @@ def evaluation_tasks_scheduler(tasks, available_gpu_size,borrow_schedule=[],is_s
     current_times = []
     for task in tasks:
         print(task)
+        current_times.append(task.arrival_time)
         current_times.append(task.start_time)
         current_times.append(task.end_time)
         for subtask in task.subtasks:
@@ -87,78 +88,91 @@ def evaluation_tasks_scheduler(tasks, available_gpu_size,borrow_schedule=[],is_s
             task_throughput += 1
         if task.status !='waiting':
             executed_tasks_num += 1
+        print(f'task_throughput/arrived_tasks_num = {task_throughput}/{arrived_tasks_num}')
+
+    if task_throughput > 0:
+
+        for task in tasks:
+            # 计算任务的等待时间和完成时间
+            # Calculate waiting time for the main task, including any interruptions
+            task_waiting_time = task.get_waiting_time(current_time)
+            total_waiting_time += task_waiting_time
+
+            # Count the number of interruptions
+            total_interruptions += task.interruptions
+            total_interruption_time += task.interruption_time
+
+            # Sum completion time from start to end of the task (includes all subtasks)
+            task_completion_time = task.get_completion_time()
+            if task_completion_time != None :
+                total_completion_time += task_completion_time
+                total_execute_duration += task_completion_time
+            else:
+                if task.start_time != None:
+                    total_execute_duration += (current_time - task.start_time)
+
+            # GPU utilization is based on the task's size (including all subtasks' sizes)
+            if not task.subtasks and task.start_time != None:
+                end_time = task.end_time
+                if end_time == None:
+                    end_time = current_time
+                total_gpu_utilization += task.size * (end_time - task.start_time)
+                # print(f'{task.size} * ({end_time} - {task.start_time}) = {task.size * (end_time - task.start_time)}')
+                total_gpu_time_ranges.append([task.start_time, end_time,task.size,task.status,task.name])
+                # Throughput is the total communication handled by the GPU
+                total_gpu_communicated += task.size
+
+            # For subtasks, add their contribution to the task's completion and waiting times
+            for subtask in task.subtasks:
+                if subtask.start_time!=None:
+                    subtask_end_time = subtask.end_time
+                    if subtask_end_time == None:
+                        subtask_end_time = current_time
+                    subtask_completion_time = subtask_end_time - subtask.start_time
+                    total_gpu_utilization += subtask.size * subtask_completion_time
+                    total_gpu_communicated += subtask.size
+                    # total_execute_duration += subtask_completion_time
+                    total_gpu_time_ranges.append([subtask.start_time, subtask_end_time,subtask.size,subtask.status,subtask.name])
 
 
+        # Calculate overall metrics
+        average_completion_time = total_completion_time / task_throughput if task_throughput > 0 else 0
+        if total_completion_time == 0:
+            total_completion_time = -1
+            average_completion_time = -1
+        average_execute_duration = total_execute_duration / executed_tasks_num if executed_tasks_num > 0 else 0
 
-        # 计算任务的等待时间和完成时间
-        # Calculate waiting time for the main task, including any interruptions
-        task_waiting_time = task.get_waiting_time(current_time)
-        total_waiting_time += task_waiting_time
+        total_net_gpu_time = get_net_gpu_time(total_gpu_time_ranges)
+        # total_time = max([task.end_time for task in tasks]) - min([task.arrival_time for task in tasks])
+        # work_time_range=[min([task.start_time for task in tasks]),max([task.end_time for task in tasks])]
+        work_time_range = [min([gpu_time_range[0] for gpu_time_range in total_gpu_time_ranges]), max([gpu_time_range[1] for gpu_time_range in total_gpu_time_ranges])]
 
-        # Count the number of interruptions
-        total_interruptions += task.interruptions
-        total_interruption_time += task.interruption_time
-
-        # Sum completion time from start to end of the task (includes all subtasks)
-        task_completion_time = task.get_completion_time()
-        if task_completion_time != None :
-            total_completion_time += task_completion_time
-            total_execute_duration += task_completion_time
-        else:
-            if task.start_time != None:
-                total_execute_duration += (current_time - task.start_time)
-
-        # GPU utilization is based on the task's size (including all subtasks' sizes)
-        if not task.subtasks and task.start_time != None:
-            end_time = task.end_time
-            if end_time == None:
-                end_time = current_time
-            total_gpu_utilization += task.size * (end_time - task.start_time)
-            # print(f'{task.size} * ({end_time} - {task.start_time}) = {task.size * (end_time - task.start_time)}')
-            total_gpu_time_ranges.append([task.start_time, end_time,task.size,task.status,task.name])
-            # Throughput is the total communication handled by the GPU
-            total_gpu_communicated += task.size
-
-        # For subtasks, add their contribution to the task's completion and waiting times
-        for subtask in task.subtasks:
-            if subtask.start_time!=None:
-                subtask_end_time = subtask.end_time
-                if subtask_end_time == None:
-                    subtask_end_time = current_time
-                subtask_completion_time = subtask_end_time - subtask.start_time
-                total_gpu_utilization += subtask.size * subtask_completion_time
-                total_gpu_communicated += subtask.size
-                # total_execute_duration += subtask_completion_time
-                total_gpu_time_ranges.append([subtask.start_time, subtask_end_time,subtask.size,subtask.status,subtask.name])
+        total_available_size_capacity = total_available_gpu_capacity(work_time_range,available_gpu_size,borrow_schedule)
+        print(f'{work_time_range},{available_gpu_size},{borrow_schedule} -- {total_available_size_capacity}')
+        gpu_utilization_rate = (total_gpu_utilization / total_available_size_capacity) * 100  # Utilization as a percentage
+        average_waiting_time = total_waiting_time / arrived_tasks_num if arrived_tasks_num > 0 else 0
 
 
-    # Calculate overall metrics
-    average_completion_time = total_completion_time / task_throughput if task_throughput > 0 else 0
-    if total_completion_time == 0:
-        total_completion_time = -1
-        average_completion_time = -1
-    average_execute_duration = total_execute_duration / executed_tasks_num if executed_tasks_num > 0 else 0
+        # 吞吐量
+        total_work_time = work_time_range[1]-work_time_range[0]
+        throughput = task_throughput / total_work_time  # Tasks per second
+        throughput2 = total_gpu_communicated / total_work_time  # Size per second
 
-    total_net_gpu_time = get_net_gpu_time(total_gpu_time_ranges)
-    # total_time = max([task.end_time for task in tasks]) - min([task.arrival_time for task in tasks])
-    # work_time_range=[min([task.start_time for task in tasks]),max([task.end_time for task in tasks])]
-    work_time_range = [min([gpu_time_range[0] for gpu_time_range in total_gpu_time_ranges]), max([gpu_time_range[1] for gpu_time_range in total_gpu_time_ranges])]
-
-    total_available_size_capacity = total_available_gpu_capacity(work_time_range,available_gpu_size,borrow_schedule)
-    print(f'{work_time_range},{available_gpu_size},{borrow_schedule} -- {total_available_size_capacity}')
-    gpu_utilization_rate = (total_gpu_utilization / total_available_size_capacity) * 100  # Utilization as a percentage
-    average_waiting_time = total_waiting_time / arrived_tasks_num if arrived_tasks_num > 0 else 0
+        # 计算中断时间和完成时间的数学期望
+        interrupt_expected_value = total_interruption_time / total_execute_duration if total_execute_duration > 0 else 0
 
 
-    # 吞吐量
-    total_work_time = work_time_range[1]-work_time_range[0]
-    throughput = task_throughput / total_work_time  # Tasks per second
-    throughput2 = total_gpu_communicated / total_work_time  # Size per second
-
-    # 计算中断时间和完成时间的数学期望
-    interrupt_expected_value = total_interruption_time / total_execute_duration if total_execute_duration > 0 else 0
-
-
+    else:
+        print('Finish NONE of Task!!!')
+        total_work_time = 0
+        average_waiting_time = 0
+        average_execute_duration = 0
+        average_completion_time = 0
+        total_available_size_capacity = 0
+        gpu_utilization_rate = 0
+        interrupt_expected_value = 0
+        throughput2 = 0
+        throughput = 0
 
     # Print the calculated metrics
     print(f'///////////////////{schedule_method_name}///////////////////')

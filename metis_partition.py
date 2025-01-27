@@ -123,9 +123,10 @@ def metis_partition(G, num_partitions, target_ratios=None):
         target_integer_ratios = calculate_min_integer_ratios(target_ratios)
         # print(target_integer_ratios)
         num_initial_partitions = len(target_integer_ratios)
-        print(num_initial_partitions)
+        print(f'num_initial_partitions: {num_initial_partitions}')
         initial_parts = initial_metis_partition(G, num_initial_partitions)
         if initial_parts is None:
+            print(f'Metis Error: initial_parts is None')
             return None  # 处理失败情况
         # 合并分区以符合目标比例
         parts = combine_partitions(initial_parts, target_integer_ratios, num_partitions)

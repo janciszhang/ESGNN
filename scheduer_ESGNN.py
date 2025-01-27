@@ -87,13 +87,17 @@ def schedule_tasks_ESGNN(tasks, available_size, borrow_schedule=[],is_save=False
                 break # calculate_run_priority already consider arrival_time
             else:
                 if task.remaining_size > available_size:
-                    sub_tasks = split_task(task, available_size)
-                    running_tasks.append(sub_tasks[0])
-                    heapq.heappush(task_queue, task)
-                    available_size -=sub_tasks[0].remaining_size
-                    sub_tasks[0].start_doing(current_time)
-                    print(sub_tasks[0])
-                    print(f'After {sub_tasks[0].name} schedule to running_tasks, available_size: {available_size}')
+                    try:
+                        sub_tasks = split_task(task, available_size)
+                        running_tasks.append(sub_tasks[0])
+                        heapq.heappush(task_queue, task)
+                        available_size -=sub_tasks[0].remaining_size
+                        sub_tasks[0].start_doing(current_time)
+                        print(sub_tasks[0])
+                        print(f'After {sub_tasks[0].name} schedule to running_tasks, available_size: {available_size}')
+                    except Exception as e:
+                        print(e)
+                        pass
                 else:
                     running_tasks.append(task)
                     available_size -= task.remaining_size
